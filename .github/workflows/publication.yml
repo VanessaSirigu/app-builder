@@ -22,7 +22,7 @@ env:
   DOCKER_IMAGE_PUSH: true
   
   PUBLIC_URL: "/app-builder"
-  DOMAIN: "/entando-de-app"
+  DOMAIN: "/"
   USE_MOCKS: "false"
   CI: "false"
   COMPONENT_REPOSITORY_UI_ENABLED: "false"
