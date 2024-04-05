@@ -27,7 +27,6 @@ env:
   CI: "false"
   COMPONENT_REPOSITORY_UI_ENABLED: "false"
   KEYCLOAK_ENABLED: "true"
-  USE_MOCKS: "false"
   USE_MFE: "false"
   USE_REMOTE_MFE: "false"
   USE_LOCAL_MFE: "false"
