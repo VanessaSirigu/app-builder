@@ -1,9 +1,13 @@
 name: PUB
 
 on:
-  push:
-    tags:
-      - 'v*'
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    branches:
+      - single-container
 
 env:
   PPL_TEMPLATE_VERSION: "v2.0.0"
@@ -21,7 +25,7 @@ env:
   DOMAIN: "/entando-de-app"
   USE_MOCKS: "false"
   CI: "false"
-  COMPONENT_REPOSITORY_UI_ENABLED: "true"
+  COMPONENT_REPOSITORY_UI_ENABLED: "false"
   KEYCLOAK_ENABLED: "true"
 
 jobs:
