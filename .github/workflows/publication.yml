@@ -7,7 +7,7 @@ on:
       - synchronize
       - reopened
     branches:
-      - single-container
+      - release/7.3
 
 env:
   PPL_TEMPLATE_VERSION: "v2.0.0"
