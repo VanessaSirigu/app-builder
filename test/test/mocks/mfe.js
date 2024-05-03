@@ -184,7 +184,7 @@ export const LIST_MFE_MENU = [
     bundleGroup: 'layout-core-bundle',
     widgetName: 'app-builder-menu',
     widgetCode: '6e3e752a-f796-11ec-b939-0242ac120002',
-    assets: ['http://localhost:4173/app-builder-menu.umd.js'],
+    assets: [],
     customElement: 'app-builder-menu',
     descriptorExt: {
       slot: 'primary-menu',
