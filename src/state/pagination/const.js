@@ -8,3 +8,4 @@ export const NAMESPACE_PERMISSIONS = 'permissions';
 export const NAMESPACE_VERSIONING = 'versioning';
 export const NAMESPACE_VERSION_HISTORY = 'versionHistory';
 export const NAMESPACE_USERS = 'users';
+export const NAMESPACE_WIDGETS = 'widgets';

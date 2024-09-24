@@ -19,6 +19,8 @@ import {
 } from 'state/widgets/types';
 import { history, ROUTE_WIDGET_EDIT, ROUTE_WIDGET_LIST } from 'app-init/router';
 import { CONTINUE_SAVE_TYPE } from 'state/widgets/const';
+import { setPage } from 'state/pagination/actions';
+import { NAMESPACE_WIDGETS } from 'state/pagination/const';
 
 export const FREE_ACCESS_GROUP_VALUE = 'free';
 
@@ -187,6 +189,7 @@ export const fetchWidgetList = (page = { page: 1, pageSize: 0 }, params = '') =>
       if (response.ok) {
         // FIXME temporary FE-side filtering to hide user-related widgets
         const widgetList = get(json, 'payload', []).filter(widget => !widgetsToHide.includes(widget.code));
+        dispatch(setPage(json.metaData, NAMESPACE_WIDGETS));
         dispatch(setWidgetList(widgetList));
       } else {
         dispatch(addErrors(json.errors.map(err => err.message)));

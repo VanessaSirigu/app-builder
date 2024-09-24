@@ -13,19 +13,28 @@ import { routeConverter } from '@entando/utils/dist/routeConverter';
 import { ROUTE_WIDGET_EDIT, ROUTE_WIDGET_NEW_USERWIDGET } from 'app-init/router';
 import withPermissions from 'ui/auth/withPermissions';
 import { SUPERUSER_PERMISSION } from 'state/permissions/const';
+import { getCurrentPage, getLastPage, getPageSize, getTotalItems } from 'state/pagination/selectors';
+import { NAMESPACE_WIDGETS } from 'state/pagination/const';
 
 
-export const mapStateToProps = state => ({
-  loading: getLoading(state).widgets,
-  groupedWidgets: getGroupedWidgets(state),
-  widgetGroupingList: getWidgetGroupingList(state),
-  locale: getLocale(state),
-  columnOrder: getColumnOrder(state, 'widgetList'),
-});
+export const mapStateToProps = (state) => {
+  console.log('state', state);
+  return {
+    loading: getLoading(state).widgets,
+    groupedWidgets: getGroupedWidgets(state),
+    widgetGroupingList: getWidgetGroupingList(state),
+    locale: getLocale(state),
+    columnOrder: getColumnOrder(state, 'widgetList'),
+    totalItems: getTotalItems(state, NAMESPACE_WIDGETS),
+    page: getCurrentPage(state, NAMESPACE_WIDGETS),
+    pageSize: getPageSize(state, NAMESPACE_WIDGETS),
+    lastPage: getLastPage(state, NAMESPACE_WIDGETS),
+  };
+};
 
 export const mapDispatchToProps = (dispatch, { history }) => ({
-  onWillMount: () => {
-    dispatch(fetchWidgetList());
+  onWillMount: (page = { page: 1, pageSize: 0 }) => {
+    dispatch(fetchWidgetList(page));
   },
   onSetColumnOrder: columnOrder => dispatch(setColumnOrder(columnOrder, 'widgetList')),
   onDelete: (widgetCode) => {
