@@ -17,6 +17,7 @@ import {
 import ViewPermissionNoticeOverlay from 'ui/dashboard/ViewPermissionNoticeOverlay';
 
 import paginatorMessages from 'ui/common/paginatorMessages';
+import Icon from 'ui/common/Icon';
 
 class ContentListCard extends Component {
   constructor(props) {
@@ -122,7 +123,7 @@ class ContentListCard extends Component {
       userPermissions,
     ) && (
       <DropdownButton
-        bsStyle="primary"
+        bsStyle="link"
         className="pull-right"
         title={intl.formatMessage({ id: 'cms.contents.add.title' })}
         id="addContent"
@@ -152,8 +153,9 @@ class ContentListCard extends Component {
     return (
       <div className="ContentListCard">
         <ViewPermissionNoticeOverlay viewPermissions={[ADMINISTRATION_AREA_PERMISSION]}>
-          <h2>
-            <FormattedMessage id="dashboard.content.title" defaultMessage="Content" />
+          <h2 className="card-pf-title">
+            <Icon name="plus" background />
+            <b><FormattedMessage id="dashboard.content.title" defaultMessage="Content" /></b>
             {renderAddContentButton}
           </h2>
           <div className="ContentListCardTable__wrapper">

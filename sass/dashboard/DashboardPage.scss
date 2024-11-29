@@ -1,4 +1,15 @@
+// sass-lint:disable class-name-format nesting-depth
+
 .DashboardPage {
+
+  .card-pf-title {
+    font-size: 18px;
+
+    .fa {
+      color: $color-brand-primary;
+    }
+  }
+
   .container-fluid { // sass-lint:disable-line class-name-format
     @media (max-width: 426px) {
       padding-right: 8px;

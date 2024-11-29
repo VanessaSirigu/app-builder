@@ -14,6 +14,7 @@ import paginatorMessages from 'ui/paginatorMessages';
 import { MANAGE_PAGES_PERMISSION } from 'state/permissions/const';
 
 import ViewPermissionNoticeOverlay from 'ui/dashboard/ViewPermissionNoticeOverlay';
+import Icon from 'ui/common/Icon';
 
 class PagesList extends Component {
   constructor(props) {
@@ -138,14 +139,16 @@ class PagesList extends Component {
     return (
       <div className="PagesList">
         <ViewPermissionNoticeOverlay viewPermissions={MANAGE_PAGES_PERMISSION}>
-          <h2>
-            <FormattedMessage id="app.pages" />
+          <h2 className="card-pf-title">
+            <Icon name="plus" background />
+            <b><FormattedMessage id="app.pages" /></b>
             <Button
-              bsStyle="primary"
+              bsStyle="link"
               className="pull-right"
               componentClass={Link}
               to={ROUTE_PAGE_ADD}
             >
+              <Icon name="plus" />
               <FormattedMessage id="app.add" defaultMessage="Add" />
             </Button>
           </h2>
