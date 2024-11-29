@@ -1,24 +1,41 @@
 // sass-lint:disable class-name-format nesting-depth
 .DashboardPage {
+
+  .card-pf-title {
+    font-size: 18px;
+
+    .fa {
+      color: $color-brand-primary;
+    }
+  }
+
+  .card-pf-body {
+    a {
+      color: $color-text-tertiary;
+    }
+  }
+
   .card-pf {
+    border: 1px solid $color-neutral-grey;
+    border-radius: $spacing-4;
+    box-shadow: none;
+
     .fa {
       margin-right: 5px;
-      color: $color-icon-gray;
 
       &:not(:first-child) {
         margin-left: 15px;
       }
     }
 
-    .btn {
-      &.pull-right {
-        margin-top: -5px;
-      }
-    }
 
     .separator {
       margin-right: 5px;
       margin-left: 15px;
     }
+  }
+
+  .card-pf-aggregate-status-count {
+    font-size: 14px;
   }
 }

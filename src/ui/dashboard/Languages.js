@@ -5,9 +5,9 @@ import {
   CardTitle,
   CardBody,
   AggregateStatusCount,
-  Icon,
   Button,
 } from 'patternfly-react';
+import Icon from 'ui/common/Icon';
 import { FormattedMessage } from 'react-intl';
 import { Clearfix } from 'react-bootstrap';
 
@@ -31,22 +31,22 @@ class Languages extends Component {
       <Card accented className="LanguagesCard">
         <ViewPermissionNoticeOverlay viewPermissions={[SUPERUSER_PERMISSION]}>
           <CardTitle>
-            <Icon size="lg" name="flag" />
-            <FormattedMessage id="dashboard.languages" />
+            <Icon size="lg" name="flag" background />
+            <b><FormattedMessage id="dashboard.languages" /></b>
             <Button
-              bsStyle="primary"
+              bsStyle="link"
               className="pull-right"
               componentClass={Link}
               to={ROUTE_LABELS_AND_LANGUAGES}
             >
+              <Icon name="plus" />
               <FormattedMessage id="app.details" />
             </Button>
             <Clearfix />
           </CardTitle>
           <CardBody>
-            <span className="separator" />
             <AggregateStatusCount>
-              <b>{this.props.activeLanguages}</b>&nbsp;
+              {this.props.activeLanguages}&nbsp;
               <Link to={ROUTE_LABELS_AND_LANGUAGES}>
                 <FormattedMessage id="dashboard.activeLanguages" />
               </Link>

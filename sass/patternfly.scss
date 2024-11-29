@@ -135,8 +135,17 @@ $fa-square-o: "\f096";
   background-color: $color-primary-dark !important; // sass-lint:disable-line no-important
 }
 
+.btn-link {
+  color: $color-brand-primary;
+  font-size: 16px;
+
+  .fa {
+    color: $color-brand-primary;
+  }
+}
+
 .CodeMirror {
-  border: 1px solid $color-pf-black-400;
+  border: 1px $color-pf-black-400 solid;
 }
 
 .has-error {
