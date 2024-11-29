@@ -12,17 +12,10 @@
     border-radius: $spacing-4;
 
     .fa {
-      margin-right: 5px;
 
       &:not(:first-child) {
         margin-left: 15px;
       }
-    }
-
-
-    .separator {
-      margin-right: 5px;
-      margin-left: 15px;
     }
   }
 
