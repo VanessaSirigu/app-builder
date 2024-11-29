@@ -1,9 +1,12 @@
+// sass-lint:disable no-extends
+
 .PageStatus {
+  @extend .div__border--solid-grey;
   position: relative;
   height: 275px;
   margin: 0 -10px 20px;
   padding: 0 20px 0;
-  border: $color-pf-black-300 solid 1px;
+  border-radius: $spacing-4;
 
   h2 {
     margin-bottom: 0;

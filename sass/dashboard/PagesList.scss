@@ -1,11 +1,10 @@
-// sass-lint:disable class-name-format nesting-depth
+// sass-lint:disable class-name-format nesting-depth no-extend
 .PagesList {
   position: relative;
   height: auto;
   margin: 0 -10px;
   margin-bottom: 20px;
   padding: 0 20px 20px 20px;
-  border: $color-pf-black-300 solid 1px;
 
   @media (max-width: 1499px) {
     height: auto;

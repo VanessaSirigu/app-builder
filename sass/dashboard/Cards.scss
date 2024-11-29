@@ -1,4 +1,4 @@
-// sass-lint:disable class-name-format nesting-depth
+// sass-lint:disable class-name-format nesting-depth no-extends
 .DashboardPage {
 
   .card-pf-body {
@@ -8,9 +8,8 @@
   }
 
   .card-pf {
-    border: 1px solid $color-neutral-grey;
+    @extend .div__border--solid-grey;
     border-radius: $spacing-4;
-    box-shadow: none;
 
     .fa {
       margin-right: 5px;

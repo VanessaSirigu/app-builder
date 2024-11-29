@@ -49,13 +49,13 @@ $color-draft: #F0AB00;
 $color-mid-blue: #0088CE;
 $color-mid-green: #3BB800;
 $color-mid-orange: #FCA907;
-$color-mid-blue-semi: rgba(0,136,206,.6);
+$color-mid-blue-semi: rgba(0, 136, 206, .6);
 $color-row-selected: #def3ff;
 $color-tour-primary: #00A0DF;
 $color-border-gray: #BBBBBB;
 $color-sidebar-dark-bg: #393F44;
 $color-dragitem-bg: #292e34;
-$color-transparent-black: rgba(0,0,0,.1);
+$color-transparent-black: rgba(0, 0, 0, .1);
 $color-grey-background: #f5f5f5;
 $color-grey-border: #dadada;
 $color-light-grey-border: #E3E3E3;
@@ -149,6 +149,7 @@ $fa-square-o: "\f096";
 }
 
 .has-error {
+
   .CodeMirror,
   &.CodeMirror {
     border: 1px solid $color-pf-red;
@@ -161,7 +162,7 @@ $fa-square-o: "\f096";
   margin-left: 0;
 }
 
-.no-gutter > [class*="col-"] {
+.no-gutter>[class*="col-"] {
   padding-right: 0;
   padding-left: 0;
 }
@@ -199,5 +200,11 @@ $fa-square-o: "\f096";
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
+.div__border--solid-grey {
+  border: 1px solid $color-neutral-grey;
+  box-shadow: 0 1px 2px rgba(28, 39, 49, 0.08); // sass-lint:disable-line leading-zero
+}
+
 
 // sass-lint:enable class-name-format

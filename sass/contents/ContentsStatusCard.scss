@@ -1,9 +1,12 @@
+// sass-lint:disable no-extends
+
 .ContentsStatusCard {
+  @extend .div__border--solid-grey;
   position: relative;
   height: 275px;
   margin: 0 -10px 20px;
   padding: 0 20px 5px;
-  border: #d1d1d1 solid 1px;
+  border-radius: $spacing-4;
 
   &__title {
     margin-bottom: 0;
