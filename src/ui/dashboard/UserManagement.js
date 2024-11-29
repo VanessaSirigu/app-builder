@@ -49,7 +49,7 @@ class UserManagement extends Component {
         <ViewPermissionNoticeOverlay viewPermissions={viewPermissions}>
           <CardTitle>
             <Icon size="lg" name="user" background />
-            <b><FormattedMessage id="menu.userManagement" /></b>
+            <FormattedMessage id="menu.userManagement" />
             <PermissionCheck
               userPermissions={userPermissions}
               requiredPermissions={CRUD_USERS_PERMISSION}

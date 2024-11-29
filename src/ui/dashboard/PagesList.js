@@ -141,7 +141,7 @@ class PagesList extends Component {
         <ViewPermissionNoticeOverlay viewPermissions={MANAGE_PAGES_PERMISSION}>
           <h2 className="card-pf-title">
             <Icon name="plus" background />
-            <b><FormattedMessage id="app.pages" /></b>
+            <FormattedMessage id="app.pages" />
             <Button
               bsStyle="link"
               className="pull-right"

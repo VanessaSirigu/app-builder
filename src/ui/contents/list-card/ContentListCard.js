@@ -155,7 +155,7 @@ class ContentListCard extends Component {
         <ViewPermissionNoticeOverlay viewPermissions={[ADMINISTRATION_AREA_PERMISSION]}>
           <h2 className="card-pf-title">
             <Icon name="plus" background />
-            <b><FormattedMessage id="dashboard.content.title" defaultMessage="Content" /></b>
+            <FormattedMessage id="dashboard.content.title" defaultMessage="Content" />
             {renderAddContentButton}
           </h2>
           <div className="ContentListCardTable__wrapper">

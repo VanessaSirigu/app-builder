@@ -32,7 +32,7 @@ class Languages extends Component {
         <ViewPermissionNoticeOverlay viewPermissions={[SUPERUSER_PERMISSION]}>
           <CardTitle>
             <Icon size="lg" name="flag" background />
-            <b><FormattedMessage id="dashboard.languages" /></b>
+            <FormattedMessage id="dashboard.languages" />
             <Button
               bsStyle="link"
               className="pull-right"

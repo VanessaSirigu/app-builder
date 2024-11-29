@@ -35,7 +35,7 @@ class UxPatterns extends Component {
         <ViewPermissionNoticeOverlay viewPermissions={[SUPERUSER_PERMISSION]}>
           <CardTitle>
             <Icon size="lg" name="object-ungroup" background />
-            <b><FormattedMessage id="menu.uxComponents" /></b>
+            <FormattedMessage id="menu.uxComponents" />
             {isSuperuser && (
               <Button
                 bsStyle="link"
