@@ -37,18 +37,19 @@ export const DashboardPageBody = () => (
         </Col>
       </Row>
       <Row>
-        <Col md={12}>
+        <Col md={6}>
           <PagesListContainer />
         </Col>
-      </Row>
-      <Row>
-        <Col md={12}>
+        <Col md={6}>
           {ContentsListCardContainer ? <ContentsListCardContainer /> : null}
         </Col>
       </Row>
+
       <AppTourContainer />
     </CardGrid>
   </InternalPage>
 );
 
-export default withPermissions(ADMINISTRATION_AREA_PERMISSION)(DashboardPageBody);
+export default withPermissions(ADMINISTRATION_AREA_PERMISSION)(
+  DashboardPageBody,
+);

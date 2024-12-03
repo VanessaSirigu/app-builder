@@ -5,6 +5,7 @@
   margin: 0 -10px;
   margin-bottom: 20px;
   padding: 0 20px 20px 20px;
+  border: $color-border-grey solid 1px;
 
   @media (max-width: 1499px) {
     height: auto;
@@ -15,10 +16,8 @@
   }
 
   .PagesList__wrapper {
-    @media (max-width: 769px) {
-      width: 100%;
-      overflow-x: auto;
-    }
+    width: 100%;
+    overflow-x: auto;
   }
 
   h2 {
@@ -38,5 +37,38 @@
 
   &__bottom-link {
     padding: 5px;
+  }
+
+  .table-bordered {
+    border: $color-border-grey solid 1px;
+  }
+
+  .table-header {
+    background-color: #fff;
+
+    td {
+      border-left: 0;
+      border-right: 0;
+    }
+
+    th {
+      padding: 16px;
+      border-left: 0;
+      border-right: 0;
+      border-color: $color-border-grey;
+    }
+  }
+
+  .table-row {
+    td {
+      border-left: 0;
+      border-right: 0;
+      border-color: $color-border-grey;
+    }
+  }
+
+  .table-cell {
+    font-size: 14px;
+    padding: 16px;
   }
 }
