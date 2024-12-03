@@ -35,6 +35,11 @@
     }
   }
 
+  .ContentListCardTable__wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+
   .table-bordered {
     border: $color-border-grey solid 1px;
   }
@@ -47,6 +52,10 @@
       border-right: 0;
     }
 
+    .columnResizer {
+      border-bottom: 1px solid $color-border-grey;
+    }
+
     th {
       padding: 16px;
       border-left: 0;
@@ -57,9 +66,16 @@
 
   .table-row {
     td {
+      border: 1px solid $color-border-grey;
       border-left: 0;
       border-right: 0;
-      border-color: $color-border-grey;
+      
+    }
+
+    .colForResize {
+      border-left: 1px solid transparent;
+      border-right: 1px solid transparent;
+      border-bottom: 1px solid $color-border-grey;
     }
   }
 
@@ -67,9 +83,4 @@
     font-size: 14px;
     padding: 16px;
   }
-}
-
-.ContentListCardTable__wrapper {
-  width: 100%;
-  overflow-x: auto;
 }
