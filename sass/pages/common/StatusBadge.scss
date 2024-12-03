@@ -1,0 +1,27 @@
+.StatusBadge--unpublished {
+  color: $color-unpublished;
+}
+
+.StatusBadge--published {
+  color: $color-published;
+}
+
+.StatusBadge--draft {
+  color: $color-draft;
+}
+
+.StatusBadge {
+  align-items: center;
+  gap: $spacing-4;
+  padding: 4px 12px 4px 12px;
+  border-radius: 30px;
+  font-size: 12px;
+}
+
+.StatusBadge-container--published {
+  background-color: $color-green-light-new;
+}
+.StatusBadge-container--unpublished {
+}
+.StatusBadge-container--draft {
+}

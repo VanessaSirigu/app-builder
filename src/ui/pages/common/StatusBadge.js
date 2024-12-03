@@ -7,7 +7,7 @@ import {
   PAGE_STATUS_UNPUBLISHED,
 } from 'state/pages/const';
 
-const PageStatusIcon = ({ intl, status }) => {
+const StatusBadge = ({ intl, status }) => {
   const msgs = defineMessages({
     pageStatus: {
       id: `pages.status.${status}`,
@@ -15,14 +15,20 @@ const PageStatusIcon = ({ intl, status }) => {
     },
   });
   const iconTitle = intl.formatMessage(msgs.pageStatus, {});
-  const classNameAr = [
-    'fa fa-circle PageStatusIcon',
-    `PageStatusIcon--${status}`,
-  ];
-  return <i className={classNameAr.join(' ')} title={iconTitle} />;
+  const classNameAr = ['fa fa-circle StatusBadge', `StatusBadge--${status}`];
+
+  return (
+    <div
+      className={`StatusBadge StatusBadge-container--${status}`}
+      style={{ display: 'flex', flexDirection: 'row' }}
+    >
+      <i className={classNameAr.join(' ')} title={iconTitle} />
+      <span>{status}</span>
+    </div>
+  );
 };
 
-PageStatusIcon.propTypes = {
+StatusBadge.propTypes = {
   intl: intlShape.isRequired,
   status: PropTypes.oneOf([
     PAGE_STATUS_DRAFT,
@@ -31,4 +37,4 @@ PageStatusIcon.propTypes = {
   ]).isRequired,
 };
 
-export default injectIntl(PageStatusIcon);
+export default injectIntl(StatusBadge);
