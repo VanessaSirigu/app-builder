@@ -127,7 +127,7 @@ class PagesList extends Component {
             <FormattedMessage id="app.pages" />
             <Button
               bsStyle="link"
-              className="pull-right"
+              className="primary pull-right"
               componentClass={Link}
               to={ROUTE_PAGE_ADD}
             >

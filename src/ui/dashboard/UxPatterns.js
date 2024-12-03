@@ -39,7 +39,7 @@ class UxPatterns extends Component {
             {isSuperuser && (
               <Button
                 bsStyle="link"
-                className="pull-right"
+                className="primary pull-right"
                 componentClass={Link}
                 to={ROUTE_WIDGET_ADD}
               >

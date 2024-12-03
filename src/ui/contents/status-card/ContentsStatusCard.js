@@ -54,7 +54,9 @@ class ContentsStatusCard extends Component {
       contentsStatus,
       onClickContentList,
     } = this.props;
-    const { unpublished, ready, published, total, latestModificationDate } =
+    const {
+      unpublished, ready, published, total, latestModificationDate,
+    } =
       contentsStatus;
 
     const msgs = {
@@ -255,12 +257,10 @@ class ContentsStatusCard extends Component {
               userPermissions,
             ) && (
               <Link onClick={onClickContentList}>
-                <span style={{ fontSize: '14px', fontWeight: '600' }}>
-                  <FormattedMessage
-                    id="dashboard.contents.link"
-                    defaultMessage="Content List"
-                  />
-                </span>
+                <FormattedMessage
+                  id="dashboard.contents.link"
+                  defaultMessage="Content List"
+                />
               </Link>
             )}
           </div>

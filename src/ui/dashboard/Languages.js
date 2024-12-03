@@ -35,7 +35,7 @@ class Languages extends Component {
             <FormattedMessage id="dashboard.languages" />
             <Button
               bsStyle="link"
-              className="pull-right"
+              className="primary pull-right"
               componentClass={Link}
               to={ROUTE_LABELS_AND_LANGUAGES}
             >

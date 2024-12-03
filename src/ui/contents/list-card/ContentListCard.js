@@ -144,28 +144,28 @@ class ContentListCard extends Component {
       ],
       userPermissions,
     ) && (
-        <DropdownButton
-          bsStyle="link"
-          className="pull-right"
-          title={intl.formatMessage({ id: 'cms.contents.add.title' })}
-          id="addContent"
-        >
-          {contentTypes.map(contentType => (
-            <MenuItem
-              eventKey={contentType.code}
-              key={contentType.code}
-              onClick={() =>
+    <DropdownButton
+      bsStyle="link"
+      className="primary pull-right"
+      title={intl.formatMessage({ id: 'cms.contents.add.title' })}
+      id="addContent"
+    >
+      {contentTypes.map(contentType => (
+        <MenuItem
+          eventKey={contentType.code}
+          key={contentType.code}
+          onClick={() =>
                 onClickAddContent({
                   typeCode: contentType.code,
                   typeDescription: contentType.name,
                 })
               }
-            >
-              {contentType.name}
-            </MenuItem>
+        >
+          {contentType.name}
+        </MenuItem>
           ))}
-        </DropdownButton>
-      );
+    </DropdownButton>
+    );
 
     const messages = Object.keys(paginatorMessages).reduce(
       (acc, curr) => ({

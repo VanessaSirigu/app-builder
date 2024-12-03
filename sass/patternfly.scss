@@ -143,12 +143,17 @@ $fa-square-o: '\f096';
 }
 
 .btn-link {
-  color: $color-brand-primary;
   font-size: 16px;
 
-  .fa {
+  &.primary {
     color: $color-brand-primary;
   }
+
+  &.secondary {
+    color: $color-content-3;
+  }
+
+
 }
 
 .CodeMirror {

@@ -55,7 +55,7 @@ class UserManagement extends Component {
               requiredPermissions={CRUD_USERS_PERMISSION}
             >
               <Button
-                className="pull-right"
+                className="primary pull-right"
                 componentClass={Link}
                 to={ROUTE_USER_ADD}
                 bsStyle="link"

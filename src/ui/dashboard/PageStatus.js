@@ -42,7 +42,9 @@ class PageStatus extends Component {
       language,
       userPermissions,
       intl,
-      pageStatus: { draft, unpublished, published, lastUpdate },
+      pageStatus: {
+        draft, unpublished, published, lastUpdate,
+      },
     } = this.props;
 
     const msgs = Object.keys(pageStatusMsgs).reduce(
@@ -76,15 +78,13 @@ class PageStatus extends Component {
               [SUPERUSER_PERMISSION, MANAGE_PAGES_PERMISSION],
               userPermissions,
             ) && (
-              <Link to={ROUTE_PAGE_TREE}>
-                <span style={{ fontSize: '14px', fontWeight: '600' }}>
-                  <FormattedMessage
-                    id="dashboard.pageList"
-                    defaultMessage="Page List"
-                  />
-                </span>
-              </Link>
-            )}
+            <Link to={ROUTE_PAGE_TREE}>
+              <FormattedMessage
+                id="dashboard.pageList"
+                defaultMessage="Page List"
+              />
+            </Link>
+              )}
           </div>
           <StackedBarChart
             key={language}
@@ -97,9 +97,9 @@ class PageStatus extends Component {
               ],
               type: 'bar',
               order: (a, b) =>
-                a.id === msgs.published || b.id === msgs.published
-                  ? a - b
-                  : b - a,
+              (a.id === msgs.published || b.id === msgs.published
+                ? a - b
+                : b - a),
               groups: [[msgs.published, msgs.draft, msgs.unpublished]],
               colors: {
                 [msgs.published]: '#39AC73',
