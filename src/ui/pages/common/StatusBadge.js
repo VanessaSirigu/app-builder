@@ -15,7 +15,7 @@ const StatusBadge = ({ intl, status }) => {
     },
   });
   const iconTitle = intl.formatMessage(msgs.pageStatus, {});
-  const classNameAr = ['fa fa-circle StatusBadge', `StatusBadge--${status}`];
+  const classNameAr = ['StatusBadge-circle', `StatusBadge-circle--${status}`];
 
   return (
     <div

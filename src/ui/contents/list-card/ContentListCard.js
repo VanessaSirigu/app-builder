@@ -18,6 +18,7 @@ import ViewPermissionNoticeOverlay from 'ui/dashboard/ViewPermissionNoticeOverla
 
 import paginatorMessages from 'ui/common/paginatorMessages';
 import Icon from 'ui/common/Icon';
+import StatusBadge from 'ui/pages/common/StatusBadge';
 
 class ContentListCard extends Component {
   constructor(props) {
@@ -27,18 +28,9 @@ class ContentListCard extends Component {
   }
 
   componentDidMount() {
-    const {
-      onDidMount, columnOrder, onSetColumnOrder, userPermissions,
-    } =
-      this.props;
+    const { onDidMount, columnOrder, onSetColumnOrder, userPermissions } = this.props;
     if (!columnOrder.length) {
-      onSetColumnOrder([
-        'description',
-        'lastEditor',
-        'typeDescription',
-        'status',
-        'lastModified',
-      ]);
+      onSetColumnOrder(['description', 'typeDescription', 'status', 'lastModified']);
     }
     if (hasAccess(ADMINISTRATION_AREA_PERMISSION, userPermissions)) {
       onDidMount();
@@ -52,29 +44,24 @@ class ContentListCard extends Component {
       description: {
         Header: <FormattedMessage id="contentPicker.description" />,
         attributes: {
-          style: { width: '35%' },
+          style: { width: '25%' },
         },
         cellAttributes: {
           className: 'SingleContentCurrentVersion__description',
         },
       },
-      lastEditor: {
-        Header: <FormattedMessage id="cms.contents.versioning.author" />,
-        attributes: {
-          style: { width: '13%' },
-        },
-      },
+
       typeDescription: {
         Header: <FormattedMessage id="contentPicker.type" />,
         attributes: {
-          style: { width: '15%' },
+          style: { width: '25%' },
         },
       },
       status: {
         Header: <FormattedMessage id="contentPicker.status" />,
         attributes: {
           className: 'text-center',
-          style: { width: '12%' },
+          style: { width: '25%' },
         },
         Cell: (cellInfo) => {
           const {
@@ -105,7 +92,7 @@ class ContentListCard extends Component {
       },
     };
 
-    return columnOrder.map(column => ({
+    return columnOrder.map((column) => ({
       ...columnDefs[column],
       accessor: column,
     }));
@@ -137,34 +124,30 @@ class ContentListCard extends Component {
       perPageOptions: [5, 10, 15],
     };
     const renderAddContentButton = hasAccess(
-      [
-        SUPERUSER_PERMISSION,
-        CRUD_CONTENTS_PERMISSION,
-        VALIDATE_CONTENTS_PERMISSION,
-      ],
+      [SUPERUSER_PERMISSION, CRUD_CONTENTS_PERMISSION, VALIDATE_CONTENTS_PERMISSION],
       userPermissions,
     ) && (
-    <DropdownButton
-      bsStyle="link"
-      className="primary pull-right"
-      title={intl.formatMessage({ id: 'cms.contents.add.title' })}
-      id="addContent"
-    >
-      {contentTypes.map(contentType => (
-        <MenuItem
-          eventKey={contentType.code}
-          key={contentType.code}
-          onClick={() =>
-                onClickAddContent({
-                  typeCode: contentType.code,
-                  typeDescription: contentType.name,
-                })
-              }
-        >
-          {contentType.name}
-        </MenuItem>
-          ))}
-    </DropdownButton>
+      <DropdownButton
+        bsStyle="link"
+        className="primary pull-right"
+        title={intl.formatMessage({ id: 'cms.contents.add.title' })}
+        id="addContent"
+      >
+        {contentTypes.map((contentType) => (
+          <MenuItem
+            eventKey={contentType.code}
+            key={contentType.code}
+            onClick={() =>
+              onClickAddContent({
+                typeCode: contentType.code,
+                typeDescription: contentType.name,
+              })
+            }
+          >
+            {contentType.name}
+          </MenuItem>
+        ))}
+      </DropdownButton>
     );
 
     const messages = Object.keys(paginatorMessages).reduce(
@@ -238,14 +221,8 @@ ContentListCard.defaultProps = {
     page: 1,
     totalItems: 0,
   },
-  onSetColumnOrder: () => { },
-  columnOrder: [
-    'description',
-    'lastEditor',
-    'typeDescription',
-    'status',
-    'lastModified',
-  ],
+  onSetColumnOrder: () => {},
+  columnOrder: ['description', 'typeDescription', 'status', 'lastModified'],
 };
 
 export default injectIntl(ContentListCard);

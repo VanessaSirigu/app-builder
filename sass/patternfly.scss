@@ -55,7 +55,7 @@ $color-tour-primary: #00a0df;
 $color-border-gray: #bbbbbb;
 $color-sidebar-dark-bg: #393f44;
 $color-dragitem-bg: #292e34;
-$color-transparent-black: rgba(0, 0, 0, .1);
+$color-transparent-black: rgba(0, 0, 0, 0.1);
 $color-grey-background: #f5f5f5;
 $color-grey-border: #dadada;
 $color-light-grey-border: #e3e3e3;
@@ -65,12 +65,13 @@ $color-extra-dark-grey: #1d1d1d;
 $color-grey-description: #72767b;
 $color-dump-table-code: #f4f5f7;
 
-$color-published-new: #39ac73;
-$color-draft-new: #ffb21a;
-$color-unpublished-new: #637083;
-
+$color-published-600: #39ac73;
 $color-green-new: #39c67b;
 $color-green-light-new: #ebf9f2;
+$color-draft-500: #ffb21a;
+$color-draft-400: #fbd26a;
+$color-draft-200: #faf1d9;
+$color-unpublished-new: #637083;
 
 //FontAwesome icons
 $fa-check: '\f00c';
@@ -152,8 +153,6 @@ $fa-square-o: '\f096';
   &.secondary {
     color: $color-content-3;
   }
-
-
 }
 
 .CodeMirror {
@@ -161,7 +160,6 @@ $fa-square-o: '\f096';
 }
 
 .has-error {
-
   .CodeMirror,
   &.CodeMirror {
     border: 1px solid $color-pf-red;
@@ -174,7 +172,7 @@ $fa-square-o: '\f096';
   margin-left: 0;
 }
 
-.no-gutter>[class*="col-"] {
+.no-gutter > [class*='col-'] {
   padding-right: 0;
   padding-left: 0;
 }
@@ -217,6 +215,5 @@ $fa-square-o: '\f096';
   border: 1px solid $color-neutral-grey;
   box-shadow: 0 1px 2px rgba(28, 39, 49, 0.08); // sass-lint:disable-line leading-zero
 }
-
 
 // sass-lint:enable class-name-format
