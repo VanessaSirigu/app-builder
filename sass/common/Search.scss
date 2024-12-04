@@ -1,0 +1,27 @@
+.Search {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid $color-content-07;
+    border-radius: $radius-xxs;
+    
+    &.reverse {
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        padding-inline: 10px;
+    }
+
+    input{
+        border: none;
+        //@TODO - container outline on focus
+
+        &::placeholder {
+                font-style: normal;
+    
+            }
+    }
+
+    .fa {
+        color: $color-text-tertiary;
+    }
+}
