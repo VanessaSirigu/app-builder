@@ -13,6 +13,7 @@ import ErrorsAlertContainer from 'ui/common/form/ErrorsAlertContainer';
 import AppTourContainer from 'ui/app-tour/AppTourContainer';
 import { ROUTE_PAGE_ADD } from 'app-init/router';
 import { withPermissionValues } from 'ui/auth/withPermissions';
+import Icon from 'ui/common/Icon';
 
 class PageTreePage extends Component {
   componentWillMount() {
@@ -57,8 +58,19 @@ class PageTreePage extends Component {
             </Col>
           </Row>
           <Row>
-            <Col xs={6} xsOffset={3}>
+            <Col xs={12} style={{ display: 'flex', justifyContent: 'space-between' }}>
               <PageSearchForm {...this.props} />
+              <Button
+                bsStyle="link"
+                // @TODO remove inline style
+                style={{
+                  height: '26px', marginTop: '3px', color: '#344051', fontSize: '14px', fontWeight: '600',
+                }}
+              // @TODO  open Pages Settings modal
+              >
+                <Icon name="gear" style={{ marginRight: '8px' }} />
+                <FormattedMessage id="app.settings" />
+              </Button>
             </Col>
           </Row>
           {this.props.search && (
@@ -116,7 +128,7 @@ PageTreePage.propTypes = {
 PageTreePage.defaultProps = {
   search: null,
   loading: false,
-  onNextStep: () => {},
+  onNextStep: () => { },
   searchPageCodeToken: '',
 };
 
