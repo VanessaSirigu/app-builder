@@ -27,8 +27,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onDidMount: (page = 1, pageSize = 5) => {
-    dispatch(fetchContents({ page, pageSize }, '?sort=lastModified&direction=DESC', namespace));
-    dispatch(fetchContentTypeListPaged({ page: 1, pageSize: 0 }, '', 'contentTypesTile'));
+    dispatch(fetchContents({ page: 1, pageSize: 500 }, '?sort=lastModified&direction=DESC', namespace));
+    // dispatch(fetchContentTypeListPaged({ page: 1, pageSize: 500 }, '', 'contentTypesTile'));
   },
   onSetColumnOrder: columnOrder => dispatch(setColumnOrder(columnOrder, 'dashboardContentList')),
   onClickAddContent: (contentType) => {
