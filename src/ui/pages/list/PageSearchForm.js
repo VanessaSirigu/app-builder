@@ -56,13 +56,13 @@ export const PageSearchFormBody = ({ intl, handleSubmit, onSubmit }) => {
           name="pageCodeToken"
           placeholder={intl.formatMessage(msgs[searchType])}
         />
-        <Button
+        {/* <Button
           type="submit"
           bsStyle="primary"
           className="pull-right PageSearchForm__save"
         >
           <FormattedMessage id="app.search" />
-        </Button>
+        </Button> */}
       </FormGroup>
     </form >
 
