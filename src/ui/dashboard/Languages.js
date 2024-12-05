@@ -31,7 +31,7 @@ class Languages extends Component {
       <Card accented className="LanguagesCard">
         <ViewPermissionNoticeOverlay viewPermissions={[SUPERUSER_PERMISSION]}>
           <CardTitle>
-            <Icon size="lg" name="flag" background />
+            <Icon size="md" name="flag" background />
             <FormattedMessage id="dashboard.languages" />
             <Button
               bsStyle="link"

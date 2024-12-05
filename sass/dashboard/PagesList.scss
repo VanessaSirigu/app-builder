@@ -4,7 +4,7 @@
   height: auto;
   margin: 0 -10px;
   margin-bottom: 20px;
-  padding: 0 20px 20px 20px;
+  padding: 0px 0px 20px 0px;
 
   @media (max-width: 1499px) {
     height: auto;
@@ -16,7 +16,14 @@
 
   .PagesList__wrapper {
     width: 100%;
-    overflow-x: auto;
+    overflow-x: hidden;
+    height: 390px;
+    border-bottom: 1px solid $color-border-grey;
+    border-top: 1px solid $color-border-grey;
+
+    .tbody{
+      overflow-y: scroll;
+    }
   }
 
   h2 {
@@ -44,6 +51,8 @@
 
   .table-header {
     background-color: #fff;
+    border-right: 1px solid $color-border-grey;
+    
 
     td {
       border-left: 0;
@@ -67,7 +76,10 @@
       border: 1px solid $color-border-grey;
       border-left: 0;
       border-right: 0;
-      
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 10px;
     }
 
     .colForResize {

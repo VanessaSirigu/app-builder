@@ -3,7 +3,7 @@
   position: relative;
   min-height: 275px;
   margin: 0 -10px;
-  padding: 0 20px 20px;
+  padding: 0 0px 0px;
 
   @media (max-width: 1499px) {
     height: auto;
@@ -28,11 +28,20 @@
         overflow-x: auto;
       }
     }
+
+    &__table {
+      margin: 0 0 0 0;
+    }
   }
 
   .ContentListCardTable__wrapper {
     width: 100%;
     overflow-x: auto;
+    overflow-y: scroll;
+    max-height: 390px;
+    border-top: 1px solid $color-border-grey;
+    border-bottom: 1px solid $color-border-grey;
+
   }
 
   .table-bordered {
@@ -65,7 +74,10 @@
       border: 1px solid $color-border-grey;
       border-left: 0;
       border-right: 0;
-      
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 10px;
     }
 
     .colForResize {

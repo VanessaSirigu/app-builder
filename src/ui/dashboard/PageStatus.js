@@ -3,17 +3,9 @@ import PropTypes from 'prop-types';
 import { StackedBarChart } from 'patternfly-react';
 import { hasAccess } from '@entando/utils';
 import { Link } from 'react-router-dom';
-import {
-  defineMessages,
-  FormattedMessage,
-  injectIntl,
-  intlShape,
-} from 'react-intl';
+import { defineMessages, FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import { ROUTE_PAGE_TREE } from 'app-init/router';
-import {
-  SUPERUSER_PERMISSION,
-  MANAGE_PAGES_PERMISSION,
-} from 'state/permissions/const';
+import { SUPERUSER_PERMISSION, MANAGE_PAGES_PERMISSION } from 'state/permissions/const';
 import ViewPermissionNoticeOverlay from 'ui/dashboard/ViewPermissionNoticeOverlay';
 
 const pageStatusMsgs = defineMessages({
@@ -42,9 +34,7 @@ class PageStatus extends Component {
       language,
       userPermissions,
       intl,
-      pageStatus: {
-        draft, unpublished, published, lastUpdate,
-      },
+      pageStatus: { draft, unpublished, published, lastUpdate },
     } = this.props;
 
     const msgs = Object.keys(pageStatusMsgs).reduce(
@@ -78,13 +68,10 @@ class PageStatus extends Component {
               [SUPERUSER_PERMISSION, MANAGE_PAGES_PERMISSION],
               userPermissions,
             ) && (
-            <Link to={ROUTE_PAGE_TREE}>
-              <FormattedMessage
-                id="dashboard.pageList"
-                defaultMessage="Page List"
-              />
-            </Link>
-              )}
+              <Link to={ROUTE_PAGE_TREE}>
+                <FormattedMessage id="dashboard.pageList" defaultMessage="Page List" />
+              </Link>
+            )}
           </div>
           <StackedBarChart
             key={language}
@@ -97,9 +84,7 @@ class PageStatus extends Component {
               ],
               type: 'bar',
               order: (a, b) =>
-              (a.id === msgs.published || b.id === msgs.published
-                ? a - b
-                : b - a),
+                a.id === msgs.published || b.id === msgs.published ? a - b : b - a,
               groups: [[msgs.published, msgs.draft, msgs.unpublished]],
               colors: {
                 [msgs.published]: '#39AC73',
@@ -113,7 +98,7 @@ class PageStatus extends Component {
             tooltip={{
               tooltip: { show: true },
               format: {
-                value: v =>
+                value: (v) =>
                   `${v} ${intl.formatMessage({
                     id: `app.page${v !== 1 ? 's' : ''}`,
                     defaultMessage: v !== 1 ? 'Pages' : 'Page',
