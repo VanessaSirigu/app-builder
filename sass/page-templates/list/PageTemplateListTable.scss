@@ -2,4 +2,67 @@
   &__table {
     margin-bottom: 0;
   }
+
+  .Page_Template_List_Table {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .Page_Template_Preview_Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .Page_Template_Preview_Content {
+
+    width: 187px;
+    height: 120px;
+    background: rgba(240, 246, 255, 1);
+    border: 1px solid rgba(204, 224, 255, 1);
+    position: relative;
+
+  }
+
+  .Page_Config_Grid_Container {
+    padding: 10px 40px;
+    height: 100%;
+
+    .PageConfigGridCol--container {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      height: 100%;
+      min-height: 0 !important;
+    }
+
+    .PageConfigGridRow {
+      gap: 2px;
+    }
+
+    .PageConfigGrid {
+      height: 100%;
+      border-radius: 4px;
+      background-color: #fff;
+      padding: 4px;
+    }
+
+    .PageConfigGridCol--frame {
+      gap: 2px;
+      min-height: 0 !important;
+    }
+
+    .EmptyFrame {
+      border-style: solid;
+      background-color: #bbb;
+      border-radius: 4px;
+      padding: 0;
+    }
+
+    .EmptyFrame__frame-name {
+      display: none;
+    }
+  }
 }
