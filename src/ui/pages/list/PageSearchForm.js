@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { reduxForm, Field } from 'redux-form';
 import { FormattedMessage, defineMessages, injectIntl, intlShape } from 'react-intl';
-import { Row, Col, FormGroup, Button, MenuItem } from 'patternfly-react';
+import { FormGroup /* , Button */ } from 'patternfly-react';
 import DropdownButton from 'ui/common/dropdown-button/DropdownButton';
 import Search from 'ui/common/Search';
 
