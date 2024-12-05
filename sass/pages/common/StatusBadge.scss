@@ -25,6 +25,8 @@
   color: $color-published-600;
 }
 .StatusBadge-container--unpublished {
+  background-color: $color-unpublished-light;
+  color: $color-unpublished-new;
 }
 .StatusBadge-container--draft {
   background-color: $color-draft-200;
@@ -42,4 +44,7 @@
 }
 .StatusBadge-circle--draft {
   background-color: $color-draft-500;
+}
+.StatusBadge-circle--unpublished {
+  background-color: $color-unpublished-new;
 }

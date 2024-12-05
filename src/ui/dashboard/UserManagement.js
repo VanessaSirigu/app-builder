@@ -48,7 +48,7 @@ class UserManagement extends Component {
       <Card accented className="UserManagementCard">
         <ViewPermissionNoticeOverlay viewPermissions={viewPermissions}>
           <CardTitle>
-            <Icon size="lg" name="user" background />
+            <Icon size="md" name="user" background />
             <FormattedMessage id="menu.userManagement" />
             <PermissionCheck
               userPermissions={userPermissions}
@@ -66,7 +66,7 @@ class UserManagement extends Component {
             </PermissionCheck>
             <Clearfix />
           </CardTitle>
-          <CardBody>
+          <CardBody >
             <Icon size="lg" name="user" />
             <AggregateStatusCount>
               {users}&nbsp;

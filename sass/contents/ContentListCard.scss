@@ -37,6 +37,8 @@
   .ContentListCardTable__wrapper {
     width: 100%;
     overflow-x: auto;
+    overflow-y: scroll;
+    max-height: 390px;
   }
 
   .table-bordered {

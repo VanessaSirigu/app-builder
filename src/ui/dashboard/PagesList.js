@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Paginator } from 'patternfly-react';
+import { Button } from 'patternfly-react';
 import { Link } from 'react-router-dom';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import EllipsisWithTooltip from 'react-ellipsis-with-tooltip';
 import { DataTable } from '@entando/datatable';
-import PageStatusIcon from 'ui/pages/common/PageStatusIcon';
 import { ROUTE_PAGE_ADD } from 'app-init/router';
 import { formatDate, hasAccess } from '@entando/utils';
 import paginatorMessages from 'ui/paginatorMessages';
@@ -65,7 +64,6 @@ class PagesList extends Component {
       status: {
         Header: <FormattedMessage id="pageTree.status" />,
         attributes: {
-          className: 'text-center',
           style: { width: '25%' },
         },
         Cell: (cellInfo) => {
@@ -149,14 +147,14 @@ class PagesList extends Component {
               }}
             />
           </div>
-          <Paginator
+          {/* <Paginator
             pagination={pagination}
             viewType="table"
             itemCount={this.props.totalItems}
             onPageSet={this.changePage}
             onPerPageSelect={this.changePageSize}
             messages={messages}
-          />
+          /> */}
         </ViewPermissionNoticeOverlay>
       </div>
     );

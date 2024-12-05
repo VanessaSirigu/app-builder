@@ -14,14 +14,14 @@ import { withPermissionValues } from 'ui/auth/withPermissions';
 const namespace = 'dashboardPages';
 
 export const mapDispatchToProps = dispatch => ({
-  onWillMount: (page = 1, pageSize = 5) => {
+  onWillMount: () => {
     const queryString = convertToQueryString({
       sorting: {
         attribute: 'lastModified',
         direction: 'DESC',
       },
     });
-    dispatch(fetchDashboardPages({ page, pageSize }, queryString, namespace));
+    dispatch(fetchDashboardPages({ page: 1, pageSize: 500 }, queryString, namespace));
   },
   onSetColumnOrder: columnOrder => dispatch(setColumnOrder(columnOrder, 'dashboardPageList')),
 });

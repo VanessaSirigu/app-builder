@@ -44,7 +44,7 @@ class ContentListCard extends Component {
       description: {
         Header: <FormattedMessage id="contentPicker.description" />,
         attributes: {
-          style: { width: '25%' },
+          style: { width: '35%' },
         },
         cellAttributes: {
           className: 'SingleContentCurrentVersion__description',
@@ -54,13 +54,13 @@ class ContentListCard extends Component {
       typeDescription: {
         Header: <FormattedMessage id="contentPicker.type" />,
         attributes: {
-          style: { width: '25%' },
+          style: { width: '15%' },
         },
       },
       status: {
         Header: <FormattedMessage id="contentPicker.status" />,
         attributes: {
-          className: 'text-center',
+          
           style: { width: '25%' },
         },
         Cell: (cellInfo) => {
@@ -73,10 +73,7 @@ class ContentListCard extends Component {
             intl,
           );
           return (
-            <span
-              className={`ContentsFilter__status ContentsFilter__status--${color}`}
-              title={title}
-            />
+            <StatusBadge status={color} />
           );
         },
         cellAttributes: {
@@ -182,14 +179,14 @@ class ContentListCard extends Component {
               }}
             />
           </div>
-          <Paginator
+          {/* <Paginator
             pagination={pagination}
             viewType="table"
             itemCount={totalItems}
             onPageSet={this.changePage}
             onPerPageSelect={this.changePageSize}
             messages={messages}
-          />
+          /> */}
           <Clearfix />
         </ViewPermissionNoticeOverlay>
       </div>
