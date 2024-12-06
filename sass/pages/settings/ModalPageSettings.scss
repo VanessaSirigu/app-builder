@@ -1,0 +1,47 @@
+.ModalPageSettings {
+    display: flex;
+    justify-items: flex-end;
+
+    .modal-header {
+        background-color: transparent;
+
+        h4 {
+            font-size: 20px;
+            font-weight: 500;
+            color: $color-text-secondary;
+        }
+
+        .close {
+            font-size: 30px;
+        }
+    }
+
+    .modal-dialog {
+        height: 100vh;
+        margin: 0;
+    }
+
+    .modal-content {
+        height: 100vh;
+        padding: 24px;
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            &>div {
+                width: 100%;
+                display: flex;
+            }
+
+            label {
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+    }
+
+
+
+}

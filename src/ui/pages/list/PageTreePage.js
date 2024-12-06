@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Grid, Row, Col, Breadcrumb, Button } from 'patternfly-react';
 import { Link } from 'react-router-dom';
-
 import BreadcrumbItem from 'ui/common/BreadcrumbItem';
 import InternalPage from 'ui/internal-page/InternalPage';
 import PageTitle from 'ui/internal-page/PageTitle';
@@ -14,10 +13,12 @@ import AppTourContainer from 'ui/app-tour/AppTourContainer';
 import { ROUTE_PAGE_ADD } from 'app-init/router';
 import { withPermissionValues } from 'ui/auth/withPermissions';
 import Icon from 'ui/common/Icon';
+import ModalPageSettings from '../settings/ModalPageSettings';
 
 class PageTreePage extends Component {
   componentWillMount() {
     this.props.onWillMount(this.props);
+    this.state = { open: false };
   }
 
   renderButton() {
@@ -66,7 +67,7 @@ class PageTreePage extends Component {
                 style={{
                   height: '26px', marginTop: '3px', color: '#344051', fontSize: '14px', fontWeight: '600',
                 }}
-              // @TODO  open Pages Settings modal
+                onClick={() => this.setState({ open: true })}
               >
                 <Icon name="gear" style={{ marginRight: '8px' }} />
                 <FormattedMessage id="app.settings" />
@@ -111,6 +112,12 @@ class PageTreePage extends Component {
           </Row>
           <AppTourContainer customOffset={100} />
         </Grid>
+        <Col xs={12} md={4}>
+          <ModalPageSettings
+            show={this.state.open}
+            onHide={() => this.setState({ open: false })}
+          />
+        </Col>
       </InternalPage>
     );
   }
