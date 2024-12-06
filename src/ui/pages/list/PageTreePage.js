@@ -18,7 +18,7 @@ import ModalPageSettings from '../settings/ModalPageSettings';
 class PageTreePage extends Component {
   componentWillMount() {
     this.props.onWillMount(this.props);
-    this.state = { open: false };
+    this.setState({ open: false });
   }
 
   renderButton() {

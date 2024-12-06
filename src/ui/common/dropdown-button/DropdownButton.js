@@ -19,7 +19,10 @@ const DropdownButton = ({
   </PatternflyDropButton>);
 
 DropdownButton.propTypes = {
-  options: PropTypes.arrayOf([]).isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+  })).isRequired,
   intl: intlShape.isRequired,
   onSelect: PropTypes.func.isRequired,
 };
