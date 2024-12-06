@@ -50,6 +50,4 @@ export const DashboardPageBody = () => (
   </InternalPage>
 );
 
-export default withPermissions(ADMINISTRATION_AREA_PERMISSION)(
-  DashboardPageBody,
-);
+export default withPermissions(ADMINISTRATION_AREA_PERMISSION)(DashboardPageBody);

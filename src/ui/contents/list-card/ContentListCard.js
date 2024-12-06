@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Paginator, DropdownButton, MenuItem } from 'patternfly-react';
+import { /* Paginator, */ DropdownButton, MenuItem } from 'patternfly-react';
 import { Clearfix } from 'react-bootstrap';
 import { DataTable } from '@entando/datatable';
 import { formatDate, hasAccess } from '@entando/utils';
@@ -16,7 +16,7 @@ import {
 
 import ViewPermissionNoticeOverlay from 'ui/dashboard/ViewPermissionNoticeOverlay';
 
-import paginatorMessages from 'ui/common/paginatorMessages';
+// import paginatorMessages from 'ui/common/paginatorMessages';
 import Icon from 'ui/common/Icon';
 import StatusBadge from 'ui/pages/common/StatusBadge';
 
@@ -28,7 +28,9 @@ class ContentListCard extends Component {
   }
 
   componentDidMount() {
-    const { onDidMount, columnOrder, onSetColumnOrder, userPermissions } = this.props;
+    const {
+      onDidMount, columnOrder, onSetColumnOrder, userPermissions,
+    } = this.props;
     if (!columnOrder.length) {
       onSetColumnOrder(['description', 'typeDescription', 'status', 'lastModified']);
     }
@@ -60,14 +62,14 @@ class ContentListCard extends Component {
       status: {
         Header: <FormattedMessage id="contentPicker.status" />,
         attributes: {
-          
+
           style: { width: '25%' },
         },
         Cell: (cellInfo) => {
           const {
             row: { original: content },
           } = cellInfo;
-          const { color, title } = getContentStatusDetails(
+          const { color/* , title */ } = getContentStatusDetails(
             content.status,
             content.onLine,
             intl,
@@ -89,7 +91,7 @@ class ContentListCard extends Component {
       },
     };
 
-    return columnOrder.map((column) => ({
+    return columnOrder.map(column => ({
       ...columnDefs[column],
       accessor: column,
     }));
@@ -108,18 +110,18 @@ class ContentListCard extends Component {
   render() {
     const {
       intl,
-      pagination: { page, totalItems, pageSize: perPage },
+      // pagination: { page, pageSize: perPage },
       contentTypes,
       onClickAddContent,
       userPermissions,
       contents,
       onSetColumnOrder,
     } = this.props;
-    const pagination = {
-      page,
-      perPage,
-      perPageOptions: [5, 10, 15],
-    };
+    // const pagination = {
+    //   page,
+    //   perPage,
+    //   perPageOptions: [5, 10, 15],
+    // };
     const renderAddContentButton = hasAccess(
       [SUPERUSER_PERMISSION, CRUD_CONTENTS_PERMISSION, VALIDATE_CONTENTS_PERMISSION],
       userPermissions,
@@ -130,30 +132,30 @@ class ContentListCard extends Component {
         title={intl.formatMessage({ id: 'cms.contents.add.title' })}
         id="addContent"
       >
-        {contentTypes.map((contentType) => (
-          <MenuItem
-            eventKey={contentType.code}
-            key={contentType.code}
-            onClick={() =>
-              onClickAddContent({
-                typeCode: contentType.code,
-                typeDescription: contentType.name,
-              })
-            }
-          >
-            {contentType.name}
-          </MenuItem>
-        ))}
+          {contentTypes.map(contentType => (
+            <MenuItem
+              eventKey={contentType.code}
+              key={contentType.code}
+              onClick={() =>
+                onClickAddContent({
+                  typeCode: contentType.code,
+                  typeDescription: contentType.name,
+                })
+              }
+            >
+              {contentType.name}
+            </MenuItem>
+          ))}
       </DropdownButton>
     );
 
-    const messages = Object.keys(paginatorMessages).reduce(
-      (acc, curr) => ({
-        ...acc,
-        [curr]: intl.formatMessage(paginatorMessages[curr]),
-      }),
-      {},
-    );
+    // const messages = Object.keys(paginatorMessages).reduce(
+    //   (acc, curr) => ({
+    //     ...acc,
+    //     [curr]: intl.formatMessage(paginatorMessages[curr]),
+    //   }),
+    //   {},
+    // );
 
     const columns = this.getColumnDefs() || [];
 
@@ -218,7 +220,7 @@ ContentListCard.defaultProps = {
     page: 1,
     totalItems: 0,
   },
-  onSetColumnOrder: () => {},
+  onSetColumnOrder: () => { },
   columnOrder: ['description', 'typeDescription', 'status', 'lastModified'],
 };
 
