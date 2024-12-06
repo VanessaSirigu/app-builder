@@ -43,6 +43,7 @@ const PageTitle = ({
   configLink,
   hideConfigLink,
   'data-testid': dataTestId,
+  children,
 }) => (
   <div className="PageTitle">
     <div className="PageTitle__header">
@@ -50,6 +51,7 @@ const PageTitle = ({
         <FormattedMessage id={titleId} values={titleParam} />
         {!hideConfigLink && configIcon(configLink)}
         {helpIcon(helpId)}
+        {children}
       </h1>
     </div>
   </div>
@@ -62,6 +64,7 @@ PageTitle.propTypes = {
   hideConfigLink: PropTypes.bool,
   titleParam: PropTypes.shape({}),
   'data-testid': PropTypes.string,
+  children: PropTypes.node,
 };
 
 PageTitle.defaultProps = {
@@ -70,6 +73,7 @@ PageTitle.defaultProps = {
   hideConfigLink: false,
   titleParam: {},
   'data-testid': '',
+  children: null,
 };
 
 export default PageTitle;

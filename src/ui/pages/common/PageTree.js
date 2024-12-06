@@ -4,7 +4,6 @@ import { FormattedMessage } from 'react-intl';
 import { Spinner } from 'patternfly-react';
 import { DDTable } from '@entando/ddtable';
 import { DataTable } from '@entando/datatable';
-import PageStatusIcon from 'ui/pages/common/PageStatusIcon';
 import TreeNodeFolderIcon from 'ui/common/tree-node/TreeNodeFolderIcon';
 import TreeNodeExpandedIcon from 'ui/common/tree-node/TreeNodeExpandedIcon';
 import RowSpinner from 'ui/pages/common/RowSpinner';
@@ -16,6 +15,7 @@ import UnpublishPageModalContainer from 'ui/pages/common/UnpublishPageModalConta
 import PageListSearchTable from 'ui/pages/list/PageListSearchTable';
 import MovePageModalContainer from 'ui/pages/common/MovePageModalContainer';
 import { HOMEPAGE_CODE, PAGE_MOVEMENT_OPTIONS } from 'state/pages/const';
+import StatusBadge from './StatusBadge';
 
 
 export const getIsRootAndVirtual = (page, virtualRootOn) => {
@@ -120,7 +120,7 @@ class PageTree extends Component {
       },
       status: {
         Header: <FormattedMessage id="pageTree.status" />,
-        attributes: { className: 'text-center PageTree__thead', style: { width: '15%' } },
+        attributes: { className: 'PageTree__thead', style: { width: '15%' } },
         Cell: this.renderStatusCell,
         cellAttributes: { className: 'text-center', style: { verticalAlign: 'middle' } },
       },
@@ -185,7 +185,7 @@ class PageTree extends Component {
     const isRootAndVirtual = getIsRootAndVirtual(args.row.original, this.props.virtualRootOn);
     if (isRootAndVirtual) return null;
     return (
-      <PageStatusIcon status={args.value} hide={isRootAndVirtual} />
+      <StatusBadge status={args.value} hide={isRootAndVirtual} />
     );
   }
 
