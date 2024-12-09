@@ -9,22 +9,33 @@ import { useDynamicResourceUrl } from 'hooks/useDynamicResourceUrl';
 const publicUrl = process.env.PUBLIC_URL;
 const fallbackIcon = `${publicUrl}/images/puzzle-piece-solid.svg`;
 
-const WidgetIcon = ({
-  widgetId, small, icon, className,
-}) => {
+const WidgetIcon = ({ widgetId, small, icon, className }) => {
   const storeIcon = useSelector(getWidgetIcon(widgetId));
   const [iconType, iconName] = (icon || storeIcon || '').split(':');
 
   const imageProvider = useDynamicResourceUrl('static/widget-icons');
 
-  return iconType === 'font-awesome'
-    ? <span className={cx('fa', iconName, 'WidgetIcon', small && 'WidgetIcon--small', className)} />
-    : <img
-        src={`${imageProvider}/${iconName}.svg`}
-        alt={`icon ${iconName}`}
-        className={cx('WidgetIcon', small && 'WidgetIcon--small', className)}
-        onError={(e) => { e.target.onerror = null; e.target.src = fallbackIcon; }}
-    />;
+  return iconType === 'font-awesome' ? (
+    <span
+      className={cx(
+        'fa',
+        iconName,
+        'WidgetIcon',
+        small && 'WidgetIcon--small',
+        className,
+      )}
+    />
+  ) : (
+    <img
+      src={`${imageProvider}/${iconName}.svg`}
+      alt={`icon ${iconName}`}
+      className={cx('WidgetIcon', small && 'WidgetIcon--small', className)}
+      onError={(e) => {
+        e.target.onerror = null;
+        e.target.src = fallbackIcon;
+      }}
+    />
+  );
 };
 
 WidgetIcon.propTypes = {

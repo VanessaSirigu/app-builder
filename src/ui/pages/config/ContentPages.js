@@ -10,6 +10,7 @@ import DeletePageModalContainer from 'ui/pages/common/DeletePageModalContainer';
 import PublishPageModalContainer from 'ui/pages/common/PublishPageModalContainer';
 import UnpublishPageModalContainer from 'ui/pages/common/UnpublishPageModalContainer';
 import PageListSearchTable from 'ui/pages/list/PageListSearchTable';
+import Search from 'ui/common/Search';
 
 const msgs = defineMessages({
   searchPlaceholder: {
@@ -104,13 +105,29 @@ class ContentPages extends Component {
 
   render() {
     const {
-      loading, onExpandPage, pages, intl, searchPages,
-      onClear, loadOnPageSelect, onLoadPage, myGroupIds,
+      loading,
+      onExpandPage,
+      pages,
+      intl,
+      searchPages,
+      onClear,
+      loadOnPageSelect,
+      onLoadPage,
+      myGroupIds,
       virtualRootOn,
     } = this.props;
     const { expanded } = this.state;
 
-    const selectedPage = loadOnPageSelect ? this.props.selectedPage : this.state.selectedPage;
+    const selectedPage = loadOnPageSelect
+      ? this.props.selectedPage
+      : this.state.selectedPage;
+
+    const inputProps = {
+      className: 'form-control',
+      placeholder: intl.formatMessage(msgs.searchPlaceholder),
+      onChange: this.handleSearchInputChange,
+      onKeyDown: this.handleSearchInputKeyDown,
+    };
 
     return (
       <div className="ContentPages">
@@ -129,7 +146,10 @@ class ContentPages extends Component {
               <span className="icon fa fa-search" />
             </Button>
           </div>
-          <Link to={`${ROUTE_PAGE_ADD}?redirectTo=${ROUTE_PAGE_CONFIG}`} className="pull-right">
+          <Link
+            to={`${ROUTE_PAGE_ADD}?redirectTo=${ROUTE_PAGE_CONFIG}`}
+            className="pull-right"
+          >
             <Button className="ContentPages__pagetree-addbtn">
               <FormattedMessage id="app.add" />
             </Button>
@@ -154,7 +174,9 @@ class ContentPages extends Component {
             role="button"
             tabIndex="0"
           >
-            <FormattedMessage id={expanded ? 'pageTree.collapseAll' : 'pageTree.expandAll'} />
+            <FormattedMessage
+              id={expanded ? 'pageTree.collapseAll' : 'pageTree.expandAll'}
+            />
             <span className={`icon fa fa-chevron-${expanded ? 'down' : 'right'}`} />
           </div>
         )}
@@ -162,7 +184,9 @@ class ContentPages extends Component {
           {searchPages && searchPages.length ? (
             <PageListSearchTable
               {...this.props}
-              className={`ContentPages__search-table ${loadOnPageSelect ? 'ContentPages__search-table--loadable' : ''}`}
+              className={`ContentPages__search-table ${
+                loadOnPageSelect ? 'ContentPages__search-table--loadable' : ''
+              }`}
               striped={false}
               selectedPage={selectedPage}
               onWillMount={() => {}}

@@ -3,47 +3,79 @@
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 2px;
-  border: 1px dashed $color-pf-black-400;
+  padding: 8px;
+  background-color: $color-grey-background-tertiary;
+  border-radius: 4px;
+
 
   &__content {
     left: 10px;
     width: 100%;
+    padding: 8px;
     height: 100%;
-    padding: 5px;
-    border: 1px solid $color-pf-black-600;
-    border-radius: 3px;
+    border: 1.5px solid $color-border-primary;
+    border-radius: 4px;
     color: $color-pf-black-800;
     text-align: center;
     cursor: move;
+    background-color: $color-white;
+    outline: none;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 20px;
   }
 
   &__frame-name {
-    position: absolute;
-    left: 10px;
+  position: absolute;
     color: $color-pf-black-400;
+    width: 100%;
   }
 
-  &__menu-button {
-    position: absolute;
-    top: 2px;
-    right: 10px;
-  }
+
+
+
 
   &__descriptor {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     height: 100%;
+    border-color: $color-brand-primary;
+    gap:8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-brand-primary;
+
+    .WidgetIconContainer{
+      width: 25px;
+      height: 25px;
+      background-color: $color-background-icons;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+
+      .fa{
+        height: 13px;
+        color: $color-brand-primary;
+        font-size: 0.94em;
+      }
+    }
+
   }
 
   &--drag-hover {
-    border: 1px solid $color-pf-orange-300;
-    background: $color-pf-black-200;
+    border: 1.5px solid $color-brand-primary;
   }
 }
 
 .WidgetFrame--main-frame {
+  min-height: 120px;
   // Main frame label
   .WidgetFrame__frame-name:after {
     display: inline;
