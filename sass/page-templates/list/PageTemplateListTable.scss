@@ -17,13 +17,16 @@
   }
 
   .Page_Template_Preview_Content {
-
     width: 187px;
     height: 120px;
     background: rgba(240, 246, 255, 1);
     border: 1px solid rgba(204, 224, 255, 1);
     position: relative;
+  }
 
+  .Page_Template_Preview_Actions {
+    position: absolute;
+    right: 10px
   }
 
   .Page_Config_Grid_Container {
