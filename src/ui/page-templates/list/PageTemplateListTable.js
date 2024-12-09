@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Col, Spinner } from 'patternfly-react';
 import { injectIntl } from 'react-intl';
 import PageTemplateDeleteModalContainer from 'ui/page-templates/common/PageTemplateDeleteModalContainer';
+import PageTemplateListMenuActions from 'ui/page-templates/list/PageTemplateListMenuActions';
 import PageTemplatePreview from './PageTemplatePreview';
 
 class PageTemplateListTable extends Component {
@@ -36,8 +37,14 @@ class PageTemplateListTable extends Component {
             <PageTemplatePreview
               key={template.code}
               item={template}
-              removePageTemplate={removePageTemplate}
-            />))}
+              actions={
+                <PageTemplateListMenuActions
+                  code={template.code}
+                  onClickDelete={() => removePageTemplate(template.code)}
+                />
+              }
+            />
+          ))}
         </div>
       </Col>
     );
