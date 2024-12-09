@@ -16,10 +16,10 @@ const PageStatusIcon = ({ intl, status }) => {
   });
   const iconTitle = intl.formatMessage(msgs.pageStatus, {});
   const classNameAr = [
-    'fa fa-circle PageStatusIcon',
+    'PageStatusIcon',
     `PageStatusIcon--${status}`,
   ];
-  return <i className={classNameAr.join(' ')} title={iconTitle} />;
+  return <div className={classNameAr.join(' ')} title={iconTitle} />;
 };
 
 PageStatusIcon.propTypes = {

@@ -11,17 +11,27 @@
 
   &__title {
     padding-bottom: 10px;
-    border-bottom: solid 1px #000;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 600;
+    color: $color-primary-text;
   }
 
-  &__toolbar-row {
-    margin-bottom: 5px;
+  &__title_container{
+    display: flex;
+    align-items: center;
+    width: 100%;
   }
+
+  &__tabHeader{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  
 
   &__btn-group--trans {
-    padding-bottom: 5px;
 
     .pull-right .btn {  // sass-lint:disable-line force-element-nesting class-name-format
       margin-left: 12px;
@@ -57,6 +67,9 @@
 
   .PageStatusIcon {
     margin-right: 10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
   }
 
   &__default-applied-label {
@@ -133,6 +146,7 @@
   }
 
   .PageConfigPage__side-widget {
+    background-color: white;
     position: fixed;
     left: initial;
     width: 48px;

@@ -8,15 +8,33 @@
 
   &__pagetree-searchbar {
     display: flex;
-    width: 100%;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid $color-content-07;
+    border-radius: $radius-xxs;
+
+    input{
+      border: none;
+      color: $color-text-tertiary;
+      font-size: 14px;
+      height: 30px;
+      //@TODO - container outline on focus
+
+
+      &::placeholder {
+          font-style: normal;
+      }
+    }
   }
 
   // sass-lint:disable no-important class-name-format force-element-nesting
   &__pagetree-searchbtn.btn {
-    border: 1px solid $color-border-gray !important;
-    border-left: 0 !important;
+    border: none;
+    border-left: 1px solid $color-neutral-grey;
     outline: none !important;
     box-shadow: none !important;
+    background-color: $color-neutral-grey;
+    height: 100%;
   }
   // sass-lint:enable no-important class-name-format force-element-nesting
 
@@ -25,16 +43,16 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    border-top: 1px solid $color-black;
-    border-bottom: 1px solid $color-black;
-    color: $color-white;
+    border-top: 1px solid $color-neutral-grey;
+    border-bottom: 1px solid $color-neutral-grey;
+    color: $color-primary-text;
     font-size: 14px;
   }
 
   &__toggler {
     display: inline-block;
     margin-right: 10px;
-    font-family: "Open Sans";
+    font-family: "Inter";
     font-size: 13px;
     line-height: 1.66666667;
 
@@ -45,19 +63,19 @@
 
   &__pagetree-addbtn {
     background-color: $color-light-blue-2;
-    color: $color-white;
+    color: $color-primary-text;
 
     // sass-lint:disable nesting-depth force-element-nesting
     &:hover {
       background-color: $color-light-blue-hover;
-      color: $color-white;
+      color: $color-primary-text;
     }
 
     &:focus,
     &:focus:hover {
       outline: none;
       background-color: $color-light-blue-active;
-      color: $color-white;
+      color: $color-primary-text;
     }
     // sass-lint:enable nesting-depth force-element-nesting
   }
@@ -80,7 +98,7 @@
     & .table {
       margin-top: 0;
       border: 1px solid $color-black;
-      color: $color-white;
+      color: $color-primary-text;
     }
 
     & thead,
@@ -101,12 +119,12 @@
     }
 
     & .dropdown-kebab-pf .btn {
-      color: $color-white !important;
+      color: $color-primary-text !important;
     }
 
     & .table-view-pf-pagination {
       background: none;
-      color: $color-white;
+      color: $color-primary-text;
     }
   }
   // sass-lint:enable nesting-depth no-qualifying-elements force-element-nesting class-name-format no-important
