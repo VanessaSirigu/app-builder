@@ -1,0 +1,20 @@
+.Button {
+    border-radius: $spacing-8;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Inter";
+    padding-inline: 16px;
+
+    .btn-primary,
+    .btn-primary:active,
+    .btn-primary:focus {
+        background-color: $color-brand-primary;
+        border: none;
+    }
+
+    &.clear {
+        background-color: transparent;
+        color: $color-brand-primary;
+        border: none;
+    }
+}

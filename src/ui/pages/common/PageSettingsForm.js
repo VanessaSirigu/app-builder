@@ -8,6 +8,7 @@ import RenderRadioInput from 'ui/common/form/RenderRadioInput';
 import SwitchRenderer from 'ui/common/form/SwitchRenderer';
 import RenderSelectInput from 'ui/common/form/RenderSelectInput';
 import FormLabel from 'ui/common/form/FormLabel';
+import Button from 'ui/common/Button';
 
 const baseUrlMessages = defineMessages({
   relative: {
@@ -235,13 +236,13 @@ export class PageSettingsFormBody extends Component {
               </fieldset>
               <div className="form-group">
                 <Col xs={12}>
-                  <button
+                  <Button
                     type="submit"
                     value="Submit"
-                    className="btn btn-primary pull-right"
+                    className="clear pull-right"
                   >
                     <FormattedMessage id="app.save" />
-                  </button>
+                  </Button>
 
                 </Col>
               </div>
