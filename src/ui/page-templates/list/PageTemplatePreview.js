@@ -14,7 +14,7 @@ const PageTemplatePreview = ({ item, actions }) => {
           <div className="Page_Template_Preview_Actions">
             {actions}
           </div>
-      )}
+        )}
         <div className="Page_Config_Grid_Container">
           <PageConfigGrid cellMap={cellMap} />
         </div>
@@ -48,8 +48,8 @@ PageTemplatePreview.propTypes =
           }),
         }),
       }).isRequired,
-      removePageTemplate: PropTypes.func.isRequired,
     }),
+    action: PropTypes.func,
   }.isRequired;
 
 export default PageTemplatePreview;
