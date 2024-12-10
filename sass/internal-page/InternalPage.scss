@@ -95,14 +95,16 @@
   &__fixed-bottom {
     position: fixed;
     bottom: 64px;
-    left: 0;
+    left: 8px;
     border-bottom: 0;
   }
 }
 
 // sass-lint:disable force-element-nesting class-name-format no-important
 .nav-pf-vertical {
-  width: auto;
+    width: 214px;
+    border-right: 1px solid $color-neutral-grey;
+    padding: 10px 0 0 8px;
 
   .secondary-nav-item-pf > a {
     width: 214px;
@@ -110,8 +112,10 @@
   }
 
   &.collapsed {
+    width: 40px;
+
     + .VerticalMenu__secondary-collapse-btn {
-      left: #{$nav-pf-vertical-width + 14};
+      left: #{$nav-pf-vertical-width + 12};
       background-color: $color-background-primary;
       color: $color-light-blue;
       border: none;
@@ -123,6 +127,9 @@
       padding-right: 0 !important;
       padding-left: 0;
       text-align: center;
+      color: $color-light-blue;
+      border: none;
+      box-shadow: none;
     }
 
     .secondary-nav-item-pf > a::after {
@@ -331,10 +338,7 @@
     }
 
     .nav-pf-vertical {
-        border-right: 1px solid $color-neutral-grey;
-        padding: 10px 0 0 8px;
-        width: 40px;
-
+            
         .list-group {
             display: flex;
             flex-direction: column;
