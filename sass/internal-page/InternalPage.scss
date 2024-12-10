@@ -111,11 +111,15 @@
 
   &.collapsed {
     + .VerticalMenu__secondary-collapse-btn {
-      left: 76px;
+      left: #{$nav-pf-vertical-width + 14};
+      background-color: $color-background-primary;
+      color: $color-light-blue;
+      border: none;
+      box-shadow: none;
     }
 
     + .VerticalMenu__expand-collapse-btn {
-      width: 75px;
+      width: 40px;
       padding-right: 0 !important;
       padding-left: 0;
       text-align: center;
@@ -152,8 +156,8 @@
 }
 
 .container-pf-nav-pf-vertical.collapsed-nav { //sass-lint:disable-line class-name-format force-element-nesting
-  left: 75px;
-  width: calc(100% - 75px);
+  left: 40px;
+  width: calc(100% - 40px);
 }
 
 .container-pf-nav-pf-vertical.hidden-nav { //sass-lint:disable-line class-name-format force-element-nesting
@@ -266,8 +270,8 @@
   width: 40px;
   height: 48px;
   outline: none;
-  background-color: $color-extra-dark-grey;
-  color: $color-white;
+  background-color: $color-background-primary;
+  color: $color-text-tertiary;
   font-size: 20px;
   z-index: 1032;
 
@@ -276,8 +280,8 @@
   &:focus,
   &:active:focus {
     outline: none;
-    background-color: $color-extra-dark-grey;
-    color: $color-white;
+    background-color: $color-background-primary;
+    color: $color-text-tertiary;
   }
 }
 
@@ -289,8 +293,8 @@
   height: 64px;
   padding-right: 20px !important;
   outline: none;
-  background-color: $color-extra-dark-grey;
-  color: $color-white;
+  background-color: $color-background-primary;
+  color: $color-text-tertiary;
   font-size: 20px;
   text-align: right;
   z-index: 1030;
@@ -319,4 +323,58 @@
   padding: 0;
   background: $color-white;
   z-index: 2000;
+}
+
+.VerticalMenuContainer {
+   .nav-pf-vertical, .nav-pf-secondary-nav, .list-group-item.active > a, .list-group-item > a {
+        background-color: $color-background-primary;
+    }
+
+    .nav-pf-vertical {
+        border-right: 1px solid $color-neutral-grey;
+        padding: 10px 0 0 8px;
+        width: 40px;
+
+        .list-group {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .list-group-item.active a::before {
+            background: $color-dark-blue;
+            left: -2px;
+            border-radius: $radius-s;
+            width: 28px;
+            height: 28px;
+            z-index: -1
+        }
+
+        .list-group-item {
+            border: none;
+            
+            a {
+                height: 40px;
+                color: $color-text-tertiary;
+                padding: 0;
+
+                .fa {
+                    font-size: 16px;
+                }
+            }
+
+            a:focus, a:active, a:hover, .list-group-item.active>a {
+                background-color: $color-background-primary;
+            }
+        }
+
+        .secondary-nav-item-pf .active {
+            background-color: $color-background-primary;
+        }
+
+        .nav-pf-secondary-nav {
+            left: 40px;
+            border: 1px solid $color-neutral-grey;
+        }
+    }
 }

@@ -79,7 +79,7 @@ const renderCmsMenuItems = (intl, userPermissions, systemReport, currSysConfigAd
     <Item
       id="apps-cms"
       key="cms"
-      onClick={() => {}}
+      onClick={() => { }}
       iconClass="fa fa-file-text-o"
       title={intl.formatMessage({ id: 'menu.cms' })}
     >
@@ -222,7 +222,7 @@ const EntandoMenu = ({
   };
 
   return (
-    <div className="safari-menu-fix">
+    <div className="safari-menu-fix VerticalMenuContainer">
       <VerticalNav
         blurDisabled
         dynamicBodyClasses
@@ -300,7 +300,7 @@ const EntandoMenu = ({
           hasAccess(SUPERUSER_PERMISSION, userPermissions) && (
             <Item
               id="menu-ux-pattern"
-              onClick={() => {}}
+              onClick={() => { }}
               iconClass="fa fa-object-ungroup"
               title={intl.formatMessage({ id: 'menu.uxComponents', defaultMessage: 'Components' })}
             >
@@ -339,7 +339,7 @@ const EntandoMenu = ({
           && (
             <Item
               id="menu-user-settings"
-              onClick={() => {}}
+              onClick={() => { }}
               iconClass="fa fa-users"
               title={intl.formatMessage({ id: 'menu.userSettings', defaultMessage: 'Users' })}
             >
@@ -391,7 +391,7 @@ const EntandoMenu = ({
               className="VerticalAdminConsoleMenu__fixed-bottom"
               id="menu-configuration"
               title={intl.formatMessage({ id: 'menu.settings', defaultMessage: 'Administration' })}
-              onClick={() => {}}
+              onClick={() => { }}
               iconClass="fa fa-cogs"
             >
               <SecondaryItem
@@ -443,9 +443,9 @@ const MfeMenuContainer = ({
   <div className="MfeMenuContainer">
     <div className="MfeMenuContainer__header-menu-container">
       {
-      headerId ? <MfeContainer id={headerId} />
-      : getHeader(onStartTutorial)
-    }
+        headerId ? <MfeContainer id={headerId} />
+          : getHeader(onStartTutorial)
+      }
     </div>
     {
       menuId && (
