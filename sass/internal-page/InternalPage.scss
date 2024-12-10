@@ -109,27 +109,25 @@
   .secondary-nav-item-pf > a {
     width: 214px;
     padding-left: 25px;
+
+    &::after {
+      font-size: 14px;
+      padding: 0;
+    }
   }
 
   &.collapsed {
     width: 40px;
 
-    + .VerticalMenu__secondary-collapse-btn {
-      left: #{$nav-pf-vertical-width + 12};
-      background-color: $color-background-primary;
-      color: $color-light-blue;
-      border: none;
-      box-shadow: none;
-    }
-
     + .VerticalMenu__expand-collapse-btn {
       width: 40px;
       padding-right: 0 !important;
       padding-left: 0;
-      text-align: center;
-      color: $color-light-blue;
-      border: none;
-      box-shadow: none;
+
+      a {
+        width: 24px;
+      }
+
     }
 
     .secondary-nav-item-pf > a::after {
@@ -255,7 +253,7 @@
 
 .nav-pf-secondary-nav {
   left: 0;
-  width: #{$nav-pf-vertical-width + 14};
+  // width: #{$nav-pf-vertical-width + 14};
   z-index: 1031;
 }
 
@@ -270,49 +268,63 @@
   padding-left: 52px;
 }
 
-.VerticalMenu__secondary-collapse-btn {
-  position: fixed;
-  top: 60px;
-  left: 0;
-  width: 40px;
-  height: 48px;
-  outline: none;
-  background-color: $color-background-primary;
-  color: $color-text-tertiary;
-  font-size: 20px;
-  z-index: 1032;
 
-  &:hover,
-  &:active,
-  &:focus,
-  &:active:focus {
+.VerticalMenu {
+
+  &__secondary-collapse-btn, 
+  &__expand-collapse-btn {
     outline: none;
+    border: none;
+    box-shadow: none;
     background-color: $color-background-primary;
     color: $color-text-tertiary;
+    font-size: 20px;
+
+    &:hover,
+    &:active,
+    &:focus,
+    &:active,
+    &:active:focus {
+      outline: none;
+      border: none;
+      background-color: $color-background-primary;
+      box-shadow: none;
+    }
+
+       &:hover,
+    &:active,
+    &:focus,
+    &:active:focus {
+      outline: none;
+      background-color: $color-background-primary;
+    }
+
+    &:hover {
+      color: $color-light-blue;
+    }
   }
-}
 
-.VerticalMenu__expand-collapse-btn {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 214px;
-  height: 64px;
-  padding-right: 20px !important;
-  outline: none;
-  background-color: $color-background-primary;
-  color: $color-text-tertiary;
-  font-size: 20px;
-  text-align: right;
-  z-index: 1030;
+  &__secondary-collapse-btn {
+    position: fixed;
+    top: 60px;
+    left: #{$nav-pf-vertical-width};
+    width: 40px;
+    height: 48px;
+    z-index: 1032;
+  }
 
-  &:hover,
-  &:active,
-  &:focus,
-  &:active:focus {
-    outline: none;
-    background-color: $color-extra-dark-grey;
-    color: $color-white;
+
+  &__expand-collapse-btn {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 214px;
+    height: 64px;
+    padding-right: 20px !important;
+    text-align: right;
+    z-index: 1030;
+
   }
 }
 
