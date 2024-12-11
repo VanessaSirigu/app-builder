@@ -138,6 +138,7 @@ $fa-square-o: '\f096';
   justify-content: center;
   border-radius: 6px;
   font-size: 14px;
+  box-shadow: none;
 }
 
 
@@ -175,10 +176,11 @@ $fa-square-o: '\f096';
 }
 
 .btn-outlined-secondary{
-  border: 1px solid $color-neutral-grey;
+  border: 1px solid $color-content-07;
   border-radius: 4px;
   background-color: #FFF;
   color: $color-primary-text;
+  box-shadow: none;
 
   &:focus{
     outline: none;
