@@ -174,20 +174,18 @@ class PageConfigPage extends Component {
             <Button
               className={[
                 'btn',
-                'btn-primary',
+                'btn-outlined-primary',
                 'PageConfigPage__info-btn',
                 'PageConfigPage__btn-icon',
               ].join(' ')}
               bsStyle="default"
               onClick={this.toggleInfoTable}
             >
-              <span>
-                <Icon
-                  name={this.state.infoTableOpen ? 'angle-down' : 'angle-right'}
-                  className="PageConfigPage__btn-icon--svg"
-                />
-                <FormattedMessage id="app.info" />
-              </span>
+              <FormattedMessage id="app.info" />
+              <Icon
+                name={this.state.infoTableOpen ? 'angle-down' : 'angle-right'}
+                className="PageConfigPage__btn-icon--svg"
+              />
             </Button>
           </ButtonToolbar>
           <ButtonToolbar className="pull-right">
@@ -229,7 +227,7 @@ class PageConfigPage extends Component {
                   className={[
                     'PageConfigPage__btn-icon--right',
                     'btn',
-                    'btn-default',
+                    'btn-outlined-secondary',
                   ].join(' ')}
                   onClick={restoreConfig}
                   disabled={!pageDiffersFromPublished}
