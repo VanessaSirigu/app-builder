@@ -121,6 +121,10 @@
       margin-left: 10px;
     }
 
+  &:not(.collapsed) + .VerticalMenu__secondary-collapse-btn {
+    left: #{$nav-pf-vertical-width * 2 - 30};
+  } 
+
   &.collapsed {
     width: 40px;
 
@@ -254,8 +258,15 @@
 
  .collapsed .nav-pf-secondary-nav, .nav-pf-secondary-nav {
   z-index: 1031;
-  left: 40px;
   border: 1px solid $color-neutral-grey;
+}
+
+.collapsed .nav-pf-secondary-nav {
+  left: 40px;
+}
+
+.nav-pf-secondary-nav {
+  left: 212px;
 }
 
 .nav-item-pf-header {
@@ -290,7 +301,7 @@
       box-shadow: none;
     }
 
-       &:hover,
+    &:hover,
     &:active,
     &:focus,
     &:active:focus {
@@ -349,7 +360,6 @@
     }
 
     .nav-pf-vertical {
-            
         .list-group {
             display: flex;
             flex-direction: column;
@@ -367,7 +377,6 @@
 
         .list-group-item {
             border: none;
-            
             a {
                 height: 40px;
                 color: $color-text-tertiary;
