@@ -10,7 +10,6 @@ import DeletePageModalContainer from 'ui/pages/common/DeletePageModalContainer';
 import PublishPageModalContainer from 'ui/pages/common/PublishPageModalContainer';
 import UnpublishPageModalContainer from 'ui/pages/common/UnpublishPageModalContainer';
 import PageListSearchTable from 'ui/pages/list/PageListSearchTable';
-import Search from 'ui/common/Search';
 
 const msgs = defineMessages({
   searchPlaceholder: {
@@ -122,12 +121,12 @@ class ContentPages extends Component {
       ? this.props.selectedPage
       : this.state.selectedPage;
 
-    const inputProps = {
-      className: 'form-control',
-      placeholder: intl.formatMessage(msgs.searchPlaceholder),
-      onChange: this.handleSearchInputChange,
-      onKeyDown: this.handleSearchInputKeyDown,
-    };
+    // const inputProps = {
+    //   className: 'form-control',
+    //   placeholder: intl.formatMessage(msgs.searchPlaceholder),
+    //   onChange: this.handleSearchInputChange,
+    //   onKeyDown: this.handleSearchInputKeyDown,
+    // };
 
     return (
       <div className="ContentPages">

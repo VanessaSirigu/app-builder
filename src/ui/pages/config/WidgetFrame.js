@@ -38,22 +38,22 @@ class WidgetFrame extends Component {
       const configMenuItems =
         widgetHasConfig && (configUiName || widgetHasConfigForm)
           ? [
-              <MenuItem
-                key="menu-settings"
-                className="WidgetFrame__settings-btn"
-                onClick={() => onClickSettings && onClickSettings(frameId)}
-              >
-                <FormattedMessage id="app.settings" />
-              </MenuItem>,
-            ]
+            <MenuItem
+              key="menu-settings"
+              className="WidgetFrame__settings-btn"
+              onClick={() => onClickSettings && onClickSettings(frameId)}
+            >
+              <FormattedMessage id="app.settings" />
+            </MenuItem>,
+          ]
           : null;
       const cloneMenuItems =
         widgetHasConfig && configUiName
           ? [
-              <MenuItem
-                key="menu-saveAs"
-                className="WidgetFrame__saveAs-btn"
-                onClick={() =>
+            <MenuItem
+              key="menu-saveAs"
+              className="WidgetFrame__saveAs-btn"
+              onClick={() =>
                   onClickSaveAs &&
                   onClickSaveAs({
                     widgetId,
@@ -62,10 +62,10 @@ class WidgetFrame extends Component {
                     configUiName,
                   })
                 }
-              >
-                <FormattedMessage id="app.saveAs" />
-              </MenuItem>,
-            ]
+            >
+              <FormattedMessage id="app.saveAs" />
+            </MenuItem>,
+          ]
           : null;
 
       actionsMenu = (

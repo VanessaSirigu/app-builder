@@ -161,7 +161,7 @@ class PageTreeCompact extends Component {
           )}
           <td className="text-center PageTreeCompact__actions-col">
             {isRootAndVirtual ? null : (
-              <div onClick={(e) => e.stopPropagation()} role="none">
+              <div onClick={e => e.stopPropagation()} role="none">
                 <DropdownKebab
                   className="PageTreeCompact__kebab-button"
                   key={page.code}
@@ -237,16 +237,14 @@ class PageTreeCompact extends Component {
 }
 
 PageTreeCompact.propTypes = {
-  pages: PropTypes.arrayOf(
-    PropTypes.shape({
-      code: PropTypes.string.isRequired,
-      status: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      depth: PropTypes.number.isRequired,
-      expanded: PropTypes.bool.isRequired,
-      isEmpty: PropTypes.bool.isRequired,
-    }),
-  ),
+  pages: PropTypes.arrayOf(PropTypes.shape({
+    code: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    depth: PropTypes.number.isRequired,
+    expanded: PropTypes.bool.isRequired,
+    isEmpty: PropTypes.bool.isRequired,
+  })),
   selectedPage: PropTypes.shape({
     code: PropTypes.string,
   }),
