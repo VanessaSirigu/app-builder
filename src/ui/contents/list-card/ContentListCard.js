@@ -163,7 +163,7 @@ class ContentListCard extends Component {
       <div className="ContentListCard">
         <ViewPermissionNoticeOverlay viewPermissions={[ADMINISTRATION_AREA_PERMISSION]}>
           <h2 className="card-pf-title">
-            <Icon name="plus" background />
+            <Icon name="product-hunt" background />
             <FormattedMessage id="dashboard.content.title" defaultMessage="Content" />
             {renderAddContentButton}
           </h2>

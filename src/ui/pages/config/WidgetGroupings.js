@@ -29,7 +29,7 @@ const WidgetGroupings = ({
 
   const [openGroupings, setOpenGroupings] = useState({});
   const [view, setView] = useState(GRID_VIEW);
-  const toggleGroupingCollapse = (grouping) =>
+  const toggleGroupingCollapse = grouping =>
     setOpenGroupings({
       ...openGroupings,
       [grouping]: !openGroupings[grouping],
@@ -91,7 +91,7 @@ const WidgetGroupings = ({
         </div>
       </div>
       <div>
-        {widgetGroupingList.map((grouping) => (
+        {widgetGroupingList.map(grouping => (
           <WidgetGrouping
             widgets={groupedWidgets[grouping]}
             locale={locale}

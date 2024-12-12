@@ -107,38 +107,57 @@
     padding: 10px 0 0 8px;
 
   .secondary-nav-item-pf > a {
-    width: 214px;
     padding-left: 25px;
+
+    &::after {
+      font-size: 14px;
+      padding: 0;
+    }
+  }
+
+  .nav-pf-secondary-nav .list-group-item > a {
+      margin-left: 10px;
+    }
+
+  &:not(.collapsed) {
+    & > .list-group > .list-group-item > a {
+      display: flex;
+      gap: 8px;
+    }
+
+    & + .VerticalMenu__secondary-collapse-btn {
+      left: #{$nav-pf-vertical-width * 2};
+    }
+    & + .VerticalMenu__expand-collapse-btn {
+      text-align: right;
+    }
   }
 
   &.collapsed {
     width: 40px;
+    
+    .list-group-item.secondary-nav-item-pf > a{
+      width: fit-content;
 
-    + .VerticalMenu__secondary-collapse-btn {
-      left: #{$nav-pf-vertical-width + 12};
-      background-color: $color-background-primary;
-      color: $color-light-blue;
-      border: none;
-      box-shadow: none;
+      &:hover {
+       width: fit-content;
+      }
     }
 
     + .VerticalMenu__expand-collapse-btn {
-      width: 40px;
+      width: 39px;
       padding-right: 0 !important;
       padding-left: 0;
-      text-align: center;
-      color: $color-light-blue;
-      border: none;
-      box-shadow: none;
+
+      a {
+        width: 24px;
+      }
     }
 
     .secondary-nav-item-pf > a::after {
       display: none;
     }
 
-    .nav-pf-secondary-nav .list-group-item > a {
-      width: 214px;
-    }
   }
 }
 // sass-lint:enable force-element-nesting class-name-format nesting-depth no-important
@@ -253,10 +272,18 @@
   }
 }
 
-.nav-pf-secondary-nav {
-  left: 0;
-  width: #{$nav-pf-vertical-width + 14};
+ .collapsed .nav-pf-secondary-nav, .nav-pf-secondary-nav {
   z-index: 1031;
+  border: 1px solid $color-neutral-grey;
+}
+
+.collapsed .nav-pf-secondary-nav {
+  left: 40px;
+}
+
+.nav-pf-secondary-nav {
+  width: #{$nav-pf-vertical-width + 35};
+  left: 212px;
 }
 
 .nav-item-pf-header {
@@ -265,54 +292,57 @@
 }
 
 .nav-pf-secondary-nav .list-group-item > a {
-  width: #{$nav-pf-vertical-width + 14};
-  margin-left: 0;
-  padding-left: 52px;
+  width: #{$nav-pf-vertical-width};
 }
 
-.VerticalMenu__secondary-collapse-btn {
-  position: fixed;
-  top: 60px;
-  left: 0;
-  width: 40px;
-  height: 48px;
-  outline: none;
-  background-color: $color-background-primary;
-  color: $color-text-tertiary;
-  font-size: 20px;
-  z-index: 1032;
 
-  &:hover,
-  &:active,
-  &:focus,
-  &:active:focus {
+.VerticalMenu {
+
+  &__secondary-collapse-btn, 
+  &__expand-collapse-btn {
     outline: none;
+    border: none;
+    box-shadow: none;
     background-color: $color-background-primary;
     color: $color-text-tertiary;
+    font-size: 20px;
+
+    &:hover,
+    &:active,
+    &:focus,
+    &:active,
+    &:active:focus {
+      outline: none;
+      border: none;
+      background-color: $color-background-primary;
+      box-shadow: none;
+    }
+
+
+    &:hover {
+      color: $color-light-blue;
+    }
   }
-}
 
-.VerticalMenu__expand-collapse-btn {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 214px;
-  height: 64px;
-  padding-right: 20px !important;
-  outline: none;
-  background-color: $color-background-primary;
-  color: $color-text-tertiary;
-  font-size: 20px;
-  text-align: right;
-  z-index: 1030;
+  &__secondary-collapse-btn {
+    position: fixed;
+    top: 60px;
+    left: #{$nav-pf-vertical-width + 30};
+    width: 40px;
+    height: 48px;
+    z-index: 1032;
+  }
 
-  &:hover,
-  &:active,
-  &:focus,
-  &:active:focus {
-    outline: none;
-    background-color: $color-extra-dark-grey;
-    color: $color-white;
+
+  &__expand-collapse-btn {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: #{$nav-pf-vertical-width + 10};
+    height: 64px;
+    padding-right: 20px !important;
+    z-index: 1030;
   }
 }
 
@@ -333,52 +363,56 @@
 }
 
 .VerticalMenuContainer {
-   .nav-pf-vertical, .nav-pf-secondary-nav, .list-group-item.active > a, .list-group-item > a {
-        background-color: $color-background-primary;
+  .nav-pf-vertical, 
+  .nav-pf-secondary-nav,
+ì .list-group-item.active > a, 
+  .list-group-item > a {
+    background-color: $color-background-primary;
+  }
+
+  .list-group-item.active > a {
+    color: $color-dark-blue;
+  }
+
+  .nav-pf-vertical {
+    .list-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .nav-pf-vertical {
-            
-        .list-group {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+    .list-group-item {
+      border: none;
+
+      a {
+        height: 40px;
+        color: $color-text-tertiary;
+        padding: 0;
+
+        .fa {
+          font-size: 16px;
+          margin: 0;
+        }
+      }
+
+      a, a:focus, a:active, a:hover {
+        background-color: $color-background-primary;
+      }
+
+      &.active {
+        a, a::after {
+          color: $color-light-blue;
         }
 
-        .list-group-item.active a::before {
-            background: $color-dark-blue;
-            left: -2px;
-            border-radius: $radius-s;
-            width: 28px;
-            height: 28px;
-            z-index: -1
+        a::before {
+          background: $color-dark-blue;
+          left: -2px;
+          border-radius: $radius-s;
+          width: 28px;
+          height: 28px;
+          z-index: -1
         }
-
-        .list-group-item {
-            border: none;
-            
-            a {
-                height: 40px;
-                color: $color-text-tertiary;
-                padding: 0;
-
-                .fa {
-                    font-size: 16px;
-                }
-            }
-
-            a:focus, a:active, a:hover, .list-group-item.active>a {
-                background-color: $color-background-primary;
-            }
-        }
-
-        .secondary-nav-item-pf .active {
-            background-color: $color-background-primary;
-        }
-
-        .nav-pf-secondary-nav {
-            left: 40px;
-            border: 1px solid $color-neutral-grey;
-        }
+      }
+      }
     }
 }

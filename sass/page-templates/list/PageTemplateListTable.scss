@@ -18,10 +18,12 @@
 
   .Page_Template_Preview_Content {
     width: 187px;
-    height: 120px;
+    height: fit-content;
+    min-height: 127px;
     background: rgba(240, 246, 255, 1);
     border: 1px solid rgba(204, 224, 255, 1);
     position: relative;
+    
   }
 
   .Page_Template_Preview_Actions {
@@ -55,6 +57,7 @@
     .PageConfigGridCol--frame {
       gap: 2px;
       min-height: 0 !important;
+      padding: 1px;
     }
 
     .EmptyFrame {

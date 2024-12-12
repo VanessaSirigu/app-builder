@@ -11,13 +11,19 @@
         padding-inline: 10px;
     }
 
+    &:focus-within {
+        outline: 1px solid $color-content-07;
+    }
+
     input {
         border: none;
         color: $color-text-tertiary;
         font-size: 14px;
         height: 30px;
-        //@TODO - container outline on focus
 
+        &:focus-visible {
+            outline: none;
+        }
 
         &::placeholder {
             font-style: normal;

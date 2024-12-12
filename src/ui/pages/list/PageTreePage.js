@@ -98,7 +98,7 @@ class PageTreePage extends Component {
             <Col xs={12}>
               <Link to={ROUTE_PAGE_ADD} className="pull-right PageTreePage__save" onClick={() => this.props.onNextStep(6)}>
                 <Button
-                  bsStyle="primary"
+                  bsStyle="link"
                   className="app-tour-step-5"
                   data-testid="button-step-5"
                   onClick={() => this.props.onNextStep(6)}

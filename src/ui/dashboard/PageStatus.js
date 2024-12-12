@@ -34,7 +34,9 @@ class PageStatus extends Component {
       language,
       userPermissions,
       intl,
-      pageStatus: { draft, unpublished, published, lastUpdate },
+      pageStatus: {
+        draft, unpublished, published, lastUpdate,
+      },
     } = this.props;
 
     const msgs = Object.keys(pageStatusMsgs).reduce(
@@ -84,7 +86,7 @@ class PageStatus extends Component {
               ],
               type: 'bar',
               order: (a, b) =>
-                a.id === msgs.published || b.id === msgs.published ? a - b : b - a,
+                (a.id === msgs.published || b.id === msgs.published ? a - b : b - a),
               groups: [[msgs.published, msgs.draft, msgs.unpublished]],
               colors: {
                 [msgs.published]: '#39AC73',
@@ -98,7 +100,7 @@ class PageStatus extends Component {
             tooltip={{
               tooltip: { show: true },
               format: {
-                value: (v) =>
+                value: v =>
                   `${v} ${intl.formatMessage({
                     id: `app.page${v !== 1 ? 's' : ''}`,
                     defaultMessage: v !== 1 ? 'Pages' : 'Page',
