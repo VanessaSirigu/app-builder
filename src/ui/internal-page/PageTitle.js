@@ -20,7 +20,7 @@ const helpIcon = helpId => (
         trigger={['click']}
         rootClose
       >
-        <i className="PageTitle__icon fa pficon-help" />
+        <i className="PageTitle__icon fa fa-info-circle" />
       </OverlayTrigger>
     </span> :
     null
