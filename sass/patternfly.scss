@@ -131,7 +131,7 @@ $fa-square-o: '\f096';
 .btn-primary,
 .btn-primary:active,
 .btn-primary:focus {
-  background-color: $color-primary !important; // sass-lint:disable-line no-important
+  background-color: $color-brand-primary !important; // sass-lint:disable-line no-important
 }
 
 .btn-primary:hover {
@@ -144,10 +144,6 @@ $fa-square-o: '\f096';
 
 .btn-link {
   font-size: 16px;
-
-  &.primary {
-    color: $color-brand-primary;
-  }
 
   &.secondary {
     color: $color-content-3;
