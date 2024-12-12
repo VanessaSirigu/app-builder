@@ -129,7 +129,7 @@ $fa-square-o: '\f096';
 }
 
 .btn {
-  padding: 4px 12px;
+  padding: 4px 8px;
   // border: 0 !important; // sass-lint:disable-line no-important
   background-image: none;
   display: flex;
@@ -146,6 +146,7 @@ $fa-square-o: '\f096';
 .btn-primary:active,
 .btn-primary:focus {
   background-color: $color-brand-primary !important; // sass-lint:disable-line no-important
+  border: 1.5px solid $color-brand-primary;
 }
 
 .btn-primary:hover {
@@ -156,6 +157,8 @@ $fa-square-o: '\f096';
   background-color: $color-primary-dark !important; // sass-lint:disable-line no-important
 }
 
+
+
 .btn-link {
   font-size: 16px;
 
@@ -165,7 +168,7 @@ $fa-square-o: '\f096';
 }
 
 .btn-outlined-primary{
-  border: 1px solid $color-brand-primary;
+  border: 1.5px solid $color-brand-primary;
   border-radius: 4px;
   background-color: #FFF;
   color: $color-brand-primary;
@@ -176,7 +179,7 @@ $fa-square-o: '\f096';
 }
 
 .btn-outlined-secondary{
-  border: 1px solid $color-content-07;
+  border: 1.5px solid $color-content-07;
   border-radius: 4px;
   background-color: #FFF;
   color: $color-primary-text;
