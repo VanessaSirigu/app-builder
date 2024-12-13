@@ -38,22 +38,22 @@ class WidgetFrame extends Component {
       const configMenuItems =
         widgetHasConfig && (configUiName || widgetHasConfigForm)
           ? [
-            <MenuItem
-              key="menu-settings"
-              className="WidgetFrame__settings-btn"
-              onClick={() => onClickSettings && onClickSettings(frameId)}
-            >
-              <FormattedMessage id="app.settings" />
-            </MenuItem>,
-          ]
+              <MenuItem
+                key="menu-settings"
+                className="WidgetFrame__settings-btn"
+                onClick={() => onClickSettings && onClickSettings(frameId)}
+              >
+                <FormattedMessage id="app.settings" />
+              </MenuItem>,
+            ]
           : null;
       const cloneMenuItems =
         widgetHasConfig && configUiName
           ? [
-            <MenuItem
-              key="menu-saveAs"
-              className="WidgetFrame__saveAs-btn"
-              onClick={() =>
+              <MenuItem
+                key="menu-saveAs"
+                className="WidgetFrame__saveAs-btn"
+                onClick={() =>
                   onClickSaveAs &&
                   onClickSaveAs({
                     widgetId,
@@ -62,10 +62,10 @@ class WidgetFrame extends Component {
                     configUiName,
                   })
                 }
-            >
-              <FormattedMessage id="app.saveAs" />
-            </MenuItem>,
-          ]
+              >
+                <FormattedMessage id="app.saveAs" />
+              </MenuItem>,
+            ]
           : null;
 
       actionsMenu = (
@@ -112,9 +112,9 @@ class WidgetFrame extends Component {
     if (isOver) {
       classNameAr.push('WidgetFrame--drag-hover');
     }
-    if (frameIsMainFrame) {
-      classNameAr.push('WidgetFrame--main-frame');
-    }
+    // if (frameIsMainFrame) {
+    //   classNameAr.push('WidgetFrame--main-frame');
+    // }
     switch (widgetStatus) {
       case WIDGET_STATUS_DIFF:
         classNameAr.push('WidgetFrame--status-diff');
@@ -132,6 +132,10 @@ class WidgetFrame extends Component {
         break;
     }
 
+    const mainFrameLabel = frameIsMainFrame ? (
+      <div className="main-frame">Main Frame</div>
+    ) : null;
+
     let component = (
       <div className={classNameAr.join(' ')}>
         <div
@@ -139,16 +143,31 @@ class WidgetFrame extends Component {
           data-testid={`WidgetFrame__${frameName.replace(/\s/g, '_')}`}
         >
           {widgetStatus !== WIDGET_STATUS_MATCH && (
-            <div className="WidgetFrame__frame-name">{frameName}</div>
+            <div className="content-widget">
+              <div />
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <div className="WidgetFrame__frame-name">{frameName}</div>
+                {frameIsMainFrame && (
+                  <div className="main-frame">
+                    <span>Main Frame</span>
+                  </div>
+                )}
+              </div>
+
+              {actionsMenu}
+            </div>
           )}
 
-          {actionsMenu}
           {widgetStatus === WIDGET_STATUS_MATCH && (
-            <div className="WidgetFrame__descriptor">
-              <div className="WidgetIconContainer">
-                <WidgetIcon widgetId={widgetId} />
+            <div className="content-widget">
+              <div />
+              <div className="WidgetFrame__descriptor">
+                <div className="WidgetIconContainer">
+                  <WidgetIcon widgetId={widgetId} />
+                </div>
+                {widgetName}
               </div>
-              {widgetName}
+              {actionsMenu}
             </div>
           )}
         </div>

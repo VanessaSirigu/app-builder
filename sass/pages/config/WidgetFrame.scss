@@ -28,9 +28,30 @@
   }
 
   &__frame-name {
-  position: absolute;
     color: $color-pf-black-400;
-    width: 100%;
+  }
+
+  .content-widget{
+    display: flex;
+    width: fit-content;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    flex:1
+  }
+
+  .main-frame {
+    display: flex;
+    padding: 6px;
+    background-color: $color-brand-primary;
+    color: $color-pf-black-100;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+    border-radius: 4px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
   }
 
 
@@ -106,6 +127,10 @@
 
 .WidgetFrame--status-removed {
   background: $color-pf-black-100;
+
+  .content-widget{
+    justify-content: center;
+  }
 
   .WidgetFrame__content {
     border-color: transparent;
