@@ -13,9 +13,11 @@ import ContentsListCardContainer from 'ui/contents/list-card/ContentListCardCont
 import AppTourContainer from 'ui/app-tour/AppTourContainer';
 
 import { ADMINISTRATION_AREA_PERMISSION } from 'state/permissions/const';
+import HeaderBreadcrumb from 'ui/internal-page/HeaderBreadcrumb';
 
 export const DashboardPageBody = () => (
   <InternalPage className="DashboardPage">
+    <HeaderBreadcrumb breadcrumbs={[{ label: 'menu.dashboard' }]} />
     <CardGrid className="container-fluid">
       <Row>
         <Col md={4}>
