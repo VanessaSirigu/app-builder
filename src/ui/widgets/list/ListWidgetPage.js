@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import InternalPage from 'ui/internal-page/InternalPage';
 import WidgetListTable from 'ui/widgets/list/WidgetListTable';
 import PageTitle from 'ui/internal-page/PageTitle';
-import { Grid, Row, Col, Button, Breadcrumb, Spinner } from 'patternfly-react';
+import HeaderBreadcrumb from 'ui/internal-page/HeaderBreadcrumb';
+import { Grid, Row, Col, Button, Spinner } from 'patternfly-react';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
-import BreadcrumbItem from 'ui/common/BreadcrumbItem';
 import { ROUTE_WIDGET_ADD } from 'app-init/router';
 import DeleteWidgetModalContainer from 'ui/widgets/list/DeleteWidgetModalContainer';
 
@@ -54,19 +54,12 @@ class ListWidgetPage extends Component {
   render() {
     return (
       <InternalPage className="ListWidgetPage">
+        <HeaderBreadcrumb breadcrumbs={[
+          { label: 'menu.uxComponents', active: true },
+          { label: 'menu.uxComponents.widget', active: true },
+          ]}
+        />
         <Grid fluid>
-          <Row>
-            <Col xs={12}>
-              <Breadcrumb>
-                <BreadcrumbItem active>
-                  <FormattedMessage id="menu.uxComponents" />
-                </BreadcrumbItem>
-                <BreadcrumbItem active>
-                  <FormattedMessage id="menu.uxComponents.widget" />
-                </BreadcrumbItem>
-              </Breadcrumb>
-            </Col>
-          </Row>
           <Row>
             <Col xs={12}>
               <PageTitle
