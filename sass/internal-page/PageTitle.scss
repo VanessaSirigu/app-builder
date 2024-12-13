@@ -1,15 +1,28 @@
 .PageTitle {
-  .PageTitle__header {
-    margin-bottom: 20px;
-    border-bottom: 1px solid $color-pf-black-200;
-  }
+  margin-bottom: 20px;
+  font-family: Inter;
+    
+    ::after {
+      content: "";
+      position: absolute;
+      left: -10px;
+      right: -10px;
+      top: 36px;
+      border-bottom: 1px solid $color-neutral-grey;
+    }
 
   .PageTitle__title {
-    font-weight: bold;
+    color: $color-text-secondary;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-block: 10px;
   }
 
   .PageTitle__icon {
-    color: $color-pf-black-500;
+    color: $color-content-05;
     cursor: pointer;
   }
 

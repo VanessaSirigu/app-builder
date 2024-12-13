@@ -9,6 +9,7 @@ import WidgetSectionTitle from 'ui/widgets/list/WidgetSectionTitle';
 import WidgetIcon from 'ui/widgets/common/WidgetIcon';
 import { ROUTE_WIDGET_EDIT } from 'app-init/router';
 import { withPermissionValues } from 'ui/auth/withPermissions';
+import CardList from './CardList';
 
 export const WidgetListTableBody = ({
   title,
@@ -54,44 +55,46 @@ export const WidgetListTableBody = ({
     },
   };
 
+  const Actions = item => (
+    <div data-testid={`${item.code}-actions`}>
+      <DropdownKebab pullRight id={`WidgetListRow-dropdown-${item.code}`}>
+        {item.hasConfig && (
+          <MenuItem
+            className="WidgetListRow__menu-item-addwidget"
+            onClick={() => onNewUserWidget(item.code)}
+          >
+            <FormattedMessage id="widgets.addWidget" />
+          </MenuItem>
+        )}
+        <MenuItem
+          className="WidgetListRow__menu-item-edit"
+          onClick={() => onEdit(item.code)}
+        >
+          <FormattedMessage id="app.edit" />
+        </MenuItem>
+        {!item.locked && item.used === 0 && (
+          <MenuItem
+            className="WidgetListRow__menu-item-delete"
+            onClick={() => onDelete(item.code)}
+          >
+            <FormattedMessage id="app.delete" />
+          </MenuItem>
+        )}
+      </DropdownKebab>
+    </div>
+  );
+
   const columns = columnOrder.map(column => ({ ...columnDefs[column], accessor: column }));
 
   const rowAction = isSuperuser ? ({
     Header: <FormattedMessage id="app.actions" />,
     attributes: { className: 'text-center', style: { width: '10%' } },
     cellAttributes: { className: 'text-center' },
-    Cell: (cellinfo) => {
-      const { values: { code }, original: { locked, hasConfig, used } } = cellinfo;
-      return (
-        <div data-testid={`${code}-actions`}>
-          <DropdownKebab pullRight id={`WidgetListRow-dropdown-${code}`}>
-            {hasConfig && (
-              <MenuItem
-                className="WidgetListRow__menu-item-addwidget"
-                onClick={() => onNewUserWidget(code)}
-              >
-                <FormattedMessage id="widgets.addWidget" />
-              </MenuItem>
-            )}
-            <MenuItem
-              className="WidgetListRow__menu-item-edit"
-              onClick={() => onEdit(code)}
-            >
-              <FormattedMessage id="app.edit" />
-            </MenuItem>
-            {!locked && used === 0 && (
-              <MenuItem
-                className="WidgetListRow__menu-item-delete"
-                onClick={() => onDelete(code)}
-              >
-                <FormattedMessage id="app.delete" />
-              </MenuItem>
-            )}
-          </DropdownKebab>
-        </div>
-      );
-    },
+    Cell: cellinfo => Actions(cellinfo),
   }) : null;
+
+  /* LIST VIEW */
+  /* const newWidgetList = widgetList.map(item => ({ ...item, title: item.titles[locale] })); */
 
   return (
     <div className="WidgetListTable">
@@ -99,6 +102,13 @@ export const WidgetListTableBody = ({
         <WidgetSectionTitle
           title={<FormattedMessage id={`widget.list.section.${title}`} defaultMessage={title} />}
         />
+        {/* LIST VIEW */}
+        {/*
+        <CardList
+          widgetList={newWidgetList}
+          actions={isSuperuser ? Actions : null}
+        />
+        */}
         <DataTable
           columns={columns}
           data={widgetList}
@@ -131,7 +141,7 @@ WidgetListTableBody.propTypes = {
 
 WidgetListTableBody.defaultProps = {
   isSuperuser: true,
-  onSetColumnOrder: () => {},
+  onSetColumnOrder: () => { },
   columnOrder: [],
 };
 

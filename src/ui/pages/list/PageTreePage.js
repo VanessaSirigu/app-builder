@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { Grid, Row, Col, Breadcrumb } from 'patternfly-react';
+import { Grid, Row, Col } from 'patternfly-react';
 import { Link } from 'react-router-dom';
-import BreadcrumbItem from 'ui/common/BreadcrumbItem';
 import InternalPage from 'ui/internal-page/InternalPage';
 import PageTitle from 'ui/internal-page/PageTitle';
 import PageSearchForm from 'ui/pages/list/PageSearchForm';
@@ -15,6 +14,7 @@ import AppTourContainer from 'ui/app-tour/AppTourContainer';
 import { ROUTE_PAGE_ADD } from 'app-init/router';
 import { withPermissionValues } from 'ui/auth/withPermissions';
 import Icon from 'ui/common/Icon';
+import HeaderBreadcrumb from 'ui/internal-page/HeaderBreadcrumb';
 
 
 class PageTreePage extends Component {
@@ -37,19 +37,8 @@ class PageTreePage extends Component {
   render() {
     return (
       <InternalPage className="PageTreePage">
+        <HeaderBreadcrumb breadcrumbs={[{ label: 'menu.pageDesigner', active: true }, { label: 'menu.pageTree', active: true }]} />
         <Grid fluid>
-          <Row>
-            <Col xs={12}>
-              <Breadcrumb>
-                <BreadcrumbItem active>
-                  <FormattedMessage id="menu.pageDesigner" />
-                </BreadcrumbItem>
-                <BreadcrumbItem active>
-                  <FormattedMessage id="menu.pageTree" />
-                </BreadcrumbItem>
-              </Breadcrumb>
-            </Col>
-          </Row>
           <Row>
             <Col xs={12}>
               <PageTitle titleId="menu.pageTree" helpId="pageTreePage.help" data-testid="page-tree" />

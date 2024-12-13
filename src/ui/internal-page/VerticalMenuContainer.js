@@ -182,16 +182,19 @@ const getHeader = onStartTutorial => (
   <Masthead>
     <Brand
       href={`${publicUrl}${ROUTE_DASHBOARD}`}
-      iconImg={`${publicUrl}/images/entando-logo-white.svg`}
+      iconImg={`${publicUrl}/images/logo.svg`}
       img=""
       onClick={null}
     />
-    <VerticalNav.IconBar collapse>
-      <LanguageSelectContainer key="LanguageSelect" />
-      <HomePageLinkContainer key="projectLink" />
-      <InfoMenu key="InfoMenu" onStartTutorial={onStartTutorial} />
-      <UserMenuContainer key="UserMenu" />
-    </VerticalNav.IconBar>
+    <div className="VerticalMenu__headerContainer">
+      <div id="header-breadcrumbs" className="VerticalMenu__headerBreadcrumbs" />
+      <VerticalNav.IconBar collapse>
+        <LanguageSelectContainer key="LanguageSelect" />
+        <HomePageLinkContainer key="projectLink" />
+        <InfoMenu key="InfoMenu" onStartTutorial={onStartTutorial} />
+        <UserMenuContainer key="UserMenu" />
+      </VerticalNav.IconBar>
+    </div>
   </Masthead>);
 
 const EntandoMenu = ({

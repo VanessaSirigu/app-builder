@@ -1,9 +1,15 @@
 // sass-lint:disable class-name-format nesting-depth no-extends
 .DashboardPage {
-
   .card-pf-body {
+    display: flex;
+    align-items: baseline;
+    
     a {
       color: $color-text-tertiary;
+    }
+
+    ::before {
+      padding-right: 5px;
     }
   }
 
