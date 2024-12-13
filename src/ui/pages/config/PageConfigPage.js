@@ -27,6 +27,7 @@ import AppTourContainer from 'ui/app-tour/AppTourContainer';
 import { APP_TOUR_STARTED } from 'state/app-tour/const';
 import { PAGE_STATUS_PUBLISHED, PAGE_STATUS_UNPUBLISHED } from 'state/pages/const';
 import PagesEditFormContainer from 'ui/pages/edit/PagesEditFormContainer';
+import HeaderBreadcrumb from 'ui/internal-page/HeaderBreadcrumb';
 
 const msgs = defineMessages({
   appYes: {
@@ -322,6 +323,12 @@ class PageConfigPage extends Component {
 
     return (
       <InternalPage className="PageConfigPage app-tour-step-12 app-tour-step-14 app-tour-step-15">
+        <HeaderBreadcrumb
+          breadcrumbs={[
+            { label: 'menu.pageDesigner' },
+            { label: 'menu.pageConfig', active: true },
+          ]}
+        />
         <Grid
           fluid
           {...(toolbarCollapsed
