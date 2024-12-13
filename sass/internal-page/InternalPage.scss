@@ -51,7 +51,6 @@
 
 .LanguageSelect {
   position: relative;
-  border: solid $color-pf-black-900;
   border-width: 0 0 0 1px;
 
   &__dropdown {
@@ -59,8 +58,8 @@
     padding-right: 24px;
     border: 0;
     outline: none;
-    background: $color-pf-black;
-    color: $color-pf-black-300;
+    background: $color-background-primary;
+    color: $color-text-tertiary;
     font-size: 11px;
     cursor: pointer;
     appearance: none;
@@ -69,7 +68,7 @@
   &__dropdown-vmenu {
     padding-top: 5px;
     padding-bottom: 5px;
-    background: $color-vmenu-header-bg-grey;
+    background: $color-background-primary;
     font-size: 12px;
   }
 
@@ -208,49 +207,39 @@
 
 .navbar-brand-icon { //sass-lint:disable-line class-name-format
   position: absolute;
-  top: 18px;
+  top: 15px;
   height: 24px;
   left: 8px;
 }
 
 .navbar-iconic { //sass-lint:disable-line class-name-format
+  display: flex;
+  align-items: center;
+
   a.dropdown-toggle { //sass-lint:disable-line class-name-format force-element-nesting no-qualifying-elements
-    margin-top: 5px;
-    background: $color-vmenu-header-bg-grey;
-    color: $color-vmenu-header-text-grey;
-  }
+    background: $color-background-primary;
+    color: $color-text-tertiary;
 
-  a.dropdown-toggle:hover { //sass-lint:disable-line class-name-format force-element-nesting no-qualifying-elements
-    background: $color-vmenu-header-bg-grey;
-    color: $color-white;
-    font-weight: bold;
-  }
-
-  a.dropdown-toggle:focus { //sass-lint:disable-line class-name-format force-element-nesting no-qualifying-elements
-    background: $color-vmenu-header-bg-grey;
-    color: $color-white;
-    font-weight: bold;
+    &:hover, &:focus {
+      background: $color-background-primary;
+      color: $color-text-secondary;
+      font-weight: bold;
+    }
   }
 
   .HomePageLink__link {
-    margin-top: 5px;
-    color: $color-vmenu-header-text-grey;
+    color: $color-text-tertiary;
   }
 
   .HomePageLink__link:hover {
-    background: $color-vmenu-header-bg-grey;
-    color: $color-white;
+    background: $color-background-primary;
+    color: $color-text-secondary;
     font-weight: bold;
   }
 
   .HomePageLink__link:focus {
-    background: $color-vmenu-header-bg-grey;
-    color: $color-white;
+    background: $color-background-primary;
     font-weight: bold;
-  }
-
-  .LanguageSelect {
-    margin-top: 15px;
   }
 }
 
@@ -357,6 +346,10 @@
 
   &__headerBreadcrumbs {
     width: fit-content;
+
+    &__icon {
+      margin-inline: 6px 8px;
+    }
   }
 
   &__headerContainer {
@@ -369,6 +362,8 @@
     .breadcrumb {
       margin: 0;
       padding: 0;
+      display: flex;
+      align-items: center;
 
       &.active {
         color: $color-text-secondary;
