@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Breadcrumb } from 'patternfly-react';
 import BreadcrumbItem from 'ui/common/BreadcrumbItem';
+import Icon from 'ui/common/Icon';
 import { FormattedMessage } from 'react-intl';
 import { createPortal } from 'react-dom';
+import { Breadcrumb } from 'patternfly-react';
 
 const HeaderBreadcrumb = ({ breadcrumbs, ...props }) => {
   const breadcrumbContainer = document.getElementById('header-breadcrumbs');
@@ -12,7 +13,12 @@ const HeaderBreadcrumb = ({ breadcrumbs, ...props }) => {
   return createPortal(
     <Breadcrumb {...props} >
       <BreadcrumbItem>
-        App Builder
+        <Icon
+          src="/images/app-builder-icon.svg"
+          alt="app builder"
+          className="VerticalMenu__headerBreadcrumbs__icon"
+        />
+        <span>App Builder</span>
       </BreadcrumbItem>
       {breadcrumbs.map(({ label, ...rest }) => (
         <BreadcrumbItem key={label} {...rest} >

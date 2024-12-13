@@ -346,6 +346,10 @@
 
   &__headerBreadcrumbs {
     width: fit-content;
+
+    &__icon {
+      margin-inline: 6px 8px;
+    }
   }
 
   &__headerContainer {
@@ -358,6 +362,8 @@
     .breadcrumb {
       margin: 0;
       padding: 0;
+      display: flex;
+      align-items: center;
 
       &.active {
         color: $color-text-secondary;
