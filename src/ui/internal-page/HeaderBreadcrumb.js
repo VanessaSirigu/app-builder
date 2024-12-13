@@ -9,8 +9,8 @@ const HeaderBreadcrumb = ({ breadcrumbs, ...props }) => createPortal(
     <BreadcrumbItem>
       App Builder
     </BreadcrumbItem>
-    {breadcrumbs.map(({ label, ...rest }, i) => (
-      <BreadcrumbItem key={label} active={i === breadcrumbs.length - 1} {...rest} >
+    {breadcrumbs.map(({ label, ...rest }) => (
+      <BreadcrumbItem key={label} {...rest} >
         <FormattedMessage id={label} />
       </BreadcrumbItem>))}
   </Breadcrumb>,

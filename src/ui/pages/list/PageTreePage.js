@@ -37,12 +37,8 @@ class PageTreePage extends Component {
   render() {
     return (
       <InternalPage className="PageTreePage">
+        <HeaderBreadcrumb breadcrumbs={[{ label: 'menu.pageDesigner', active: true }, { label: 'menu.pageTree', active: true }]} />
         <Grid fluid>
-          <Row>
-            <Col xs={12}>
-              <HeaderBreadcrumb breadcrumbs={[{ label: 'menu.pageDesigner' }, { label: 'menu.pageTree' }]} />
-            </Col>
-          </Row>
           <Row>
             <Col xs={12}>
               <PageTitle titleId="menu.pageTree" helpId="pageTreePage.help" data-testid="page-tree" />
