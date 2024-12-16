@@ -129,15 +129,25 @@ $fa-square-o: '\f096';
 }
 
 .btn {
-  padding: 2px 12px;
+  padding: 4px 8px;
   // border: 0 !important; // sass-lint:disable-line no-important
   background-image: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 14px;
+  box-shadow: none;
 }
+
 
 .btn-primary,
 .btn-primary:active,
 .btn-primary:focus {
   background-color: $color-brand-primary !important; // sass-lint:disable-line no-important
+  border: 1.5px solid $color-brand-primary;
+  color: $color-background-icons;
 }
 
 .btn-primary:hover {
@@ -148,11 +158,36 @@ $fa-square-o: '\f096';
   background-color: $color-primary-dark !important; // sass-lint:disable-line no-important
 }
 
+
+
 .btn-link {
   font-size: 16px;
 
   &.secondary {
     color: $color-content-3;
+  }
+}
+
+.btn-outlined-primary{
+  border: 1.5px solid $color-brand-primary;
+  border-radius: 4px;
+  background-color: #FFF;
+  color: $color-brand-primary;
+
+  &:focus{
+    outline: none;
+  }
+}
+
+.btn-outlined-secondary{
+  border: 1.5px solid $color-content-07;
+  border-radius: 4px;
+  background-color: #FFF;
+  color: $color-primary-text;
+  box-shadow: none;
+
+  &:focus{
+    outline: none;
   }
 }
 

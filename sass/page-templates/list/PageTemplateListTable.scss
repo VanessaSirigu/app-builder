@@ -26,6 +26,14 @@
     
   }
 
+  .PageConfigGridRow{
+    border: none;
+  }
+
+  .PageConfigGridRow{
+    border: none;
+  }
+
   .Page_Template_Preview_Actions {
     position: absolute;
     right: 10px
@@ -41,6 +49,14 @@
       gap: 2px;
       height: 100%;
       min-height: 0 !important;
+
+      .PageConfigGridRow{
+        border: none;
+      }
+    
+      .PageConfigGridRow{
+        border: none;
+      }
     }
 
     .PageConfigGridRow {
@@ -50,7 +66,7 @@
     .PageConfigGrid {
       height: 100%;
       border-radius: 4px;
-      background-color: #fff;
+      background-color: #ffffff;
       padding: 4px;
     }
 

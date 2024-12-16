@@ -14,11 +14,26 @@
     border: 1.5px solid $color-brand-primary;
     background: $color-pf-black-200;
   }
+
+  .main-frame {
+    display: flex;
+    margin-left: 10px;
+    padding:  6px;
+    background-color: $color-pf-black-400;
+    color: $color-pf-black-100;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 4px;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+  }
 }
 
 .EmptyFrame--main-frame {
   .EmptyFrame__frame-name:after {
-    display: inline;
+    display: flex;
     margin-left: 10px;
     padding: .2em .6em .3em;
     background-color: $color-pf-black-400;
@@ -32,3 +47,5 @@
     vertical-align: baseline;
   }
 }
+
+
