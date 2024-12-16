@@ -32,6 +32,8 @@
       color: $color-primary-text;
     }
 
+  
+
     &:hover {
       color: $color-primary-text;
     }
@@ -42,6 +44,23 @@
     position: relative;
     height: 100%;
     overflow: auto;
+
+    .btn-default{
+      border: none;
+      outline: none;
+    }
+
+    .btn:hover{
+      background-color: white;
+    }
+
+    .btn-default:focus{
+      box-shadow: none;
+    }
+
+    
+
+
   }
 
   &__tab-main {
@@ -204,6 +223,10 @@
    
 
     .fa {
+      color: $color-black;
+    }
+
+    .fa:hover{
       color: $color-brand-primary;
     }
   }
