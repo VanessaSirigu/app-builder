@@ -104,6 +104,7 @@
     width: 214px;
     border-right: 1px solid $color-neutral-grey;
     padding: 10px 0 0 8px;
+    top: 54px;
 
   .secondary-nav-item-pf > a {
     padding-left: 25px;
@@ -128,6 +129,7 @@
       left: #{$nav-pf-vertical-width * 2};
     }
     & + .VerticalMenu__expand-collapse-btn {
+      justify-content: flex-end;
       text-align: right;
     }
   }
@@ -283,6 +285,7 @@
 .nav-pf-secondary-nav {
   width: #{$nav-pf-vertical-width + 35};
   left: 212px;
+  top: 52px;
 }
 
 .nav-item-pf-header {
