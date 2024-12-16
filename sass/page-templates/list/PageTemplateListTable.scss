@@ -49,6 +49,7 @@
       gap: 2px;
       height: 100%;
       min-height: 0 !important;
+      border: none;
 
       .PageConfigGridRow{
         border: none;
@@ -56,6 +57,10 @@
     
       .PageConfigGridRow{
         border: none;
+
+        span{
+          display: none;
+        }
       }
     }
 
@@ -73,7 +78,7 @@
     .PageConfigGridCol--frame {
       gap: 2px;
       min-height: 0 !important;
-      padding: 1px;
+      padding: 0.5px;
     }
 
     .EmptyFrame {
