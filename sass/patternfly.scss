@@ -147,6 +147,7 @@ $fa-square-o: '\f096';
 .btn-primary:focus {
   background-color: $color-brand-primary !important; // sass-lint:disable-line no-important
   border: 1.5px solid $color-brand-primary;
+  color: $color-background-icons;
 }
 
 .btn-primary:hover {

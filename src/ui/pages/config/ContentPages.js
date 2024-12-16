@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FormattedMessage, injectIntl, intlShape, defineMessages } from 'react-intl';
 import { ROUTE_PAGE_ADD, ROUTE_PAGE_CONFIG } from 'app-init/router';
-import { Spinner, Button } from 'patternfly-react';
+import { Spinner } from 'patternfly-react';
 
 import PageTreeCompact from 'ui/pages/common/PageTreeCompact';
 import DeletePageModalContainer from 'ui/pages/common/DeletePageModalContainer';
 import PublishPageModalContainer from 'ui/pages/common/PublishPageModalContainer';
 import UnpublishPageModalContainer from 'ui/pages/common/UnpublishPageModalContainer';
 import PageListSearchTable from 'ui/pages/list/PageListSearchTable';
+import Button from 'ui/common/Button';
 
 const msgs = defineMessages({
   searchPlaceholder: {
@@ -149,7 +150,7 @@ class ContentPages extends Component {
             to={`${ROUTE_PAGE_ADD}?redirectTo=${ROUTE_PAGE_CONFIG}`}
             className="pull-right"
           >
-            <Button className="ContentPages__pagetree-addbtn">
+            <Button className="ContentPages__pagetree-addbtn btn-primary">
               <FormattedMessage id="app.add" />
             </Button>
           </Link>
