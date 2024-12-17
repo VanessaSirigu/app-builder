@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withPermissionValues } from 'ui/auth/withPermissions';
-import CardItem from './CardItem';
+import CardItem from 'ui/common/CardItem';
 
-const CardList = ({ widgetList, actions }) => (
+const CardList = ({ list, actions }) => (
   <div className="CardList">
-    {widgetList.map(item => (
+    {list.map(item => (
       <CardItem
         title={item.title}
         code={item.code}
@@ -17,7 +17,7 @@ const CardList = ({ widgetList, actions }) => (
 );
 
 CardList.propTypes = {
-  widgetList: PropTypes.arrayOf(PropTypes.shape({
+  list: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     code: PropTypes.string.isRequired,
     used: PropTypes.number.isRequired,

@@ -4,7 +4,7 @@ import { Col, DropdownKebab, MenuItem } from 'patternfly-react';
 import { FormattedMessage } from 'react-intl';
 import WidgetSectionTitle from 'ui/widgets/list/WidgetSectionTitle';
 import { withPermissionValues } from 'ui/auth/withPermissions';
-import CardList from './CardList';
+import CardList from 'ui/common/CardList';
 
 export const WidgetGrid = ({
   title,
@@ -51,7 +51,7 @@ export const WidgetGrid = ({
           title={<FormattedMessage id={`widget.list.section.${title}`} defaultMessage={title} />}
         />
         <CardList
-          widgetList={newWidgetList}
+          list={newWidgetList}
           actions={isSuperuser ? Actions : null}
         />
 
