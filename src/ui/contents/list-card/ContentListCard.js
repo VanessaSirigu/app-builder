@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { /* Paginator, */ DropdownButton, MenuItem } from 'patternfly-react';
+import { Paginator, DropdownButton, MenuItem } from 'patternfly-react';
 import { Clearfix } from 'react-bootstrap';
 import { DataTable } from '@entando/datatable';
 import { formatDate, hasAccess } from '@entando/utils';
@@ -16,7 +16,7 @@ import {
 
 import ViewPermissionNoticeOverlay from 'ui/dashboard/ViewPermissionNoticeOverlay';
 
-// import paginatorMessages from 'ui/common/paginatorMessages';
+import paginatorMessages from 'ui/common/paginatorMessages';
 import Icon from 'ui/common/Icon';
 import StatusBadge from 'ui/pages/common/StatusBadge';
 
@@ -110,18 +110,20 @@ class ContentListCard extends Component {
   render() {
     const {
       intl,
-      // pagination: { page, pageSize: perPage },
+      pagination: { page, pageSize: perPage, totalItems },
       contentTypes,
       onClickAddContent,
       userPermissions,
       contents,
       onSetColumnOrder,
     } = this.props;
-    // const pagination = {
-    //   page,
-    //   perPage,
-    //   perPageOptions: [5, 10, 15],
-    // };
+
+
+    const pagination = {
+      page,
+      perPage,
+      perPageOptions: [5, 10, 15],
+    };
     const renderAddContentButton = hasAccess(
       [SUPERUSER_PERMISSION, CRUD_CONTENTS_PERMISSION, VALIDATE_CONTENTS_PERMISSION],
       userPermissions,
@@ -149,13 +151,13 @@ class ContentListCard extends Component {
       </DropdownButton>
     );
 
-    // const messages = Object.keys(paginatorMessages).reduce(
-    //   (acc, curr) => ({
-    //     ...acc,
-    //     [curr]: intl.formatMessage(paginatorMessages[curr]),
-    //   }),
-    //   {},
-    // );
+    const messages = Object.keys(paginatorMessages).reduce(
+      (acc, curr) => ({
+        ...acc,
+        [curr]: intl.formatMessage(paginatorMessages[curr]),
+      }),
+      {},
+    );
 
     const columns = this.getColumnDefs() || [];
 
@@ -181,14 +183,14 @@ class ContentListCard extends Component {
               }}
             />
           </div>
-          {/* <Paginator
+          <Paginator
             pagination={pagination}
             viewType="table"
             itemCount={totalItems}
             onPageSet={this.changePage}
             onPerPageSelect={this.changePageSize}
             messages={messages}
-          /> */}
+          />
           <Clearfix />
         </ViewPermissionNoticeOverlay>
       </div>

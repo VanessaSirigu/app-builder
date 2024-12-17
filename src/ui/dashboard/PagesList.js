@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'patternfly-react';
+import { Paginator, Button } from 'patternfly-react';
 import { Link } from 'react-router-dom';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import EllipsisWithTooltip from 'react-ellipsis-with-tooltip';
@@ -147,14 +147,14 @@ class PagesList extends Component {
               }}
             />
           </div>
-          {/* <Paginator
+          <Paginator
             pagination={pagination}
             viewType="table"
             itemCount={this.props.totalItems}
             onPageSet={this.changePage}
             onPerPageSelect={this.changePageSize}
             messages={messages}
-          /> */}
+          />
         </ViewPermissionNoticeOverlay>
       </div>
     );
