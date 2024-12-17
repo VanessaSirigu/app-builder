@@ -28,8 +28,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   // eslint-disable-next-line no-unused-vars
   onDidMount: (page = 1, pageSize = 5) => {
-    dispatch(fetchContents({ page: 1, pageSize: 500 }, '?sort=lastModified&direction=DESC', namespace));
-    dispatch(fetchContentTypeListPaged({ page: 1, pageSize: 500 }, '', 'contentTypesTile'));
+    dispatch(fetchContents({ page, pageSize }, '?sort=lastModified&direction=DESC', namespace));
+    dispatch(fetchContentTypeListPaged({ page: 1, pageSize: 0 }, '', 'contentTypesTile'));
   },
   onSetColumnOrder: columnOrder => dispatch(setColumnOrder(columnOrder, 'dashboardContentList')),
   onClickAddContent: (contentType) => {
