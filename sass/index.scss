@@ -8,6 +8,7 @@
 @import 'common/form/FormSectionTitle';
 @import 'common/form/DatePicker';
 @import 'common/form/SearchForm';
+@import 'common/CardList';
 @import 'widgets/common/WidgetForm';
 @import 'widgets/common/WidgetIcon';
 @import 'widgets/common/IconUploader';
@@ -15,7 +16,6 @@
 @import 'widgets/config/WidgetConfigPage';
 @import 'widgets/common/WidgetPage';
 @import 'widgets/list/ListWidgetPage';
-@import 'widgets/list/CardList';
 @import 'widgets/list/WidgetListTable';
 @import 'widgets/list/WidgetListActionToggle';
 @import 'widgets/list/WidgetListRow';
@@ -190,3 +190,4 @@
 @import 'mfe-container/MfeMenuContainer';
 @import 'component-repository/components/ComponentUninstallProcessState';
 @import 'pages/common/StatusBadge';
+
