@@ -4,11 +4,14 @@ import InternalPage from 'ui/internal-page/InternalPage';
 import WidgetListTable from 'ui/widgets/list/WidgetListTable';
 import PageTitle from 'ui/internal-page/PageTitle';
 import HeaderBreadcrumb from 'ui/internal-page/HeaderBreadcrumb';
-import { Grid, Row, Col, Button, Spinner } from 'patternfly-react';
+import { Grid, Row, Col, Spinner } from 'patternfly-react';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { ROUTE_WIDGET_ADD } from 'app-init/router';
 import DeleteWidgetModalContainer from 'ui/widgets/list/DeleteWidgetModalContainer';
+import Icon from 'ui/common/Icon';
+import Button from 'ui/common/Button';
+import WidgetGridView from './WidgetGridView';
 
 class ListWidgetPage extends Component {
   componentWillMount() {
@@ -16,6 +19,7 @@ class ListWidgetPage extends Component {
     if (!columnOrder.length) {
       onSetColumnOrder(['titles', 'code', 'used']);
     }
+    this.setState({ view: 'grid' });
     onWillMount(this.props);
   }
 
@@ -51,13 +55,45 @@ class ListWidgetPage extends Component {
     );
   }
 
+  renderGrid() {
+    const {
+      groupedWidgets,
+      widgetGroupingList,
+      onDelete,
+      onEdit,
+      onNewUserWidget,
+      locale,
+      columnOrder,
+      onSetColumnOrder,
+    } = this.props;
+    return (
+      <Spinner loading={!!this.props.loading}>
+        {
+          widgetGroupingList.map(grouping => (
+            <WidgetGridView
+              key={grouping}
+              title={grouping}
+              widgetList={groupedWidgets[grouping]}
+              columnOrder={columnOrder}
+              onSetColumnOrder={onSetColumnOrder}
+              locale={locale}
+              onDelete={onDelete}
+              onEdit={onEdit}
+              onNewUserWidget={onNewUserWidget}
+            />
+          ))
+        }
+      </Spinner>
+    );
+  }
+
   render() {
     return (
       <InternalPage className="ListWidgetPage">
         <HeaderBreadcrumb breadcrumbs={[
           { label: 'menu.uxComponents', active: true },
           { label: 'menu.uxComponents.widget', active: true },
-          ]}
+        ]}
         />
         <Grid fluid>
           <Row>
@@ -69,21 +105,40 @@ class ListWidgetPage extends Component {
             </Col>
           </Row>
           <Row>
-            <Col xs={12} >
-              {this.renderTable()}
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12}>
+            <Col xs={12} className="ListWidgetPage__button-group">
+              <Button
+                type="button"
+                className="clear secondary pull-right ListWidgetPage__grid"
+                onClick={() => this.setState({ view: 'grid' })}
+                disabled={this.state.view === 'grid'}
+              >
+                <Icon name="table" />
+                Grid
+              </Button>
+              <Button
+                type="button"
+                className="clear secondary pull-right ListWidgetPage__list"
+                onClick={() => this.setState({ view: 'list' })}
+                disabled={this.state.view === 'list'}
+              >
+                <Icon name="list" />
+                List
+              </Button>
               <Button
                 type="button"
                 className="pull-right ListWidgetPage__add"
-                bsStyle="primary"
                 componentClass={Link}
                 to={ROUTE_WIDGET_ADD}
+                bsStyle="primary"
               >
+                <Icon name="plus" />
                 <FormattedMessage id="app.add" />
               </Button>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} >
+              {this.state.view === 'grid' ? this.renderGrid() : this.renderTable()}
             </Col>
           </Row>
           <DeleteWidgetModalContainer />
@@ -107,15 +162,15 @@ ListWidgetPage.propTypes = {
 };
 
 ListWidgetPage.defaultProps = {
-  onWillMount: () => {},
-  onDelete: () => {},
-  onEdit: () => {},
-  onNewUserWidget: () => {},
+  onWillMount: () => { },
+  onDelete: () => { },
+  onEdit: () => { },
+  onNewUserWidget: () => { },
   locale: 'en',
   groupedWidgets: {},
   widgetGroupingList: [],
   loading: false,
-  onSetColumnOrder: () => {},
+  onSetColumnOrder: () => { },
   columnOrder: [],
 };
 

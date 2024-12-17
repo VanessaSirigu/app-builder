@@ -9,7 +9,6 @@ import WidgetSectionTitle from 'ui/widgets/list/WidgetSectionTitle';
 import WidgetIcon from 'ui/widgets/common/WidgetIcon';
 import { ROUTE_WIDGET_EDIT } from 'app-init/router';
 import { withPermissionValues } from 'ui/auth/withPermissions';
-import CardList from './CardList';
 
 export const WidgetListTableBody = ({
   title,
@@ -93,22 +92,12 @@ export const WidgetListTableBody = ({
     Cell: cellinfo => Actions(cellinfo),
   }) : null;
 
-  /* LIST VIEW */
-  /* const newWidgetList = widgetList.map(item => ({ ...item, title: item.titles[locale] })); */
-
   return (
     <div className="WidgetListTable">
       <Col xs={12} className="WidgetListTable__tables">
         <WidgetSectionTitle
           title={<FormattedMessage id={`widget.list.section.${title}`} defaultMessage={title} />}
         />
-        {/* LIST VIEW */}
-        {/*
-        <CardList
-          widgetList={newWidgetList}
-          actions={isSuperuser ? Actions : null}
-        />
-        */}
         <DataTable
           columns={columns}
           data={widgetList}

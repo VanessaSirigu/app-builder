@@ -228,7 +228,7 @@ export class PageSettingsFormBody extends Component {
                 <Button
                   type="submit"
                   value="Submit"
-                  className="clear pull-right"
+                  className="btn-primary pull-right"
                 >
                   <FormattedMessage id="app.save" />
                 </Button>

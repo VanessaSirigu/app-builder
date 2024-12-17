@@ -1,5 +1,14 @@
 .ListWidgetPage {
-  .ListWidgetPage__add {
-    margin: 2em 2em 0 0;
+  .ListWidgetPage__button-group {
+    padding-inline: 30px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 2px;
+
+    .btn {
+      padding-inline: 18px;
+      font-weight: 600;
+    }
  }
 }
