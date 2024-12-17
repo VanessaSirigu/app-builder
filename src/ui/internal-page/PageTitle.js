@@ -48,10 +48,12 @@ const PageTitle = ({
   <div className="PageTitle">
     <div className="PageTitle__header">
       <h1 className="PageTitle__title" data-testid={dataTestId}>
-        <FormattedMessage id={titleId} values={titleParam} />
-        {!hideConfigLink && configIcon(configLink)}
+        <div className="PageTitle__content">
+          <FormattedMessage id={titleId} values={titleParam} />
+          {hideConfigLink && configIcon(configLink)}
+          {children}
+        </div>
         {helpIcon(helpId)}
-        {children}
       </h1>
     </div>
   </div>
