@@ -1,15 +1,21 @@
 .PageTitle {
   margin-bottom: 20px;
   font-family: Inter;
-    
-    ::after {
-      content: "";
-      position: absolute;
-      left: -10px;
-      right: -10px;
-      top: 36px;
-      border-bottom: 1px solid $color-neutral-grey;
+
+  &.max-height {
+      ::after {
+        top: 56px;
+      }
     }
+
+  ::after {
+    content: "";
+    position: absolute;
+    left: -10px;
+    right: -10px;
+    top: 36px;
+    border-bottom: 1px solid $color-neutral-grey;
+  }
 
   .PageTitle__title {
     color: $color-text-secondary;

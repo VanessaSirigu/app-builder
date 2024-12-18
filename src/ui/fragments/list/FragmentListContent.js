@@ -2,18 +2,11 @@ import React from 'react';
 import { Row, Col, Button } from 'patternfly-react';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
-
-import FragmentListTableContainer from 'ui/fragments/list/FragmentListTableContainer';
-import FragmentSearchFormContainer from 'ui/fragments/list/FragmentSearchFormContainer';
 import { ROUTE_FRAGMENT_ADD } from 'app-init/router';
+import FragmentListTableContainer from './FragmentListTableContainer';
 
 const FragmentListContent = () => (
   <div className="FragmentListContent">
-    <Row>
-      <Col xs={6} xsOffset={3}>
-        <FragmentSearchFormContainer />
-      </Col>
-    </Row>
     <Row>
       <FragmentListTableContainer />
     </Row>

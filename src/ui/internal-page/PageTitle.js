@@ -44,8 +44,9 @@ const PageTitle = ({
   hideConfigLink,
   'data-testid': dataTestId,
   children,
+  className,
 }) => (
-  <div className="PageTitle">
+  <div className={`PageTitle${className && ` ${className}`}`}>
     <div className="PageTitle__header">
       <h1 className="PageTitle__title" data-testid={dataTestId}>
         <div className="PageTitle__content">
@@ -56,7 +57,7 @@ const PageTitle = ({
         {helpIcon(helpId)}
       </h1>
     </div>
-  </div>
+  </div >
 );
 
 PageTitle.propTypes = {
@@ -67,6 +68,7 @@ PageTitle.propTypes = {
   titleParam: PropTypes.shape({}),
   'data-testid': PropTypes.string,
   children: PropTypes.node,
+  className: PropTypes.string,
 };
 
 PageTitle.defaultProps = {
@@ -76,6 +78,7 @@ PageTitle.defaultProps = {
   titleParam: {},
   'data-testid': '',
   children: null,
+  className: '',
 };
 
 export default PageTitle;

@@ -82,75 +82,34 @@ export class FragmentSearchFormBody extends Component {
   render() {
     const { intl, widgetTypes, plugins } = this.props;
     return (
-      <form onSubmit={this.onSubmit} className="FragmentSearchForm form-horizontal well">
-        <h3><FormattedMessage id="app.search" /></h3>
-        <FormGroup>
-          <Row>
-            <label className="control-label col-sm-2" htmlFor="code">
-              <FormattedMessage id="fragment.code" />
-            </label>
-            <Col sm={9}>
-              <Field
-                id="fragmentcode"
-                component="input"
-                className="form-control"
-                name="code"
-                placeholder={intl.formatMessage(msgs.codePlaceholder)}
-              />
-            </Col>
-          </Row>
-        </FormGroup>
-        <FormGroup>
-          <Row>
-            <label className="control-label col-sm-2" htmlFor="widgetType">
-              <FormattedMessage id="fragment.form.edit.widgetType" />
-            </label>
-            <Col sm={9}>
-              <Field
-                component="select"
-                className="form-control"
-                name="widgetType"
-              >
-                <option>{intl.formatMessage(msgs.appAll)}</option>
-                {renderSelectOptgroup(widgetTypes, intl)}
-              </Field>
-            </Col>
-          </Row>
-        </FormGroup>
-        <FormGroup>
-          <Row>
-            <label className="control-label col-sm-2" htmlFor="plugin">
-              <FormattedMessage id="fragment.form.edit.plugin" />
-            </label>
-            <Col sm={9}>
-              <Field
-                component="select"
-                className="form-control"
-                name="pluginCode"
-                placeholder={intl.formatMessage(msgs.editPlugin)}
-              >
-                <option value={intl.formatMessage(msgs.appAll)}>
-                  {intl.formatMessage(msgs.appAll)}
-                </option>
-                {plugins.map(plugin =>
-                  <option key={plugin.code} value={plugin.code}>{plugin.title}</option>)}
-              </Field>
-            </Col>
-          </Row>
-        </FormGroup>
-        <FormGroup>
-          <Row>
-            <Col xs={11}>
-              <Button
-                type="submit"
-                bsStyle="primary"
-                className="pull-right"
-              >
-                <FormattedMessage id="app.search" />
-              </Button>
-            </Col>
-          </Row>
-        </FormGroup>
+      <form onSubmit={this.onSubmit} className="FragmentSearchForm">
+        <Field
+          id="fragmentcode"
+          component="input"
+          className="form-control"
+          name="code"
+          placeholder={intl.formatMessage(msgs.codePlaceholder)}
+        />
+        <Field
+          component="select"
+          className="form-control"
+          name="widgetType"
+        >
+          <option>{intl.formatMessage(msgs.appAll)}</option>
+          {renderSelectOptgroup(widgetTypes, intl)}
+        </Field>
+        <Field
+          component="select"
+          className="form-control"
+          name="pluginCode"
+          placeholder={intl.formatMessage(msgs.editPlugin)}
+        >
+          <option value={intl.formatMessage(msgs.appAll)}>
+            {intl.formatMessage(msgs.appAll)}
+          </option>
+          {plugins.map(plugin =>
+            <option key={plugin.code} value={plugin.code}>{plugin.title}</option>)}
+        </Field>
       </form>
     );
   }
@@ -165,7 +124,7 @@ FragmentSearchFormBody.propTypes = {
 };
 
 FragmentSearchFormBody.defaultProps = {
-  onWillMount: () => {},
+  onWillMount: () => { },
   widgetTypes: [],
   plugins: [],
 };

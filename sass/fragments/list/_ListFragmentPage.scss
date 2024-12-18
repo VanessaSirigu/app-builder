@@ -1,3 +1,4 @@
+// sass-lint:disable force-element-nesting, no-qualifying-elements, class-name-format
 .ListFragmentPage {
   .FragmentListTable__table {
     margin: 2em 0 0 0;
@@ -6,7 +7,6 @@
 }
 
 // Bootstrap overrides
-// sass-lint:disable force-element-nesting, no-qualifying-elements, class-name-format
 .ListFragmentPage .nav-tabs > li.ListFragmentPage__header-tab > a {
   height: 57px;
   line-height: 43px;
@@ -30,4 +30,19 @@
   border: 1px solid $color-pf-black-300;
   border-top: 0;
 }
-// sass-lint:enable force-element-nesting, no-qualifying-elements, class-name-format
+
+.ListFragmentPage {
+  &__bnt-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .FragmentSearchForm{
+    display: flex;
+
+    .form-group {
+      margin-bottom: 0;
+    }
+  }
+}
