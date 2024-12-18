@@ -7,6 +7,7 @@
         margin: 0;
         display: grid;
         min-height: 100vh;
+        width: 500px;
 
         .modal-content {
             padding: 32px 24px 24px 24px;
@@ -39,7 +40,7 @@
                 display: flex;
                 flex-direction: column;
                 margin: 0;
-                padding-bottom: 16px;
+                padding-bottom: 8px;
                 row-gap: 8px;
 
                 &>div {
@@ -62,6 +63,7 @@
 
                     &>div:nth-child(2n) {
                         justify-content: flex-end;
+                        width: fit-content;
                     }
                 }
 
