@@ -137,11 +137,13 @@
   &.collapsed {
     width: 40px;
     
-    .list-group-item.secondary-nav-item-pf > a{
-      width: fit-content;
+    .list-group-item.secondary-nav-item-pf {
+      & > a, &.active > a {
+        width: fit-content;
 
-      &:hover {
-       width: fit-content;
+        &:hover {
+          width: fit-content;
+        }
       }
     }
 
