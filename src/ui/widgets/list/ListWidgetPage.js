@@ -23,7 +23,7 @@ class ListWidgetPage extends Component {
     onWillMount(this.props);
   }
 
-  renderTable() {
+  renderContent(type) {
     const {
       groupedWidgets,
       widgetGroupingList,
@@ -38,48 +38,26 @@ class ListWidgetPage extends Component {
       <Spinner loading={!!this.props.loading}>
         {
           widgetGroupingList.map(grouping => (
-            <WidgetListTable
-              key={grouping}
-              title={grouping}
-              widgetList={groupedWidgets[grouping]}
-              columnOrder={columnOrder}
-              onSetColumnOrder={onSetColumnOrder}
-              locale={locale}
-              onDelete={onDelete}
-              onEdit={onEdit}
-              onNewUserWidget={onNewUserWidget}
+            type === 'grid'
+            ? <WidgetGridView
+                key={grouping}
+                title={grouping}
+                widgetList={groupedWidgets[grouping]}
+                locale={locale}
+                onDelete={onDelete}
+                onEdit={onEdit}
+                onNewUserWidget={onNewUserWidget}
             />
-          ))
-        }
-      </Spinner>
-    );
-  }
-
-  renderGrid() {
-    const {
-      groupedWidgets,
-      widgetGroupingList,
-      onDelete,
-      onEdit,
-      onNewUserWidget,
-      locale,
-      columnOrder,
-      onSetColumnOrder,
-    } = this.props;
-    return (
-      <Spinner loading={!!this.props.loading}>
-        {
-          widgetGroupingList.map(grouping => (
-            <WidgetGridView
-              key={grouping}
-              title={grouping}
-              widgetList={groupedWidgets[grouping]}
-              columnOrder={columnOrder}
-              onSetColumnOrder={onSetColumnOrder}
-              locale={locale}
-              onDelete={onDelete}
-              onEdit={onEdit}
-              onNewUserWidget={onNewUserWidget}
+            : <WidgetListTable
+                key={grouping}
+                title={grouping}
+                widgetList={groupedWidgets[grouping]}
+                columnOrder={columnOrder}
+                onSetColumnOrder={onSetColumnOrder}
+                locale={locale}
+                onDelete={onDelete}
+                onEdit={onEdit}
+                onNewUserWidget={onNewUserWidget}
             />
           ))
         }
@@ -138,7 +116,7 @@ class ListWidgetPage extends Component {
           </Row>
           <Row>
             <Col xs={12} >
-              {this.state.view === 'grid' ? this.renderGrid() : this.renderTable()}
+              {this.renderContent(this.state.view)}
             </Col>
           </Row>
           <DeleteWidgetModalContainer />
