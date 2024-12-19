@@ -35,7 +35,7 @@ class PagesList extends Component {
   }
 
   getColumnDefs() {
-    const { columnOrder, language } = this.props;
+    const { columnOrder } = this.props;
 
     const columnDefs = {
       pageModel: {
@@ -174,7 +174,6 @@ PagesList.propTypes = {
   page: PropTypes.number.isRequired,
   pageSize: PropTypes.number.isRequired,
   totalItems: PropTypes.number.isRequired,
-  language: PropTypes.string.isRequired,
   columnOrder: PropTypes.arrayOf(PropTypes.string),
   onSetColumnOrder: PropTypes.func,
 };
