@@ -38,6 +38,13 @@
     gap: 8px;
   }
 
+  .FragmentListContent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-inline: 16px;
+  }
+
   .FragmentSearchForm{
     display: flex;
 
