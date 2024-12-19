@@ -9,6 +9,33 @@
     flex-wrap: wrap;
   }
 
+  .Page_Template_Button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+    border: 1px solid transparent;
+    margin: 0;
+    background-color: transparent;
+
+    &:focus {
+      border: 1px solid #7dc3e8
+    }
+  }
+
+  .Page_Template_Button_Active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+    border: 1px solid transparent;
+    margin: 0;
+    background-color: transparent;
+    border: 1px solid #7dc3e8
+  }
+
   .Page_Template_Preview_Container {
     display: flex;
     flex-direction: column;
@@ -23,14 +50,13 @@
     background: rgba(240, 246, 255, 1);
     border: 1px solid rgba(204, 224, 255, 1);
     position: relative;
-    
   }
 
-  .PageConfigGridRow{
+  .PageConfigGridRow {
     border: none;
   }
 
-  .PageConfigGridRow{
+  .PageConfigGridRow {
     border: none;
   }
 
@@ -51,14 +77,14 @@
       min-height: 0 !important;
       border: none;
 
-      .PageConfigGridRow{
+      .PageConfigGridRow {
         border: none;
       }
-    
-      .PageConfigGridRow{
+
+      .PageConfigGridRow {
         border: none;
 
-        span{
+        span {
           display: none;
         }
       }
@@ -70,6 +96,7 @@
 
     .PageConfigGrid {
       height: 100%;
+      padding: 2px;
       border-radius: 4px;
       background-color: #ffffff;
     }

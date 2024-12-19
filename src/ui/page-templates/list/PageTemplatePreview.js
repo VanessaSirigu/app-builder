@@ -1,26 +1,30 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import PageConfigGrid from 'ui/pages/config/PageConfigGrid';
 import { getCellMap } from 'state/page-templates/helpers';
 
-const PageTemplatePreview = ({ item, actions }) => {
+const PageTemplatePreview = ({
+  item, actions, active, onClick,
+}) => {
   const { descr } = item;
   const cellMap = getCellMap(item);
 
   return (
-    <div className="Page_Template_Preview_Container">
-      <div className="Page_Template_Preview_Content">
-        {actions && (
-          <div className="Page_Template_Preview_Actions">
-            {actions}
+    <Wrapper active={active} onClick={onClick}>
+      <div className="Page_Template_Preview_Container">
+        <div className="Page_Template_Preview_Content">
+          {actions && (
+            <div className="Page_Template_Preview_Actions">
+              {actions}
+            </div>
+          )}
+          <div className="Page_Config_Grid_Container">
+            <PageConfigGrid cellMap={cellMap} />
           </div>
-        )}
-        <div className="Page_Config_Grid_Container">
-          <PageConfigGrid cellMap={cellMap} />
         </div>
+        {descr}
       </div>
-      {descr}
-    </div>
+    </Wrapper>
   );
 };
 
@@ -50,6 +54,26 @@ PageTemplatePreview.propTypes =
       }).isRequired,
     }),
     action: PropTypes.func,
+    active: PropTypes.bool,
+    onClick: PropTypes.func,
   }.isRequired;
 
 export default PageTemplatePreview;
+
+const Wrapper = ({ children, active, onClick }) => {
+  if (!onClick) return <Fragment>{children}</Fragment>;
+  return (
+    <button
+      onClick={onClick}
+      className={`Page_Template_Button${active ? '_Active' : ''}`}
+    >
+      {children}
+    </button>
+  );
+};
+
+Wrapper.propTypes = {
+  children: PropTypes.func.isRequired,
+  active: PropTypes.bool,
+  onClick: PropTypes.func,
+}.isRequired;
