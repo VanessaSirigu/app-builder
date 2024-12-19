@@ -270,6 +270,10 @@
 
     .tab-content {
       display: none;
+
+      .active{
+        padding: 20px;
+      }
     }
   }
   // sass-lint:enable class-name-format force-element-nesting nesting-depth no-qualifying-elements

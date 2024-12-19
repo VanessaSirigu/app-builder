@@ -261,4 +261,57 @@ $fa-square-o: '\f096';
   padding: 6px;
 }
 
+.content-view-pf-pagination{
+  background-color: white;
+
+  .form-group{
+    align-items: center;
+    font-size: 14px;
+
+    .form-control{
+      font-size: 14px;
+    }
+ 
+
+    .dropdown-toggle{
+      background-color: transparent;
+    }
+  } 
+
+}   
+
+.pagination{
+  li > a{
+    border: none;
+    outline: none;
+    vertical-align: middle;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  .disabled{ 
+    a,a:hover{
+      background: none;
+    }
+  }
+
+  li > a:hover{
+    background-color: $color-neutral-grey;
+    box-shadow: none;
+    background: none;
+  }
+
+  li > a.disabled{
+    background: none;
+  }
+
+
+}
+
+
+
 // sass-lint:enable class-name-format

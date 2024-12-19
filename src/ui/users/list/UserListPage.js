@@ -30,8 +30,8 @@ export const UserListPageBody = ({ userPermissions }) => (
           />
         </Col>
       </Row>
-      <Row>
-        <Col xs={6} xsOffset={3}>
+      <Row className="formRow">
+        <Col xs={6}>
           <UserSearchFormContainer />
         </Col>
       </Row>

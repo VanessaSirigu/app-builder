@@ -171,6 +171,7 @@ export default {
     'app.dontSave': 'Non salvare',
     'app.upload': 'Upload',
     'app.search': 'Cerca',
+    'app.searchUser': 'Ricerca utente',
     'app.back': 'Indietro',
     'app.submit': 'Invia',
     'app.fieldsRequired': 'Campi obbligatori',

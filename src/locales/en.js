@@ -173,6 +173,7 @@ export default {
       'Save the current changes? All changes will be lost if you do not save now.',
     'app.upload': 'Upload',
     'app.search': 'Search',
+    'app.searchUser': 'Search Username',
     'app.back': 'Back',
     'app.submit': 'Submit',
     'app.fieldsRequired': 'Required fields',
