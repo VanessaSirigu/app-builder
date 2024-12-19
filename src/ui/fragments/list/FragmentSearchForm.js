@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { reduxForm, Field } from 'redux-form';
-import { FormattedMessage, defineMessages, injectIntl, intlShape } from 'react-intl';
-import { Row, Col, FormGroup, Button } from 'patternfly-react';
+import { defineMessages, injectIntl, intlShape } from 'react-intl';
 
 const msgs = defineMessages({
   codePlaceholder: {

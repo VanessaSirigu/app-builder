@@ -54,34 +54,38 @@ export const WidgetListTableBody = ({
     },
   };
 
-  const Actions = item => (
-    <div data-testid={`${item.code}-actions`}>
-      <DropdownKebab pullRight id={`WidgetListRow-dropdown-${item.code}`}>
-        {item.hasConfig && (
+  const Actions = (item) => {
+    const { values: { code }, original: { used, locked, hasConfig } } = item;
+
+    return (
+      <div data-testid={`${code}-actions`}>
+        <DropdownKebab pullRight id={`WidgetListRow-dropdown-${code}`}>
+          {hasConfig && (
           <MenuItem
             className="WidgetListRow__menu-item-addwidget"
-            onClick={() => onNewUserWidget(item.code)}
+            onClick={() => onNewUserWidget(code)}
           >
             <FormattedMessage id="widgets.addWidget" />
           </MenuItem>
         )}
-        <MenuItem
-          className="WidgetListRow__menu-item-edit"
-          onClick={() => onEdit(item.code)}
-        >
-          <FormattedMessage id="app.edit" />
-        </MenuItem>
-        {!item.locked && item.used === 0 && (
+          <MenuItem
+            className="WidgetListRow__menu-item-edit"
+            onClick={() => onEdit(code)}
+          >
+            <FormattedMessage id="app.edit" />
+          </MenuItem>
+          {!locked && used === 0 && (
           <MenuItem
             className="WidgetListRow__menu-item-delete"
-            onClick={() => onDelete(item.code)}
+            onClick={() => onDelete(code)}
           >
             <FormattedMessage id="app.delete" />
           </MenuItem>
         )}
-      </DropdownKebab>
-    </div>
-  );
+        </DropdownKebab>
+      </div>
+    );
+  };
 
   const columns = columnOrder.map(column => ({ ...columnDefs[column], accessor: column }));
 

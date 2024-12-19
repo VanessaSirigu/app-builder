@@ -1,28 +1,36 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withPermissionValues } from 'ui/auth/withPermissions';
 import CardItem from 'ui/common/CardItem';
 
-const CardList = ({ list, actions }) => (
-  <div className="CardList">
-    {list.map(item => (
-      <CardItem
-        title={item.title}
-        code={item.code}
-        used={item.used}
-        actions={actions(item)}
-      />
+const CardList = ({ list, actions, route }) =>
+  (
+    <div className="CardList">
+      {list.map(item => (
+        <CardItem
+          title={item.title}
+          code={item.code}
+          subtitle={item.subtitle}
+          used={item.used}
+          route={route}
+          actions={actions(item)}
+        />
     ))}
-  </div>
-);
-
+    </div>
+  );
 CardList.propTypes = {
   list: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     code: PropTypes.string.isRequired,
-    used: PropTypes.number.isRequired,
+    subtitle: PropTypes.string,
+    used: PropTypes.number,
   })).isRequired,
-  actions: PropTypes.oneOfType(['func', 'null']).isRequired,
+  actions: PropTypes.func,
+  route: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+  }),
 };
 
 export default withPermissionValues(CardList);

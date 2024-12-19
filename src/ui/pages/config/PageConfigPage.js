@@ -6,7 +6,6 @@ import {
   Grid,
   Row,
   Col,
-  Breadcrumb,
   DropdownButton,
   MenuItem,
   Alert,
@@ -16,7 +15,6 @@ import {
 } from 'patternfly-react';
 import { Panel, Button, ButtonToolbar } from 'react-bootstrap';
 
-import BreadcrumbItem from 'ui/common/BreadcrumbItem';
 import InternalPage from 'ui/internal-page/InternalPage';
 import ErrorsAlertContainer from 'ui/common/form/ErrorsAlertContainer';
 import PageStatusIcon from 'ui/pages/common/PageStatusIcon';

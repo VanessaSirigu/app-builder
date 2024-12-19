@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const EmptyFrame = ({ frameName, frameIsMainFrame, connectDropTarget, isOver }) => {
+const EmptyFrame = ({
+  frameName, frameIsMainFrame, connectDropTarget, isOver,
+}) => {
   const classNameAr = ['EmptyFrame'];
   if (isOver) {
     classNameAr.push('EmptyFrame--drag-hover');
