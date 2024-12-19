@@ -15,17 +15,30 @@
     .nav-tabs{
 
       li > a{
-        border-bottom: 2px;
-        border: none;
+        border-bottom: 2px solid $color-border-gray;
+        border-top: none;
+        border-right: none;
+        border-left: none;        
+        outline:none;
+        font-weight: 500;
+        z-index: 2000;
       }
 
       li > a:hover, a:focus,a:active{
-        border: none;
-
+        outline: none;
+        border-bottom: 2px solid $color-primary;
+        border-top: none;
+        border-right: none;
+        border-left: none;
       }
 
       li.active > a{
-        border-bottom: 2px;
+        border-bottom: 2px solid $color-blue-brand-primary;
+        color: $color-blue-brand-primary;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+
       }
     }
 
