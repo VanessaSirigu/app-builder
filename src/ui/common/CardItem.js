@@ -4,40 +4,48 @@ import { OverlayTrigger, Popover } from 'patternfly-react';
 import { FormattedMessage } from 'react-intl';
 import { withPermissionValues } from 'ui/auth/withPermissions';
 import WidgetIcon from 'ui/widgets/common/WidgetIcon';
-import { ROUTE_WIDGET_EDIT } from 'app-init/router';
 import { routeConverter } from '@entando/utils';
 import { Link } from 'react-router-dom';
 
 const CardItem = ({
   title,
   code,
+  subtitle,
   used,
   actions,
+  route,
 }) => (
   <div className="CardItem">
     {actions && <div className="CardItemActions">{actions}</div>}
     <div className="CardItemIconWrapper">
-      <WidgetIcon widgetId={code} />
+      <WidgetIcon widgetId={code} /> {/* TODO - generic icon */}
     </div>
     <div>
       <div className="CardItemLabel">
-        <Link className="CardItemLink" to={routeConverter(ROUTE_WIDGET_EDIT, { widgetCode: code })}>
-          {title}
-        </Link>
-        <OverlayTrigger
-          placement="top"
-          trigger={['click']}
-          rootClose
-          overlay={
-            <Popover>
-              <FormattedMessage id="app.used" />
-            </Popover>
-          }
-        >
-          <div className="CardItemCounter">{used}</div>
-        </OverlayTrigger>
+        {route ?
+          <Link className="CardItemLink" to={routeConverter(route.url, { [route.type]: code })}>
+            {title}
+          </Link> :
+          <React.Fragment>
+            {title}
+          </React.Fragment>
+        }
+        {used &&
+          <OverlayTrigger
+            placement="top"
+            trigger={['click']}
+            rootClose
+            overlay={
+              <Popover>
+                <FormattedMessage id="app.used" />
+              </Popover>
+            }
+          >
+            <div className="CardItemCounter">{used}</div>
+          </OverlayTrigger>
+        }
       </div>
-      <div className="CardItemCode">{code}</div>
+      <div className="CardItemSubtitle">{subtitle}</div>
     </div>
   </div>
 );
@@ -45,7 +53,13 @@ const CardItem = ({
 CardItem.propTypes = {
   title: PropTypes.string.isRequired,
   code: PropTypes.string.isRequired,
-  used: PropTypes.number.isRequired,
+  subtitle: PropTypes.oneOfType(['string', 'null']).isRequired,
+  used: PropTypes.oneOfType(['number', 'null']).isRequired,
+  route: PropTypes.oneOfType([
+    PropTypes.shape({
+      url: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+    }), 'null']).isRequired,
   actions: PropTypes.oneOfType(['func', 'null']).isRequired,
 };
 

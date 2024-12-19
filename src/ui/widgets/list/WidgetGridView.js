@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Col, DropdownKebab, MenuItem } from 'patternfly-react';
 import { FormattedMessage } from 'react-intl';
 import WidgetSectionTitle from 'ui/widgets/list/WidgetSectionTitle';
 import { withPermissionValues } from 'ui/auth/withPermissions';
+import { ROUTE_WIDGET_EDIT } from 'app-init/router';
 import CardList from 'ui/common/CardList';
 
 export const WidgetGrid = ({
@@ -42,7 +43,9 @@ export const WidgetGrid = ({
     </div>
   );
 
-  const newWidgetList = widgetList.map(item => ({ ...item, title: item.titles[locale] }));
+  const newWidgetList = useMemo(() =>
+    widgetList.map(item => ({ ...item, title: item.titles[locale], subtitle: item.code })), [locale, widgetList]);
+  const route = useMemo(() => ({ url: ROUTE_WIDGET_EDIT, type: 'widgetCode' }), []);
 
   return (
     <div className="WidgetListTable">
@@ -53,6 +56,7 @@ export const WidgetGrid = ({
         <CardList
           list={newWidgetList}
           actions={isSuperuser ? Actions : null}
+          route={route}
         />
 
       </Col>
