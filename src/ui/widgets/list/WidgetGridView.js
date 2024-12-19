@@ -44,7 +44,8 @@ export const WidgetGrid = ({
   );
 
   const newWidgetList = useMemo(() =>
-    widgetList.map(item => ({ ...item, title: item.titles[locale], subtitle: item.code })), [locale, widgetList]);
+    widgetList.map(item => (
+      { ...item, title: item.titles[locale], subtitle: item.code })), [locale, widgetList]);
   const route = useMemo(() => ({ url: ROUTE_WIDGET_EDIT, type: 'widgetCode' }), []);
 
   return (

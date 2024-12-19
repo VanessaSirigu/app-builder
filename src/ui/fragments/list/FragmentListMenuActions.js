@@ -66,6 +66,8 @@ class FragmentListMenuActions extends Component {
   }
 }
 
+export const renderFragmentListMenuActions = props => <FragmentListMenuActions {...props} />;
+
 FragmentListMenuActions.propTypes = {
   onClickDelete: PropTypes.func,
   code: PropTypes.string.isRequired,

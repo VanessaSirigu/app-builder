@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { OverlayTrigger, Popover } from 'patternfly-react';
@@ -53,14 +54,13 @@ const CardItem = ({
 CardItem.propTypes = {
   title: PropTypes.string.isRequired,
   code: PropTypes.string.isRequired,
-  subtitle: PropTypes.oneOfType(['string', 'null']).isRequired,
-  used: PropTypes.oneOfType(['number', 'null']).isRequired,
-  route: PropTypes.oneOfType([
-    PropTypes.shape({
-      url: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
-    }), 'null']).isRequired,
-  actions: PropTypes.oneOfType(['func', 'null']).isRequired,
+  subtitle: PropTypes.string,
+  used: PropTypes.number,
+  actions: PropTypes.func,
+  route: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+  }),
 };
 
 export default withPermissionValues(CardItem);
