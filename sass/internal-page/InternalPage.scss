@@ -180,13 +180,13 @@
   top: 40px;
   bottom: 0;
   left: #{$nav-pf-vertical-width + 15};
-  width: calc(100% - #{$nav-pf-vertical-width} - 15px);
+  width: calc(100% - #{$nav-pf-vertical-width} - 25px);
   padding: 0;
 }
 
 .container-pf-nav-pf-vertical.collapsed-nav { //sass-lint:disable-line class-name-format force-element-nesting
   left: 40px;
-  width: calc(100% - 40px);
+  width: calc(100% - 50px);
 }
 
 .container-pf-nav-pf-vertical.hidden-nav { //sass-lint:disable-line class-name-format force-element-nesting
@@ -361,7 +361,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: calc(100% - 40px);
+    width: calc(100% - 50px);
     float: right;
     
     .breadcrumb {
