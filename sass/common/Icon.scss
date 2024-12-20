@@ -1,0 +1,12 @@
+// sass-lint:disable class-name-format nesting-depth
+.icon__colored-bg {
+  &::before {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: $color-dark-blue;
+  }
+}

@@ -20,7 +20,7 @@ const helpIcon = helpId => (
         trigger={['click']}
         rootClose
       >
-        <i className="PageTitle__icon fa pficon-help" />
+        <i className="PageTitle__icon fa fa-info-circle" />
       </OverlayTrigger>
     </span> :
     null
@@ -43,16 +43,21 @@ const PageTitle = ({
   configLink,
   hideConfigLink,
   'data-testid': dataTestId,
+  children,
+  className,
 }) => (
-  <div className="PageTitle">
+  <div className={`PageTitle${className && ` ${className}`}`}>
     <div className="PageTitle__header">
       <h1 className="PageTitle__title" data-testid={dataTestId}>
-        <FormattedMessage id={titleId} values={titleParam} />
-        {!hideConfigLink && configIcon(configLink)}
+        <div className="PageTitle__content">
+          <FormattedMessage id={titleId} values={titleParam} />
+          {hideConfigLink && configIcon(configLink)}
+          {children}
+        </div>
         {helpIcon(helpId)}
       </h1>
     </div>
-  </div>
+  </div >
 );
 
 PageTitle.propTypes = {
@@ -62,6 +67,8 @@ PageTitle.propTypes = {
   hideConfigLink: PropTypes.bool,
   titleParam: PropTypes.shape({}),
   'data-testid': PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string,
 };
 
 PageTitle.defaultProps = {
@@ -70,6 +77,8 @@ PageTitle.defaultProps = {
   hideConfigLink: false,
   titleParam: {},
   'data-testid': '',
+  children: null,
+  className: '',
 };
 
 export default PageTitle;

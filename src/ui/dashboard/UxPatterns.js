@@ -5,9 +5,9 @@ import {
   CardTitle,
   CardBody,
   AggregateStatusCount,
-  Icon,
   Button,
 } from 'patternfly-react';
+import Icon from 'ui/common/Icon';
 import { hasAccess } from '@entando/utils';
 import { Clearfix } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -34,15 +34,16 @@ class UxPatterns extends Component {
       <Card accented className="UxPatternsCard">
         <ViewPermissionNoticeOverlay viewPermissions={[SUPERUSER_PERMISSION]}>
           <CardTitle>
-            <Icon size="lg" name="object-ungroup" />
+            <Icon size="md" name="object-ungroup" background />
             <FormattedMessage id="menu.uxComponents" />
             {isSuperuser && (
               <Button
-                bsStyle="primary"
-                className="pull-right"
+                bsStyle="link"
+                className="primary pull-right"
                 componentClass={Link}
                 to={ROUTE_WIDGET_ADD}
               >
+                <Icon name="plus" />
                 <FormattedMessage id="app.add" />
               </Button>
             )}
@@ -51,14 +52,15 @@ class UxPatterns extends Component {
           <CardBody>
             <Icon size="lg" name="cube" />
             <AggregateStatusCount>
-              <b>{this.props.widgets}</b>&nbsp;
+              {this.props.widgets}&nbsp;
               <Link to={ROUTE_WIDGET_LIST}>
                 <FormattedMessage id="dashboard.uxComponents.mfeWidgets" />
               </Link>
             </AggregateStatusCount>
             <span className="separator" />
+            <Icon size="lg" name="cube" />
             <AggregateStatusCount>
-              <b>{this.props.pageTemplates}</b>&nbsp;
+              {this.props.pageTemplates}&nbsp;
               <Link to={ROUTE_PAGE_TEMPLATE_LIST}>
                 <FormattedMessage id="dashboard.uxComponents.pageTemplates" />
               </Link>

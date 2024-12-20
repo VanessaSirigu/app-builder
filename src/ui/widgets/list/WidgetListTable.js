@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { Col, DropdownKebab, MenuItem } from 'patternfly-react';
 import { FormattedMessage } from 'react-intl';
 import { DataTable } from '@entando/datatable';
 import { routeConverter } from '@entando/utils';
 import { Link } from 'react-router-dom';
-
 import WidgetSectionTitle from 'ui/widgets/list/WidgetSectionTitle';
 import WidgetIcon from 'ui/widgets/common/WidgetIcon';
 import { ROUTE_WIDGET_EDIT } from 'app-init/router';
@@ -26,7 +24,7 @@ export const WidgetListTableBody = ({
   const nameCell = (cellinfo) => {
     const { row: { original: item } } = cellinfo;
     return (
-      <div className="list-view-pf-left">
+      <div className="titles">
         <WidgetIcon widgetId={item.code} small />
         &nbsp;&nbsp;
         <Link
@@ -42,71 +40,60 @@ export const WidgetListTableBody = ({
   const columnDefs = {
     titles: {
       Header: <FormattedMessage id="app.name" />,
-      attributes: {
-        style: { width: '40%' },
-      },
+      attributes: { style: { width: '40%' } },
       Cell: nameCell,
     },
     code: {
       Header: <FormattedMessage id="app.code" />,
-      attributes: {
-        style: { width: '40%' },
-      },
+      attributes: { style: { width: '40%' } },
     },
     used: {
       Header: <FormattedMessage id="app.used" />,
-      attributes: {
-        className: 'text-center',
-        style: { width: '10%' },
-      },
+      attributes: { className: 'text-center', style: { width: '10%' } },
+      cellAttributes: { className: 'text-center' },
     },
   };
 
-  const columns = columnOrder.map(column => ({
-    ...columnDefs[column],
-    accessor: column,
-  }));
+  const Actions = (item) => {
+    const { values: { code }, original: { used, locked, hasConfig } } = item;
+
+    return (
+      <div data-testid={`${code}-actions`}>
+        <DropdownKebab pullRight id={`WidgetListRow-dropdown-${code}`}>
+          {hasConfig && (
+          <MenuItem
+            className="WidgetListRow__menu-item-addwidget"
+            onClick={() => onNewUserWidget(code)}
+          >
+            <FormattedMessage id="widgets.addWidget" />
+          </MenuItem>
+        )}
+          <MenuItem
+            className="WidgetListRow__menu-item-edit"
+            onClick={() => onEdit(code)}
+          >
+            <FormattedMessage id="app.edit" />
+          </MenuItem>
+          {!locked && used === 0 && (
+          <MenuItem
+            className="WidgetListRow__menu-item-delete"
+            onClick={() => onDelete(code)}
+          >
+            <FormattedMessage id="app.delete" />
+          </MenuItem>
+        )}
+        </DropdownKebab>
+      </div>
+    );
+  };
+
+  const columns = columnOrder.map(column => ({ ...columnDefs[column], accessor: column }));
 
   const rowAction = isSuperuser ? ({
     Header: <FormattedMessage id="app.actions" />,
-    attributes: {
-      className: 'text-center',
-      style: { width: '10%' },
-    },
-    cellAttributes: {
-      className: 'text-center',
-    },
-    Cell: (cellinfo) => {
-      const { values: { code }, original: { locked, hasConfig, used } } = cellinfo;
-      return (
-        <div data-testid={`${code}-actions`}>
-          <DropdownKebab pullRight id={`WidgetListRow-dropdown-${code}`}>
-            {hasConfig && (
-              <MenuItem
-                className="WidgetListRow__menu-item-addwidget"
-                onClick={() => onNewUserWidget(code)}
-              >
-                <FormattedMessage id="widgets.addWidget" />
-              </MenuItem>
-            )}
-            <MenuItem
-              className="WidgetListRow__menu-item-edit"
-              onClick={() => onEdit(code)}
-            >
-              <FormattedMessage id="app.edit" />
-            </MenuItem>
-            {!locked && used === 0 && (
-              <MenuItem
-                className="WidgetListRow__menu-item-delete"
-                onClick={() => onDelete(code)}
-              >
-                <FormattedMessage id="app.delete" />
-              </MenuItem>
-            )}
-          </DropdownKebab>
-        </div>
-      );
-    },
+    attributes: { className: 'text-center', style: { width: '10%' } },
+    cellAttributes: { className: 'text-center' },
+    Cell: cellinfo => Actions(cellinfo),
   }) : null;
 
   return (
@@ -122,9 +109,10 @@ export const WidgetListTableBody = ({
           columnResizable
           onColumnReorder={onSetColumnOrder}
           classNames={{
-            table: 'table-striped table-hover',
-            row: 'WidgetListRow',
-            cell: 'WidgetListRow__td',
+            table: 'WidgetListTable table-hover table-treegrid table-bordered',
+            headerGroup: 'table-header',
+            row: 'table-row',
+            cell: 'table-cell',
           }}
         />
       </Col>
@@ -146,7 +134,7 @@ WidgetListTableBody.propTypes = {
 
 WidgetListTableBody.defaultProps = {
   isSuperuser: true,
-  onSetColumnOrder: () => {},
+  onSetColumnOrder: () => { },
   columnOrder: [],
 };
 

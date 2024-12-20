@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, defineMessages, injectIntl, intlShape } from 'react-intl';
-import { Icon, Grid, Row, Col, Breadcrumb, DropdownButton, MenuItem, Alert, Spinner, Tabs, Tab } from 'patternfly-react';
+import {
+  Icon,
+  Grid,
+  Row,
+  Col,
+  DropdownButton,
+  MenuItem,
+  Alert,
+  Spinner,
+  Tabs,
+  Tab,
+} from 'patternfly-react';
 import { Panel, Button, ButtonToolbar } from 'react-bootstrap';
 
-import BreadcrumbItem from 'ui/common/BreadcrumbItem';
 import InternalPage from 'ui/internal-page/InternalPage';
 import ErrorsAlertContainer from 'ui/common/form/ErrorsAlertContainer';
 import PageStatusIcon from 'ui/pages/common/PageStatusIcon';
@@ -12,9 +22,10 @@ import PageConfigGridContainer from 'ui/pages/config/PageConfigGridContainer';
 import ToolbarPageConfigContainer from 'ui/pages/config/ToolbarPageConfigContainer';
 import SelectedPageInfoTableContainer from 'ui/pages/common/SelectedPageInfoTableContainer';
 import AppTourContainer from 'ui/app-tour/AppTourContainer';
+import PagesEditFormContainer from 'ui/pages/edit/PagesEditFormContainer';
+import HeaderBreadcrumb from 'ui/internal-page/HeaderBreadcrumb';
 import { APP_TOUR_STARTED } from 'state/app-tour/const';
 import { PAGE_STATUS_PUBLISHED, PAGE_STATUS_UNPUBLISHED } from 'state/pages/const';
-import PagesEditFormContainer from 'ui/pages/edit/PagesEditFormContainer';
 
 const msgs = defineMessages({
   appYes: {
@@ -60,9 +71,8 @@ class PageConfigPage extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.pageStatus !== 'draft') {
       this.setState({
-        statusChange: (nextProps.pageStatus !== this.props.pageStatus) ?
-          nextProps.pageStatus :
-          null,
+        statusChange:
+          nextProps.pageStatus !== this.props.pageStatus ? nextProps.pageStatus : null,
       });
     }
     const { match, onWillMount } = this.props;
@@ -101,7 +111,7 @@ class PageConfigPage extends Component {
         const { onSettingsCancel } = this.props;
         onSettingsCancel();
       }
-      return ({ editingSettings: !editingSettings });
+      return { editingSettings: !editingSettings };
     });
   }
 
@@ -112,37 +122,31 @@ class PageConfigPage extends Component {
   }
 
   renderPageHeader() {
-    const {
-      pageName, pageStatus, pageDiffersFromPublished,
-    } = this.props;
+    const { pageName, pageStatus, pageDiffersFromPublished } = this.props;
 
-    const statusMessage = this.state.statusChange ?
-      (
-        <Alert type="info" onDismiss={this.removeStatusAlert}>
-          <FormattedMessage
-            id={`pageSettings.status.${this.state.statusChange}`}
-            values={{ page: pageName }}
-          />
-        </Alert>
-      ) :
-      null;
+    const statusMessage = this.state.statusChange ? (
+      <Alert type="info" onDismiss={this.removeStatusAlert}>
+        <FormattedMessage
+          id={`pageSettings.status.${this.state.statusChange}`}
+          values={{ page: pageName }}
+        />
+      </Alert>
+    ) : null;
 
     return (
       <div>
-        <h1 className="PageConfigPage__title">
+        <div className="PageConfigPage__title_container">
           <PageStatusIcon
             status={pageStatus}
             differsFromPublished={pageDiffersFromPublished}
           />
-          {pageName}
-        </h1>
+          <h1 className="PageConfigPage__title">{pageName}</h1>
+        </div>
 
         <ErrorsAlertContainer />
 
         <Row>
-          <Col xs={12}>
-            {statusMessage}
-          </Col>
+          <Col xs={12}>{statusMessage}</Col>
         </Row>
       </div>
     );
@@ -150,8 +154,14 @@ class PageConfigPage extends Component {
 
   renderActionBar(tab) {
     const {
-      intl, pageDiffersFromPublished, restoreConfig, previewUri, pageStatus,
-      onClickSaveSettings, pageSettingsButtonInvalid, pageSettingsButtonSubmitting,
+      intl,
+      pageDiffersFromPublished,
+      restoreConfig,
+      previewUri,
+      pageStatus,
+      onClickSaveSettings,
+      pageSettingsButtonInvalid,
+      pageSettingsButtonSubmitting,
       selectedPageForm,
     } = this.props;
 
@@ -163,24 +173,22 @@ class PageConfigPage extends Component {
             <Button
               className={[
                 'btn',
-                'btn-primary',
+                'btn-outlined-secondary',
                 'PageConfigPage__info-btn',
                 'PageConfigPage__btn-icon',
               ].join(' ')}
               bsStyle="default"
               onClick={this.toggleInfoTable}
             >
-              <span>
-                <Icon
-                  name={this.state.infoTableOpen ? 'angle-down' : 'angle-right'}
-                  className="PageConfigPage__btn-icon--svg"
-                />
-                <FormattedMessage id="app.info" />
-              </span>
+              <FormattedMessage id="app.info" />
+              <Icon
+                name={this.state.infoTableOpen ? 'angle-down' : 'angle-right'}
+                className="PageConfigPage__btn-icon--svg"
+              />
             </Button>
           </ButtonToolbar>
           <ButtonToolbar className="pull-right">
-            {tab === 'settings' ?
+            {tab === 'settings' ? (
               <React.Fragment>
                 <Button
                   className={[
@@ -191,76 +199,78 @@ class PageConfigPage extends Component {
                   onClick={this.toggleEditingSettings}
                 >
                   <span>
-                    <FormattedMessage id={`${editingSettings ? 'app.cancel' : 'app.edit'}`} />
+                    <FormattedMessage
+                      id={`${editingSettings ? 'app.cancel' : 'app.edit'}`}
+                    />
                   </span>
                 </Button>
-                {
-                  editingSettings && (
-                    <Button
-                      className={[
-                        'PageConfigPage__btn-icon--right',
-                        'btn',
-                        'btn-primary',
-                      ].join(' ')}
-                      onClick={() => onClickSaveSettings(selectedPageForm)}
-                      disabled={pageSettingsButtonInvalid || pageSettingsButtonSubmitting}
-                    >
-                      <span>
-                        <FormattedMessage id="app.save" />
-                      </span>
-                    </Button>
-                  )
-                }
-              </React.Fragment>
-              : (
-                <div>
+                {editingSettings && (
                   <Button
                     className={[
                       'PageConfigPage__btn-icon--right',
                       'btn',
-                      'btn-default',
+                      'btn-outlined-primary',
                     ].join(' ')}
-                    onClick={restoreConfig}
-                    disabled={!pageDiffersFromPublished}
+                    onClick={() => onClickSaveSettings(selectedPageForm)}
+                    disabled={pageSettingsButtonInvalid || pageSettingsButtonSubmitting}
                   >
                     <span>
-                      <FormattedMessage id="app.restore" />
-                      <Icon name="undo" className="PageConfigPage__btn-icon--svg-right" />
+                      <FormattedMessage id="app.save" />
                     </span>
                   </Button>
+                )}
+              </React.Fragment>
+            ) : (
+              <div>
+                <Button
+                  className={[
+                    'PageConfigPage__btn-icon--right',
+                    'btn',
+                    'btn-outlined-secondary',
+                  ].join(' ')}
+                  onClick={restoreConfig}
+                  disabled={!pageDiffersFromPublished}
+                >
+                  <span>
+                    <FormattedMessage id="app.restore" />
+                    <Icon name="undo" className="PageConfigPage__btn-icon--svg-right" />
+                  </span>
+                </Button>
 
-                  <a
-                    href={previewUri}
-                    title={intl.formatMessage(msgs.appPreview)}
-                    className={[
-                      'btn',
-                      'btn-primary',
-                      'PageConfigPage__btn--addml',
-                      'app-tour-step-19',
-                    ].join(' ')}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FormattedMessage id="app.preview" />
-                  </a>
-                  <Button
-                    title={intl.formatMessage(msgs.viewPublishedPage)}
-                    className={[
-                      'btn',
-                      pageStatus === PAGE_STATUS_UNPUBLISHED ? 'btn-default' : 'btn-primary',
-                      'PageConfigPage__btn--viewPublishedPage',
-                    ].join(' ')}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    disabled={pageStatus === PAGE_STATUS_UNPUBLISHED}
-                    onClick={this.openLinkPublishedPage}
-                  >
-                    <span>
-                      <FormattedMessage id="pageTree.viewPublishedPage" />
-                    </span>
-                  </Button>
-                </div>
-              )}
+                <a
+                  href={previewUri}
+                  title={intl.formatMessage(msgs.appPreview)}
+                  className={[
+                    'btn',
+                    'btn-outlined-primary',
+                    'PageConfigPage__btn--addml',
+                    'app-tour-step-19',
+                  ].join(' ')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FormattedMessage id="app.preview" />
+                </a>
+                <Button
+                  title={intl.formatMessage(msgs.viewPublishedPage)}
+                  className={[
+                    'btn',
+                    pageStatus === PAGE_STATUS_UNPUBLISHED
+                      ? 'btn-outlined-secondary'
+                      : 'btn-primary',
+                    'PageConfigPage__btn--viewPublishedPage',
+                  ].join(' ')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  disabled={pageStatus === PAGE_STATUS_UNPUBLISHED}
+                  onClick={this.openLinkPublishedPage}
+                >
+                  <span>
+                    <FormattedMessage id="pageTree.viewPublishedPage" />
+                  </span>
+                </Button>
+              </div>
+            )}
           </ButtonToolbar>
         </Col>
       </Row>
@@ -269,9 +279,16 @@ class PageConfigPage extends Component {
 
   render() {
     const {
-      intl, pageIsOnTheFly, isOnTheFlyEnabled,
-      setSelectedPageOnTheFly, pageIsPublished, publishPage, unpublishPage,
-      applyDefaultConfig, pageConfigMatchesDefault, appTourProgress,
+      intl,
+      pageIsOnTheFly,
+      isOnTheFlyEnabled,
+      setSelectedPageOnTheFly,
+      pageIsPublished,
+      publishPage,
+      unpublishPage,
+      applyDefaultConfig,
+      pageConfigMatchesDefault,
+      appTourProgress,
       match,
     } = this.props;
     const { editingSettings, toolbarCollapsed } = this.state;
@@ -282,17 +299,19 @@ class PageConfigPage extends Component {
     let defaultConfigBtn;
     if (pageConfigMatchesDefault) {
       defaultConfigBtn = (
-        <div>
-          <span className="PageConfigPage__default-applied-label">
-            <FormattedMessage id="pageConfig.defaultWidgetApplied" />
-          </span>
-          <i className="PageConfigPage__default-applied-icon fa fa-check-circle-o" />
-        </div>
+        <Button disabled>
+          <div>
+            <span className="PageConfigPage__default-applied-label">
+              <FormattedMessage id="pageConfig.defaultWidgetApplied" />
+            </span>
+            <i className="PageConfigPage__default-applied-icon fa fa-check-circle-o" />
+          </div>
+        </Button>
       );
     } else {
       defaultConfigBtn = (
         <Button
-          className="PageConfigPage__apply-default-btn btn-entando-apply"
+          className="PageConfigPage__apply-default-btn btn-outlined-secondary"
           onClick={applyDefaultConfig}
         >
           <FormattedMessage id="pageConfig.applyDefaultWidget" />
@@ -302,27 +321,34 @@ class PageConfigPage extends Component {
 
     return (
       <InternalPage className="PageConfigPage app-tour-step-12 app-tour-step-14 app-tour-step-15">
-        <Grid fluid {...(toolbarCollapsed ? { className: 'PageConfigPage__side-widget--collapsed' } : {})}>
+        <HeaderBreadcrumb
+          breadcrumbs={[
+            { label: 'menu.pageDesigner' },
+            { label: 'menu.pageConfig', active: true },
+          ]}
+        />
+        <Grid
+          fluid
+          {...(toolbarCollapsed
+            ? { className: 'PageConfigPage__side-widget--collapsed' }
+            : {})}
+        >
           <Row>
             <Col
               className="PageConfigPage__main"
               xs={toolbarCollapsed ? 12 : 8}
               lg={toolbarCollapsed ? 12 : 9}
             >
-              <Breadcrumb>
-                <BreadcrumbItem>
-                  <FormattedMessage id="menu.pageDesigner" />
-                </BreadcrumbItem>
-                <BreadcrumbItem active>
-                  <FormattedMessage id="menu.pageConfig" />
-                </BreadcrumbItem>
-              </Breadcrumb>
-
               <Tabs id="basic-tabs" defaultActiveKey={1} className="PageConfigPage__tabs">
-                <Tab eventKey={1} title={<FormattedMessage id="pages.designer.tabDesigner" />} >
+                <Tab
+                  eventKey={1}
+                  title={<FormattedMessage id="pages.designer.tabDesigner" />}
+                >
                   <div>
-                    {this.renderPageHeader()}
-                    {this.renderActionBar()}
+                    <div className="PageConfigPage__tabHeader">
+                      {this.renderPageHeader()}
+                      {this.renderActionBar()}
+                    </div>
                     <Panel
                       className="PageConfigPage__info-panel"
                       id="collapsible-info-table"
@@ -338,10 +364,15 @@ class PageConfigPage extends Component {
                     </Spinner>
                   </div>
                 </Tab>
-                <Tab eventKey={2} title={<FormattedMessage id="pages.designer.tabPageSettings" />}>
+                <Tab
+                  eventKey={2}
+                  title={<FormattedMessage id="pages.designer.tabPageSettings" />}
+                >
                   <div>
-                    {this.renderPageHeader()}
-                    {this.renderActionBar('settings')}
+                    <div className="PageConfigPage__tabHeader">
+                      {this.renderPageHeader()}
+                      {this.renderActionBar('settings')}
+                    </div>
                     <PagesEditFormContainer
                       key={(match.params || {}).pageCode}
                       readOnly={!editingSettings}
@@ -352,44 +383,51 @@ class PageConfigPage extends Component {
                 </Tab>
               </Tabs>
 
-
               <Row className="PageConfigPage__toolbar-row PageConfigPage__bottom-options">
                 <Col
                   xs={toolbarCollapsed ? 12 : 8}
                   lg={toolbarCollapsed ? 12 : 9}
                   className="PageConfigPage__bottom-options--tbar"
                 >
-                  <ButtonToolbar className="pull-left">
-                    {defaultConfigBtn}
-                  </ButtonToolbar>
+                  <div className="left-btn-group">
+                    <ButtonToolbar className="pull-left">
+                      {defaultConfigBtn}
+                    </ButtonToolbar>
+                    <div className="dropdown-btn-title">
+                      <label className="PageConfigPage__on-the-fly-label">
+                        <FormattedMessage id="pageConfig.onTheFlyPage" />
+                      </label>
+                      <DropdownButton
+                        id="dropdown-on-the-fly"
+                        className="btn-outlined-secondary"
+                        title={pageIsOnTheFly ? TRANSLATED_YES : TRANSLATED_NO}
+                        pullRight
+                        disabled={!isOnTheFlyEnabled}
+                      >
+                        <MenuItem
+                          eventKey="1"
+                          className="PageConfigPage__on-the-fly-yes"
+                          onClick={() =>
+                            setSelectedPageOnTheFly && setSelectedPageOnTheFly(true)
+                          }
+                        >
+                          {TRANSLATED_YES}
+                        </MenuItem>
+                        <MenuItem
+                          eventKey="2"
+                          className="PageConfigPage__on-the-fly-no"
+                          onClick={() =>
+                            setSelectedPageOnTheFly && setSelectedPageOnTheFly(false)
+                          }
+                        >
+                          {TRANSLATED_NO}
+                        </MenuItem>
+                      </DropdownButton>
+                    </div>
+                  </div>
                   <div className="pull-right PageConfigPage__publishing">
-                    <label className="PageConfigPage__on-the-fly-label">
-                      <FormattedMessage id="pageConfig.onTheFlyPage" />
-                    </label>
-                    <DropdownButton
-                      id="dropdown-on-the-fly"
-                      bsStyle="default"
-                      title={pageIsOnTheFly ? TRANSLATED_YES : TRANSLATED_NO}
-                      pullRight
-                      disabled={!isOnTheFlyEnabled}
-                    >
-                      <MenuItem
-                        eventKey="1"
-                        className="PageConfigPage__on-the-fly-yes"
-                        onClick={() => setSelectedPageOnTheFly && setSelectedPageOnTheFly(true)}
-                      >
-                        {TRANSLATED_YES}
-                      </MenuItem>
-                      <MenuItem
-                        eventKey="2"
-                        className="PageConfigPage__on-the-fly-no"
-                        onClick={() => setSelectedPageOnTheFly && setSelectedPageOnTheFly(false)}
-                      >
-                        {TRANSLATED_NO}
-                      </MenuItem>
-                    </DropdownButton>
                     <Button
-                      className="PageConfigPage__unpublish-btn"
+                      className="PageConfigPage__unpublish-btn btn-outlined-secondary"
                       bsStyle="default"
                       onClick={unpublishPage}
                       disabled={!pageIsPublished}

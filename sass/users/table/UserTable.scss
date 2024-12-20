@@ -1,0 +1,63 @@
+.UserTable {
+margin: 0;
+
+  .UserTableWrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: scroll;
+    max-height: 390px;
+    border-top: 1px solid $color-border-grey;
+    border-bottom: 1px solid $color-border-grey;
+
+  }
+
+  .table-bordered {
+    border: $color-border-grey solid 1px;
+    margin: 0;
+  }
+
+  .table-header {
+    background-color: #fff;
+
+    td {
+      border-left: 0;
+      border-right: 0;
+    }
+
+    .columnResizer {
+      border-bottom: 1px solid $color-border-grey;
+    }
+
+    th {
+      padding: 16px;
+      border-left: 0;
+      border-right: 0;
+      border-color: $color-border-grey;
+    }
+  }
+
+  .table-row {
+    td {
+      border: 1px solid $color-border-grey;
+      border-left: 0;
+      border-right: 0;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 10px;
+    }
+
+    .colForResize {
+      border-left: 1px solid transparent;
+      border-right: 1px solid transparent;
+      border-bottom: 1px solid $color-border-grey;
+    }
+  }
+
+  .table-cell {
+    padding: 16px;
+    border-left: 0;
+    border-right: 0;
+  }
+
+}

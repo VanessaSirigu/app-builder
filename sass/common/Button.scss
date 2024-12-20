@@ -1,0 +1,30 @@
+.Button {
+    border-radius: $spacing-8;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Inter;
+    padding-inline: 16px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    .btn-primary,
+    .btn-primary:active,
+    .btn-primary:focus {
+        background-color: $color-brand-primary;
+        border: none;
+    }
+
+    &.clear {
+        background-color: transparent;
+        border: none;
+        
+        &:not(.secondary) {
+            color: $color-brand-primary;
+        }
+
+        &.secondary {
+            color: $color-text-secondary;
+        }
+    }
+}

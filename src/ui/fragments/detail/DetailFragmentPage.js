@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { Grid, Breadcrumb, Row, Col } from 'patternfly-react';
+import { Grid, Row, Col } from 'patternfly-react';
 
-import BreadcrumbItem from 'ui/common/BreadcrumbItem';
 import PageTitle from 'ui/internal-page/PageTitle';
 import InternalPage from 'ui/internal-page/InternalPage';
 import DetailFragmentTable from 'ui/fragments/detail/DetailFragmentTable';
 import FragmentReferenceTable from 'ui/fragments/detail/FragmentReferenceTable';
 import PageTemplateReferenceTable from 'ui/fragments/detail/PageTemplateReferenceTable';
+import HeaderBreadcrumb from 'ui/internal-page/HeaderBreadcrumb';
 import WidgetTypeReferenceTable from 'ui/fragments/detail/WidgetTypeReferenceTable';
 import { ROUTE_FRAGMENT_LIST } from 'app-init/router';
 
@@ -19,22 +19,13 @@ class DetailFragmentPage extends Component {
   render() {
     return (
       <InternalPage className="DetailFragmentPage">
+        <HeaderBreadcrumb breadcrumbs={[
+          { label: 'menu.uxComponents' },
+          { label: 'menu.fragments', to: ROUTE_FRAGMENT_LIST },
+          { label: 'fragment.detail.title', active: true },
+        ]}
+        />
         <Grid fluid>
-          <Row>
-            <Col xs={12}>
-              <Breadcrumb>
-                <BreadcrumbItem>
-                  <FormattedMessage id="menu.uxComponents" />
-                </BreadcrumbItem>
-                <BreadcrumbItem to={ROUTE_FRAGMENT_LIST}>
-                  <FormattedMessage id="menu.uxComponents.fragment" />
-                </BreadcrumbItem>
-                <BreadcrumbItem active>
-                  <FormattedMessage id="fragment.detail.title" />
-                </BreadcrumbItem>
-              </Breadcrumb>
-            </Col>
-          </Row>
           <PageTitle
             titleId="fragment.detail.title"
             helpId="fragment.help"

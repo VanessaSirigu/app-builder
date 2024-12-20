@@ -1,5 +1,7 @@
 // sass-lint:disable class-name-format nesting-depth
 .UserRestrictionsPage {
+  font-family: Inter;
+
   .form-horizontal {
     .control-label {
       text-align: left;
@@ -12,6 +14,10 @@
 
     .AppendedLabel {
       margin-left: 5px;
+    }
+
+    .btn-primary {
+      padding-inline: 16px;
     }
   }
 }

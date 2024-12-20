@@ -65,7 +65,7 @@
     }
 
     h1 {
-      font-family: Open Sans;
+      font-family: Inter;
       font-size: 18px;
       font-style: normal;
       font-weight: 600;
@@ -75,7 +75,7 @@
 
   &__component-category {
     color: $color-ecr-component-date;
-    font-family: Open Sans;
+    font-family: Inter;
     font-size: 14px;
     font-style: normal;
     font-weight: normal;
@@ -147,7 +147,7 @@
     border: 1px solid $color-ecr-component-installed-button-border;
     background-color: $color-ecr-component-installed-button;
     color: $color-white;
-    font-family: Open Sans;
+    font-family: Inter;
     font-size: 12px;
     font-style: normal;
     font-weight: 600;
@@ -170,7 +170,7 @@
   &__description {
     padding-top: 5px;
     color: $color-ecr-component-text-grey;
-    font-family: Open Sans;
+    font-family: Inter;
     font-size: 12px;
     line-height: 20px;
   }
