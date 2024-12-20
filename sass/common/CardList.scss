@@ -1,8 +1,11 @@
 .CardList {
     display: grid;
+    grid-auto-flow: row;
     gap: 10px;
     padding: 20px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 320px));
+    grid-auto-rows: 1fr;
+    justify-content: space-between;
     background: rgba(249, 250, 251, 1);
 }
 
@@ -44,8 +47,12 @@
   align-items: center
 }
 
-.CardItemLink {
+.CardItemTitle {
   color: $color-brand-primary;
+  width: calc(100% - 10px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 16px;
   font-weight: 500;
 }

@@ -22,7 +22,7 @@ export const mapStateToProps = state => (
 );
 
 export const mapDispatchToProps = dispatch => ({
-  onWillMount: (page = { page: 1, pageSize: 10 }, params) => {
+  onWillMount: (page = { page: 1, pageSize: 40 }, params) => {
     dispatch(fetchFragments(page, params));
   },
   onClickDelete: (fragment) => {

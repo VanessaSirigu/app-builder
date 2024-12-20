@@ -12,6 +12,7 @@ const CardList = ({ list, actions, route }) =>
           title={item.title}
           code={item.code}
           subtitle={item.subtitle}
+          description={item.description}
           used={item.used}
           route={route}
           actions={actions(item)}

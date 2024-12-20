@@ -3,7 +3,7 @@ import { Row, Col, Button } from 'patternfly-react';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { ROUTE_FRAGMENT_ADD } from 'app-init/router';
-import FragmentListTableContainer from 'ui/fragments/list/FragmentListTableContainer';
+// import FragmentListTableContainer from 'ui/fragments/list/FragmentListTableContainer';
 import FragmentGridContainer from 'ui/fragments/list/FragmentGridContainer ';
 
 const FragmentListContent = () => (
@@ -13,7 +13,7 @@ const FragmentListContent = () => (
         <FragmentGridContainer />
       </Col>
     </Row>
-    <FragmentListTableContainer />
+    {/* <FragmentListTableContainer /> */}
     <Link to={ROUTE_FRAGMENT_ADD}>
       <Button
         type="button"

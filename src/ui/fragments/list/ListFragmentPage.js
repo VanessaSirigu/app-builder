@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Row } from 'patternfly-react';
+import { Grid, Row, Col } from 'patternfly-react';
 import { FormattedMessage } from 'react-intl';
 import HeaderBreadcrumb from 'ui/internal-page/HeaderBreadcrumb';
 import InternalPage from 'ui/internal-page/InternalPage';
@@ -44,15 +44,21 @@ export class ListFragmentPageBody extends Component {
         ]}
         />
         <Grid fluid>
-          <PageTitle
-            titleId="fragment.list.title"
-            helpId="fragment.help"
-            className="max-height"
-          >
-            <div className="ListFragmentPage__search-container">
-              <FragmentSearchFormContainer />
-            </div>
-          </PageTitle>
+          <Row>
+            <Col xs={12}>
+              <PageTitle
+                titleId="fragment.list.title"
+                helpId="fragment.help"
+                className="max-height"
+              >
+                <Col xs={4}>
+                  <div className="ListFragmentPage__search-container">
+                    <FragmentSearchFormContainer />
+                  </div>
+                </Col>
+              </PageTitle>
+            </Col>
+          </Row>
           <Row >
             <div className="ListFragmentPage__bnt-container">
               <Button

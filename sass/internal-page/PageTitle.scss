@@ -3,17 +3,22 @@
   font-family: Inter;
 
   &.max-height {
-      ::after {
-        top: 56px;
-      }
+    ::after {
+      top: 56px;
     }
+  }
 
-  ::after {
+  &:not(.max-height) {
+    ::after {
+      top: 36px;
+    }
+  }
+
+  &::after {
     content: "";
     position: absolute;
     left: -10px;
     right: -10px;
-    top: 36px;
     border-bottom: 1px solid $color-neutral-grey;
   }
 

@@ -63,10 +63,11 @@ class FragmentGrid extends Component {
       perPageOptions: [5, 10, 15, 25, 50, 100, 150],
     };
 
-    const newFragments = fragments.map(f => (
+    const fragmentsGridList = fragments.map(f => (
       {
         title: f.code,
         subtitle: Object.is(f.widgetType, null) ? '' : f.widgetType.title,
+        description: f.pluginCode || '',
         ...f,
       }));
 
@@ -79,7 +80,8 @@ class FragmentGrid extends Component {
 
     return (
       <Col xs={12}>
-        <CardList list={newFragments} actions={renderFragmentListMenuActions} />
+        <CardList list={fragmentsGridList} actions={renderFragmentListMenuActions} />
+        {/* TODO: remove useless props */}
         <Pager
           showPageSizeOptions={false}
           perPageComponent="button"

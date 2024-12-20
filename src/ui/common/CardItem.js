@@ -12,6 +12,7 @@ const CardItem = ({
   title,
   code,
   subtitle,
+  description,
   used,
   actions,
   route,
@@ -24,12 +25,12 @@ const CardItem = ({
     <div>
       <div className="CardItemLabel">
         {route ?
-          <Link className="CardItemLink" to={routeConverter(route.url, { [route.type]: code })}>
+          <Link className="CardItemTitle" to={routeConverter(route.url, { [route.type]: code })}>
             {title}
           </Link> :
-          <React.Fragment>
+          <div className="CardItemTitle">
             {title}
-          </React.Fragment>
+          </div >
         }
         {used &&
           <OverlayTrigger
@@ -47,6 +48,7 @@ const CardItem = ({
         }
       </div>
       <div className="CardItemSubtitle">{subtitle}</div>
+      {description && <div className="CardItemDescription">{description}</div>}
     </div>
   </div>
 );
@@ -55,6 +57,7 @@ CardItem.propTypes = {
   title: PropTypes.string.isRequired,
   code: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
+  description: PropTypes.string,
   used: PropTypes.number,
   actions: PropTypes.func,
   route: PropTypes.shape({
