@@ -22,10 +22,10 @@ import PageConfigGridContainer from 'ui/pages/config/PageConfigGridContainer';
 import ToolbarPageConfigContainer from 'ui/pages/config/ToolbarPageConfigContainer';
 import SelectedPageInfoTableContainer from 'ui/pages/common/SelectedPageInfoTableContainer';
 import AppTourContainer from 'ui/app-tour/AppTourContainer';
-import { APP_TOUR_STARTED } from 'state/app-tour/const';
-import { PAGE_STATUS_PUBLISHED, PAGE_STATUS_UNPUBLISHED } from 'state/pages/const';
 import PagesEditFormContainer from 'ui/pages/edit/PagesEditFormContainer';
 import HeaderBreadcrumb from 'ui/internal-page/HeaderBreadcrumb';
+import { APP_TOUR_STARTED } from 'state/app-tour/const';
+import { PAGE_STATUS_PUBLISHED, PAGE_STATUS_UNPUBLISHED } from 'state/pages/const';
 
 const msgs = defineMessages({
   appYes: {
@@ -339,15 +339,6 @@ class PageConfigPage extends Component {
               xs={toolbarCollapsed ? 12 : 8}
               lg={toolbarCollapsed ? 12 : 9}
             >
-              {/* <Breadcrumb>
-                <BreadcrumbItem>
-                  <FormattedMessage id="menu.pageDesigner" />
-                </BreadcrumbItem>
-                <BreadcrumbItem active>
-                  <FormattedMessage id="menu.pageConfig" />
-                </BreadcrumbItem>
-              </Breadcrumb> */}
-
               <Tabs id="basic-tabs" defaultActiveKey={1} className="PageConfigPage__tabs">
                 <Tab
                   eventKey={1}
