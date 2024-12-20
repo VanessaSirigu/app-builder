@@ -111,6 +111,15 @@ $fa-square-o: '\f096';
   background: $color-pf-black-100;
 }
 
+.bootstrap-switch {
+  border-radius: $radius-xxs;
+  border: 1px solid $color-content-07;
+}
+
+.bootstrap-switch-handle-on.bootstrap-switch-primary {
+  background-color: $color-brand-primary;
+}
+
 .btn-transparent {
   border: 0;
   outline: none;
