@@ -1,10 +1,10 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import { createPortal } from 'react-dom';
+import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
+import { Breadcrumb } from 'patternfly-react';
 import BreadcrumbItem from 'ui/common/BreadcrumbItem';
 import Icon from 'ui/common/Icon';
-import { FormattedMessage } from 'react-intl';
-import { createPortal } from 'react-dom';
-import { Breadcrumb } from 'patternfly-react';
 
 const HeaderBreadcrumb = ({ breadcrumbs, ...props }) => {
   const breadcrumbContainer = document.getElementById('header-breadcrumbs');
@@ -20,13 +20,25 @@ const HeaderBreadcrumb = ({ breadcrumbs, ...props }) => {
         />
         <span>App Builder</span>
       </BreadcrumbItem>
-      {breadcrumbs.map(({ label, ...rest }) => (
+      {breadcrumbs.map(({ label, customLabel = '', ...rest }) => (
         <BreadcrumbItem key={label} {...rest} >
-          <FormattedMessage id={label} />
+          {label && <FormattedMessage id={label} />}
+          {customLabel && { customLabel }}
         </BreadcrumbItem>))}
     </Breadcrumb>,
     breadcrumbContainer,
   );
 };
+
+HeaderBreadcrumb.propTypes = {
+  breadcrumbs: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string,
+    to: PropTypes.string,
+    active: PropTypes.boolean,
+    customLabel: PropTypes.string,
+  })).isRequired,
+
+};
+
 
 export default HeaderBreadcrumb;
