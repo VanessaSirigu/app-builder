@@ -3,13 +3,16 @@
   font-family: Inter;
 
   .form-horizontal {
+    .form-group .mobile-left {
+      text-align: left;
+    }
+
     .control-label {
       text-align: left;
     }
 
     .RenderTextInput {
       display: inline-block;
-      max-width: 69px;
     }
 
     .AppendedLabel {

@@ -128,13 +128,7 @@
             }
 
             .bootstrap-switch {
-                border-radius: $radius-xxs;
-                border: 1px solid $color-content-07;
                 width: fit-content;
-            }
-
-            .bootstrap-switch-handle-on.bootstrap-switch-primary {
-                background-color: $color-brand-primary;
             }
         }
     }

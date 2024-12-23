@@ -20,7 +20,7 @@ const CardItem = ({
   <div className="CardItem">
     {actions && <div className="CardItemActions">{actions}</div>}
     <div className="CardItemIconWrapper">
-      <WidgetIcon widgetId={code} /> {/* TODO - generic icon */}
+      <WidgetIcon widgetId={code} />
     </div>
     <div>
       <div className="CardItemLabel">
