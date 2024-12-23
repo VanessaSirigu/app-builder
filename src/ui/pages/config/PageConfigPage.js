@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage, defineMessages, injectIntl, intlShape } from 'react-intl';
+import {
+  FormattedMessage,
+  defineMessages,
+  injectIntl,
+  intlShape,
+} from 'react-intl';
 import {
   Icon,
   Grid,
@@ -25,7 +30,11 @@ import AppTourContainer from 'ui/app-tour/AppTourContainer';
 import PagesEditFormContainer from 'ui/pages/edit/PagesEditFormContainer';
 import HeaderBreadcrumb from 'ui/internal-page/HeaderBreadcrumb';
 import { APP_TOUR_STARTED } from 'state/app-tour/const';
-import { PAGE_STATUS_PUBLISHED, PAGE_STATUS_UNPUBLISHED } from 'state/pages/const';
+import {
+  PAGE_STATUS_PUBLISHED,
+  PAGE_STATUS_UNPUBLISHED,
+} from 'state/pages/const';
+import { Settings, FilePen } from 'lucide-react';
 
 const msgs = defineMessages({
   appYes: {
@@ -60,7 +69,8 @@ class PageConfigPage extends Component {
     this.toggleInfoTable = this.toggleInfoTable.bind(this);
     this.toggleEditingSettings = this.toggleEditingSettings.bind(this);
     this.openLinkPublishedPage = this.openLinkPublishedPage.bind(this);
-    this.handleToggleToolbarCollapse = this.handleToggleToolbarCollapse.bind(this);
+    this.handleToggleToolbarCollapse =
+      this.handleToggleToolbarCollapse.bind(this);
   }
 
   componentDidMount() {
@@ -72,7 +82,9 @@ class PageConfigPage extends Component {
     if (nextProps.pageStatus !== 'draft') {
       this.setState({
         statusChange:
-          nextProps.pageStatus !== this.props.pageStatus ? nextProps.pageStatus : null,
+          nextProps.pageStatus !== this.props.pageStatus
+            ? nextProps.pageStatus
+            : null,
       });
     }
     const { match, onWillMount } = this.props;
@@ -212,7 +224,9 @@ class PageConfigPage extends Component {
                       'btn-outlined-primary',
                     ].join(' ')}
                     onClick={() => onClickSaveSettings(selectedPageForm)}
-                    disabled={pageSettingsButtonInvalid || pageSettingsButtonSubmitting}
+                    disabled={
+                      pageSettingsButtonInvalid || pageSettingsButtonSubmitting
+                    }
                   >
                     <span>
                       <FormattedMessage id="app.save" />
@@ -233,7 +247,10 @@ class PageConfigPage extends Component {
                 >
                   <span>
                     <FormattedMessage id="app.restore" />
-                    <Icon name="undo" className="PageConfigPage__btn-icon--svg-right" />
+                    <Icon
+                      name="undo"
+                      className="PageConfigPage__btn-icon--svg-right"
+                    />
                   </span>
                 </Button>
 
@@ -319,6 +336,19 @@ class PageConfigPage extends Component {
       );
     }
 
+    const DesignerTab = () => (
+      <div className="__tabContainer">
+        <FilePen />
+        <FormattedMessage id="pages.designer.tabDesigner" />
+      </div>
+    );
+    const SettingsTab = () => (
+      <div className="__tabContainer">
+        <Settings />
+        <FormattedMessage id="pages.designer.tabDesigner" />
+      </div>
+    );
+
     return (
       <InternalPage className="PageConfigPage app-tour-step-12 app-tour-step-14 app-tour-step-15">
         <HeaderBreadcrumb
@@ -339,11 +369,12 @@ class PageConfigPage extends Component {
               xs={toolbarCollapsed ? 12 : 8}
               lg={toolbarCollapsed ? 12 : 9}
             >
-              <Tabs id="basic-tabs" defaultActiveKey={1} className="PageConfigPage__tabs">
-                <Tab
-                  eventKey={1}
-                  title={<FormattedMessage id="pages.designer.tabDesigner" />}
-                >
+              <Tabs
+                id="basic-tabs"
+                defaultActiveKey={1}
+                className="PageConfigPage__tabs"
+              >
+                <Tab eventKey={1} title={<DesignerTab />}>
                   <div>
                     <div className="PageConfigPage__tabHeader">
                       {this.renderPageHeader()}
@@ -364,10 +395,7 @@ class PageConfigPage extends Component {
                     </Spinner>
                   </div>
                 </Tab>
-                <Tab
-                  eventKey={2}
-                  title={<FormattedMessage id="pages.designer.tabPageSettings" />}
-                >
+                <Tab eventKey={2} title={<SettingsTab />}>
                   <div>
                     <div className="PageConfigPage__tabHeader">
                       {this.renderPageHeader()}
@@ -408,7 +436,8 @@ class PageConfigPage extends Component {
                           eventKey="1"
                           className="PageConfigPage__on-the-fly-yes"
                           onClick={() =>
-                            setSelectedPageOnTheFly && setSelectedPageOnTheFly(true)
+                            setSelectedPageOnTheFly &&
+                            setSelectedPageOnTheFly(true)
                           }
                         >
                           {TRANSLATED_YES}
@@ -417,7 +446,8 @@ class PageConfigPage extends Component {
                           eventKey="2"
                           className="PageConfigPage__on-the-fly-no"
                           onClick={() =>
-                            setSelectedPageOnTheFly && setSelectedPageOnTheFly(false)
+                            setSelectedPageOnTheFly &&
+                            setSelectedPageOnTheFly(false)
                           }
                         >
                           {TRANSLATED_NO}
@@ -437,7 +467,9 @@ class PageConfigPage extends Component {
                     <Button
                       className="PageConfigPage__publish-btn btn-primary app-tour-step-20"
                       bsStyle="success"
-                      onClick={() => publishPage(appTourProgress === APP_TOUR_STARTED)}
+                      onClick={() =>
+                        publishPage(appTourProgress === APP_TOUR_STARTED)
+                      }
                       disabled={pageIsPublished}
                     >
                       <FormattedMessage id="app.publish" />
