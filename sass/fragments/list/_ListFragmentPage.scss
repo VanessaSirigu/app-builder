@@ -1,5 +1,7 @@
 // sass-lint:disable force-element-nesting, no-qualifying-elements, class-name-format
 .ListFragmentPage {
+  font-family: Inter;
+
   .FragmentListTable__table {
     margin: 2em 0 0 0;
  }
@@ -38,19 +40,44 @@
     gap: 8px;
   }
 
+  .PageTitle {
+    &::after {
+      content: none;
+    }
+  }
+
   .FragmentListContent {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding-inline: 16px;
+    padding: 16px;
+  }
+
+  &__search-container {
+    display: flex;
+    justify-content: space-between;
   }
 
   .FragmentSearchForm{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
     gap: 8px;
 
-    .form-group {
-      margin-bottom: 0;
+    .form-control {
+      height: 28px;
+      width: 140px;
+      font-size: 12px;
+
+      &::placeholder {
+        font-style: normal;
+      }
     }
+  }
+
+  .FragmentGrid__container {
+    border: 1px solid #F2F4F7;
+    background-color: #F9FAFB;
+    border-radius: $radius-xxs;
   }
 }

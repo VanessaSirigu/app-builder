@@ -64,6 +64,13 @@
     flex: 1;
     align-items: center;
     justify-content: space-between;
+
+    .btn-primary,
+    .btn-primary:active,
+    .btn-primary:focus {
+      border: 1.5px solid $color-brand-primary;
+    }
+
   }
 
   

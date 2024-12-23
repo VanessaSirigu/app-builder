@@ -2,24 +2,24 @@
   margin-bottom: 20px;
   font-family: Inter;
 
-  &.max-height {
-    ::after {
-      top: 56px;
-    }
-  }
-
-  &:not(.max-height) {
-    ::after {
-      top: 36px;
-    }
-  }
-
   &::after {
     content: "";
     position: absolute;
     left: -10px;
     right: -10px;
     border-bottom: 1px solid $color-neutral-grey;
+  }
+
+  &.max-height {
+    &::after {
+      top: 56px;
+    }
+  }
+
+  &:not(.max-height) {
+    &::after {
+      top: 36px;
+    }
   }
 
   .PageTitle__title {

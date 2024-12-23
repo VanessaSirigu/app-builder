@@ -11,6 +11,8 @@ import withPermissions from 'ui/auth/withPermissions';
 import Button from 'ui/common/Button';
 import Icon from 'ui/common/Icon';
 import { SUPERUSER_PERMISSION } from 'state/permissions/const';
+import { Link } from 'react-router-dom';
+import { ROUTE_FRAGMENT_ADD } from 'app-init/router';
 
 const VIEW_LIST = 'list';
 const VIEW_SETTINGS = 'settings';
@@ -51,16 +53,25 @@ export class ListFragmentPageBody extends Component {
                 helpId="fragment.help"
                 className="max-height"
               >
-                <Col xs={4}>
-                  <div className="ListFragmentPage__search-container">
-                    <FragmentSearchFormContainer />
-                  </div>
-                </Col>
+                <div className="ListFragmentPage__search-container">
+                  <FragmentSearchFormContainer />
+                </div>
               </PageTitle>
             </Col>
           </Row>
           <Row >
             <div className="ListFragmentPage__bnt-container">
+              <Link to={ROUTE_FRAGMENT_ADD}>
+                <Button
+                  type="button"
+                  className="pull-right FragmentListContent__add"
+                  bsStyle="link"
+                >
+                  <FormattedMessage
+                    id="app.add"
+                  />
+                </Button>
+              </Link>
               <Button
                 className="ListFragmentPage__header-btn clear secondary"
                 active={this.state.activeView === VIEW_LIST}
