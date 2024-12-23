@@ -81,8 +81,6 @@
         float: left;
       }
 
-      
-
       li {
         min-width: 108px;
         height: 45px;
@@ -121,10 +119,6 @@
           }
         }
 
-        &.active {
-          
-        }
-
         &.active a {
           border-top: 0;
           border-color: transparent;
@@ -134,10 +128,8 @@
           border-bottom: 1px solid $color-neutral-grey;
           color: $color-brand-primary;
 
-
           &:hover {
             color: $color-brand-primary;
-
           }
 
           .fa {

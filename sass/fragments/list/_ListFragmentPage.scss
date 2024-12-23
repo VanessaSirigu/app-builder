@@ -80,6 +80,11 @@
     border: 1px solid #F2F4F7;
     background-color: #F9FAFB;
     border-radius: $radius-xxs;
+  
+    .content-view-pf-pagination {
+      border: none;;
+      border-top: 1px solid $color-border-grey
+    }
   }
 
   .SettingsFragmentForm {

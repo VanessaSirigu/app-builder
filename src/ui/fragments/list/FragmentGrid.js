@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { intlShape, injectIntl } from 'react-intl';
-import { Col, Spinner, Pager } from 'patternfly-react';
+import { Col, Spinner, PaginationRow } from 'patternfly-react';
 
 import { renderFragmentListMenuActions } from 'ui/fragments/list/FragmentListMenuActions';
 import DeleteFragmentModalContainer from 'ui/fragments/list/DeleteFragmentModalContainer';
@@ -26,7 +26,6 @@ class FragmentGrid extends Component {
     const { onWillMount } = this.props;
     onWillMount();
   }
-
 
   changePage(page) {
     const { filters } = this.props;
@@ -60,7 +59,7 @@ class FragmentGrid extends Component {
     const pagination = {
       page,
       perPage: pageSize,
-      perPageOptions: [5, 10, 15, 25, 50, 100, 150],
+      perPageOptions: [20, 40, 100],
     };
 
     const fragmentsGridList = fragments.map(f => (
@@ -79,12 +78,9 @@ class FragmentGrid extends Component {
     const itemsEnd = Math.min(page * pageSize, totalItems);
 
     return (
-      <Col xs={12}>
+      <Col className="FragmentGrid__container" xs={12}>
         <CardList list={fragmentsGridList} actions={renderFragmentListMenuActions} />
-        {/* TODO: remove useless props */}
-        <Pager
-          showPageSizeOptions={false}
-          perPageComponent="button"
+        <PaginationRow
           itemCount={totalItems}
           itemsStart={itemsStart}
           itemsEnd={itemsEnd}
@@ -94,6 +90,7 @@ class FragmentGrid extends Component {
           pageInputValue={this.state.pageInputValue}
           onSubmit={this.handleFormSubmit}
           onPageInput={this.handlePageInput}
+          onPerPageSelect={this.changePageSize}
           onFirstPage={() => this.changePage(1)}
           onPreviousPage={() => this.changePage(page - 1)}
           onNextPage={() => this.changePage(page + 1)}
