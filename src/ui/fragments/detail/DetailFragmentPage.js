@@ -30,52 +30,50 @@ class DetailFragmentPage extends Component {
             titleId="fragment.detail.title"
             helpId="fragment.help"
           />
-          <Row>
-            <Col xs={12}>
+          <Col xs={12}>
+            <Row>
               <DetailFragmentTable
                 handleEdit={this.props.handleEdit}
                 code={this.props.fragment && this.props.fragment.code}
                 title={this.props.fragment.widgetType && this.props.fragment.widgetType.title}
                 pluginCode={this.props.fragment.pluginCode}
               />
-              <br />
-              <hr />
-              <Row>
-                <p className="col-xs-12" >
-                  <FormattedMessage id="fragment.detail.title.referencedFragments" />
-                </p>
-                <Col xs={12} className="no-padding">
-                  <FragmentReferenceTable
-                    fragments={this.props.fragment.fragments}
-                    referencesFragments={this.props.referencesFragments}
-                  />
-                </Col>
-              </Row>
-              <hr />
-              <Row>
-                <p className="col-xs-12" >
-                  <FormattedMessage id="fragment.detail.title.referencedPageTemplates" />
-                </p>
-                <Col xs={12} className="no-padding">
-                  <PageTemplateReferenceTable
-                    pageTemplate={this.props.fragment.pageModels}
-                    referencesPageTemplates={this.props.referencesPageTemplates}
-                  />
-                </Col>
-              </Row>
-              <hr />
-              <Row>
-                <p className="col-xs-12" >
-                  <FormattedMessage id="fragment.detail.title.referencedWidgetType" />
-                </p>
-                <Col xs={12} className="no-padding">
-                  <WidgetTypeReferenceTable
-                    widgetType={this.props.fragment.widgetType}
-                  />
-                </Col>
-              </Row>
-            </Col>
-          </Row>
+            </Row>
+            <Row>
+              <p className="col-xs-12" >
+                <FormattedMessage id="fragment.detail.title.referencedFragments" />
+              </p>
+              <Col xs={12} className="no-padding">
+                <FragmentReferenceTable
+                  fragments={this.props.fragment.fragments}
+                  referencesFragments={this.props.referencesFragments}
+                />
+              </Col>
+            </Row>
+            <hr />
+            <Row>
+              <p className="col-xs-12" >
+                <FormattedMessage id="fragment.detail.title.referencedPageTemplates" />
+              </p>
+              <Col xs={12} className="no-padding">
+                <PageTemplateReferenceTable
+                  pageTemplate={this.props.fragment.pageModels}
+                  referencesPageTemplates={this.props.referencesPageTemplates}
+                />
+              </Col>
+            </Row>
+            <hr />
+            <Row>
+              <p className="col-xs-12" >
+                <FormattedMessage id="fragment.detail.title.referencedWidgetType" />
+              </p>
+              <Col xs={12} className="no-padding">
+                <WidgetTypeReferenceTable
+                  widgetType={this.props.fragment.widgetType}
+                />
+              </Col>
+            </Row>
+          </Col>
         </Grid>
       </InternalPage>
     );
