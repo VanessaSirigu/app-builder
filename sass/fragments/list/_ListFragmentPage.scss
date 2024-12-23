@@ -34,10 +34,11 @@
 }
 
 .ListFragmentPage {
-  &__bnt-container {
+  &__btn-container {
     display: flex;
     justify-content: flex-end;
     gap: 8px;
+    padding-inline: 16px;
   }
 
   .PageTitle {
@@ -79,5 +80,9 @@
     border: 1px solid #F2F4F7;
     background-color: #F9FAFB;
     border-radius: $radius-xxs;
+  }
+
+  .SettingsFragmentForm {
+    padding: 16px;
   }
 }

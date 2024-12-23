@@ -60,7 +60,7 @@ export class ListFragmentPageBody extends Component {
             </Col>
           </Row>
           <Row >
-            <div className="ListFragmentPage__bnt-container">
+            <div className="ListFragmentPage__btn-container">
               <Link to={ROUTE_FRAGMENT_ADD}>
                 <Button
                   type="button"
