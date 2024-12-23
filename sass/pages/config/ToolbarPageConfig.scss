@@ -132,10 +132,11 @@
           color: $color-primary-text;
           height: calc(100% + 1px);
           border-bottom: 1px solid $color-neutral-grey;
+          color: $color-brand-primary;
 
 
           &:hover {
-            color: $color-primary-text;
+            color: $color-brand-primary;
 
           }
 
