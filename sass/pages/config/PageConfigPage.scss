@@ -9,10 +9,23 @@
     padding-left: 0px;
   }
 
+
+
   &__tabs {
     margin-top: 0px;
 
     .nav-tabs{
+
+      .__tabContainer{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        svg{
+          width:20px;
+          height:20px;
+        }
+      }
 
       li > a{
         border-bottom: 2px solid $color-border-gray;
@@ -71,6 +84,7 @@
       border: 1.5px solid $color-brand-primary;
     }
 
+    flex-wrap: wrap;
   }
 
   

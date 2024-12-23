@@ -18,6 +18,7 @@
       color: $color-text-tertiary;
       font-size: 14px;
       height: 30px;
+      box-shadow: none;
       //@TODO - container outline on focus
 
 
@@ -35,6 +36,7 @@
     box-shadow: none !important;
     background-color: $color-neutral-grey;
     height: 100%;
+    border-radius: $radius-xxs;
   }
   // sass-lint:enable no-important class-name-format force-element-nesting
 

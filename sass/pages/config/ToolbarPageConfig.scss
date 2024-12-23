@@ -131,6 +131,7 @@
           background-color: #FFF;
           color: $color-primary-text;
           height: calc(100% + 1px);
+          border-bottom: 1px solid $color-neutral-grey;
 
 
           &:hover {
