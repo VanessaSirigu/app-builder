@@ -9,7 +9,7 @@ import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { ROUTE_WIDGET_ADD } from 'app-init/router';
 import DeleteWidgetModalContainer from 'ui/widgets/list/DeleteWidgetModalContainer';
-import Icon from 'ui/common/Icon';
+import Icon from 'ui/common/icon/Icon';
 import Button from 'ui/common/Button';
 import WidgetGridView from './WidgetGridView';
 
@@ -109,7 +109,7 @@ class ListWidgetPage extends Component {
                 to={ROUTE_WIDGET_ADD}
                 bsStyle="primary"
               >
-                <Icon name="plus" />
+                <Icon name="plus" type="lucide" />
                 <FormattedMessage id="app.add" />
               </Button>
             </Col>

@@ -7,9 +7,8 @@ import {
   AggregateStatusCount,
   Button,
 } from 'patternfly-react';
-import Icon from 'ui/common/Icon';
+import Icon from 'ui/common/icon/Icon';
 import { PermissionCheck, hasAccess } from '@entando/utils';
-import { Clearfix } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import {
@@ -48,8 +47,10 @@ class UserManagement extends Component {
       <Card accented className="UserManagementCard">
         <ViewPermissionNoticeOverlay viewPermissions={viewPermissions}>
           <CardTitle>
-            <Icon size="md" name="user" background />
-            <FormattedMessage id="menu.userManagement" />
+            <div className="left-title">
+              <Icon type="lucide" name="users" background />
+              <FormattedMessage id="menu.userManagement" />
+            </div>
             <PermissionCheck
               userPermissions={userPermissions}
               requiredPermissions={CRUD_USERS_PERMISSION}
@@ -60,11 +61,10 @@ class UserManagement extends Component {
                 to={ROUTE_USER_ADD}
                 bsStyle="link"
               >
-                <Icon name="plus" />
+                <Icon name="plus" type="lucide" />
                 <FormattedMessage id="app.add" />
               </Button>
             </PermissionCheck>
-            <Clearfix />
           </CardTitle>
           <CardBody >
             <Icon size="lg" name="user" />

@@ -7,9 +7,8 @@ import {
   AggregateStatusCount,
   Button,
 } from 'patternfly-react';
-import Icon from 'ui/common/Icon';
+import Icon from 'ui/common/icon/Icon';
 import { hasAccess } from '@entando/utils';
-import { Clearfix } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
@@ -34,8 +33,15 @@ class UxPatterns extends Component {
       <Card accented className="UxPatternsCard">
         <ViewPermissionNoticeOverlay viewPermissions={[SUPERUSER_PERMISSION]}>
           <CardTitle>
-            <Icon size="md" name="object-ungroup" background />
-            <FormattedMessage id="menu.uxComponents" />
+            <div className="left-title">
+              <Icon
+                type="lucide"
+                name="components"
+                background
+                className="icon-flipped-y"
+              />
+              <FormattedMessage id="menu.uxComponents" />
+            </div>
             {isSuperuser && (
               <Button
                 bsStyle="link"
@@ -43,11 +49,10 @@ class UxPatterns extends Component {
                 componentClass={Link}
                 to={ROUTE_WIDGET_ADD}
               >
-                <Icon name="plus" />
+                <Icon name="plus" type="lucide" />
                 <FormattedMessage id="app.add" />
               </Button>
             )}
-            <Clearfix />
           </CardTitle>
           <CardBody>
             <Icon size="lg" name="cube" />

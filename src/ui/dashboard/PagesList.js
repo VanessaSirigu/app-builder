@@ -10,7 +10,7 @@ import { formatDate, hasAccess } from '@entando/utils';
 import paginatorMessages from 'ui/paginatorMessages';
 import { MANAGE_PAGES_PERMISSION } from 'state/permissions/const';
 import ViewPermissionNoticeOverlay from 'ui/dashboard/ViewPermissionNoticeOverlay';
-import Icon from 'ui/common/Icon';
+import Icon from 'ui/common/icon/Icon';
 import StatusBadge from 'ui/pages/common/StatusBadge';
 
 class PagesList extends Component {
@@ -121,15 +121,17 @@ class PagesList extends Component {
       <div className="PagesList">
         <ViewPermissionNoticeOverlay viewPermissions={MANAGE_PAGES_PERMISSION}>
           <h2 className="card-pf-title">
-            <Icon name="product-hunt" background />
-            <FormattedMessage id="app.pages" />
+            <div className="left-title">
+              <Icon name="pages" type="lucide" background />
+              <FormattedMessage id="app.pages" />
+            </div>
             <Button
               bsStyle="link"
               className="primary pull-right"
               componentClass={Link}
               to={ROUTE_PAGE_ADD}
             >
-              <Icon name="plus" />
+              <Icon name="plus" type="lucide" />
               <FormattedMessage id="app.add" defaultMessage="Add" />
             </Button>
           </h2>

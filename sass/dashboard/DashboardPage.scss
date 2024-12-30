@@ -5,6 +5,9 @@
   .card-pf-title {
     font-size: 18px;
     font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     .fa {
       margin-right: 10px;
@@ -13,6 +16,16 @@
     .fa {
       color: $color-brand-primary;
     }
+  }
+
+  .left-title {
+    display: flex; 
+    align-items: center; 
+    gap: 10px;
+  }
+
+  .pull-right > div {
+    display: flex;
   }
 
   .container-fluid {

@@ -17,7 +17,7 @@ import {
 import ViewPermissionNoticeOverlay from 'ui/dashboard/ViewPermissionNoticeOverlay';
 
 import paginatorMessages from 'ui/common/paginatorMessages';
-import Icon from 'ui/common/Icon';
+import Icon from 'ui/common/icon/Icon';
 import StatusBadge from 'ui/pages/common/StatusBadge';
 
 class ContentListCard extends Component {
@@ -165,8 +165,10 @@ class ContentListCard extends Component {
       <div className="ContentListCard">
         <ViewPermissionNoticeOverlay viewPermissions={[ADMINISTRATION_AREA_PERMISSION]}>
           <h2 className="card-pf-title">
-            <Icon name="product-hunt" background />
-            <FormattedMessage id="dashboard.content.title" defaultMessage="Content" />
+            <div className="left-title">
+              <Icon name="text" type="lucide" background />
+              <FormattedMessage id="dashboard.content.title" defaultMessage="Content" />
+            </div>
             {renderAddContentButton}
           </h2>
           <div className="ContentListCardTable__wrapper">

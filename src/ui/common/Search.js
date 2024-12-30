@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from './Icon';
+import Icon from './icon/Icon';
 
 // eslint-disable-next-line react/prop-types
 const Search = ({ input, reverse, ...rest }) => (

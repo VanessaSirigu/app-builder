@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Breadcrumb } from 'patternfly-react';
 import BreadcrumbItem from 'ui/common/BreadcrumbItem';
-import Icon from 'ui/common/Icon';
+import Icon from 'ui/common/icon/Icon';
 
 const HeaderBreadcrumb = ({ breadcrumbs, ...props }) => {
   const breadcrumbContainer = document.getElementById('header-breadcrumbs');
@@ -15,6 +15,7 @@ const HeaderBreadcrumb = ({ breadcrumbs, ...props }) => {
       <BreadcrumbItem>
         <Icon
           src="/images/app-builder-icon.svg"
+          type="svg"
           alt="app builder"
           className="VerticalMenu__headerBreadcrumbs__icon"
         />

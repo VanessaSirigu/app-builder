@@ -9,7 +9,7 @@ import FragmentSearchFormContainer from 'ui/fragments/list/FragmentSearchFormCon
 import FragmentListContent from 'ui/fragments/list/FragmentListContent';
 import withPermissions from 'ui/auth/withPermissions';
 import Button from 'ui/common/Button';
-import Icon from 'ui/common/Icon';
+import Icon from 'ui/common/icon/Icon';
 import { SUPERUSER_PERMISSION } from 'state/permissions/const';
 import { Link } from 'react-router-dom';
 import { ROUTE_FRAGMENT_ADD } from 'app-init/router';

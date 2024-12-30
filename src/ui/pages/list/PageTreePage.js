@@ -13,7 +13,7 @@ import Button from 'ui/common/Button';
 import AppTourContainer from 'ui/app-tour/AppTourContainer';
 import { ROUTE_PAGE_ADD } from 'app-init/router';
 import { withPermissionValues } from 'ui/auth/withPermissions';
-import Icon from 'ui/common/Icon';
+import Icon from 'ui/common/icon/Icon';
 import HeaderBreadcrumb from 'ui/internal-page/HeaderBreadcrumb';
 
 
