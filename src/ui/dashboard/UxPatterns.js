@@ -38,7 +38,7 @@ class UxPatterns extends Component {
                 type="lucide"
                 name="components"
                 background
-                className="icon-flipped-y"
+                className="icon-flipped-y primary"
               />
               <FormattedMessage id="menu.uxComponents" />
             </div>
@@ -49,7 +49,7 @@ class UxPatterns extends Component {
                 componentClass={Link}
                 to={ROUTE_WIDGET_ADD}
               >
-                <Icon name="plus" type="lucide" />
+                <Icon name="plus" type="lucide" className="primary" />
                 <FormattedMessage id="app.add" />
               </Button>
             )}

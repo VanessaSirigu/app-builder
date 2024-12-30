@@ -48,7 +48,7 @@ class UserManagement extends Component {
         <ViewPermissionNoticeOverlay viewPermissions={viewPermissions}>
           <CardTitle>
             <div className="left-title">
-              <Icon type="lucide" name="users" background />
+              <Icon type="lucide" name="users" background className="primary" />
               <FormattedMessage id="menu.userManagement" />
             </div>
             <PermissionCheck
@@ -61,7 +61,7 @@ class UserManagement extends Component {
                 to={ROUTE_USER_ADD}
                 bsStyle="link"
               >
-                <Icon name="plus" type="lucide" />
+                <Icon name="plus" type="lucide" className="primary" />
                 <FormattedMessage id="app.add" />
               </Button>
             </PermissionCheck>

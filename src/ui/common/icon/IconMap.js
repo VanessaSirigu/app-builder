@@ -1,4 +1,4 @@
-import { Users, Flag, Grid2x2Plus, Copy, AlignLeft, Plus } from 'lucide-react';
+import { Users, Flag, Grid2x2Plus, Copy, AlignLeft, Plus, Pencil, Trash2 } from 'lucide-react';
 
 export default {
   users: Users,
@@ -7,4 +7,6 @@ export default {
   pages: Copy,
   text: AlignLeft,
   plus: Plus,
+  pencil: Pencil,
+  bin: Trash2,
 };

@@ -1,3 +1,8 @@
+.Icon {
+  display: flex;
+  align-items: center;
+}
+
 .icon__colored-bg, .icon__colored-bg::before {
   display: flex;
   align-items: center;
@@ -6,6 +11,16 @@
   background-color: $color-dark-blue;
   width: 32px;
   height: 32px;
+}
+
+.lucide {
+  &:not(.primary) {
+    color: $color-text-tertiary;
+  }
+
+  &.primary {
+    color: $color-brand-primary;
+  }
 }
 
 .icon-flipped-y {

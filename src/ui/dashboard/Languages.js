@@ -31,7 +31,7 @@ class Languages extends Component {
         <ViewPermissionNoticeOverlay viewPermissions={[SUPERUSER_PERMISSION]}>
           <CardTitle>
             <div className="left-title">
-              <Icon type="lucide" name="flag" background />
+              <Icon type="lucide" name="flag" background className="primary" />
               <FormattedMessage id="dashboard.languages" />
             </div>
             <Button
@@ -40,7 +40,7 @@ class Languages extends Component {
               componentClass={Link}
               to={ROUTE_LABELS_AND_LANGUAGES}
             >
-              <Icon name="plus" type="lucide" />
+              <Icon name="plus" type="lucide" className="primary" />
               <FormattedMessage id="app.details" />
             </Button>
           </CardTitle>

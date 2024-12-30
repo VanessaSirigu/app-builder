@@ -15,12 +15,16 @@ const Icon = ({
     case ('lucide'):
       const LucideIcon = IconMap[props.name];
       return (
-        <div className={cx(background && 'icon__colored-bg')}>
-          <LucideIcon {...props} size={props.size || 16} color={props.color || '#1A75FF'} strokeWidth={props.stroke || 2.5} />
+        <div className={cx('Icon', background && 'icon__colored-bg')}>
+          <LucideIcon
+            {...props}
+            size={props.size || 16}
+            strokeWidth={props.stroke || 2.5}
+          />
         </div>
       );
     default:
-      return (<PFIcon {...props} className={cx(background && 'icon__colored-bg')} />);
+      return (<PFIcon {...props} className={cx('Icon', background && 'icon__colored-bg')} />);
   }
 };
 

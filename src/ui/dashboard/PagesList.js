@@ -122,7 +122,7 @@ class PagesList extends Component {
         <ViewPermissionNoticeOverlay viewPermissions={MANAGE_PAGES_PERMISSION}>
           <h2 className="card-pf-title">
             <div className="left-title">
-              <Icon name="pages" type="lucide" background />
+              <Icon name="pages" type="lucide" background className="primary" />
               <FormattedMessage id="app.pages" />
             </div>
             <Button
@@ -131,7 +131,7 @@ class PagesList extends Component {
               componentClass={Link}
               to={ROUTE_PAGE_ADD}
             >
-              <Icon name="plus" type="lucide" />
+              <Icon name="plus" type="lucide" className="primary" />
               <FormattedMessage id="app.add" defaultMessage="Add" />
             </Button>
           </h2>
