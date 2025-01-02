@@ -9,6 +9,7 @@ const CardList = ({ list, actions, route }) =>
     <div className="CardList">
       {list.map(item => (
         <CardItem
+          key={item.code}
           title={item.title}
           code={item.code}
           subtitle={item.subtitle}

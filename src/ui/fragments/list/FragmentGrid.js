@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { intlShape, injectIntl } from 'react-intl';
 import { Col, Spinner, PaginationRow } from 'patternfly-react';
 
-import { renderFragmentListMenuActions } from 'ui/fragments/list/FragmentListMenuActions';
+import FragmentListMenuActions from 'ui/fragments/list/FragmentListMenuActions';
 import DeleteFragmentModalContainer from 'ui/fragments/list/DeleteFragmentModalContainer';
 import paginatorMessages from 'ui/paginatorMessages';
 import CardList from 'ui/common/CardList';
@@ -62,13 +62,6 @@ class FragmentGrid extends Component {
       perPageOptions: [20, 40, 100],
     };
 
-    const fragmentsGridList = fragments.map(f => (
-      {
-        title: f.code,
-        subtitle: Object.is(f.widgetType, null) ? '' : f.widgetType.title,
-        description: f.pluginCode || '',
-        ...f,
-      }));
 
     const messages = Object.keys(paginatorMessages).reduce((acc, curr) => (
       { ...acc, [curr]: intl.formatMessage(paginatorMessages[curr]) }
@@ -77,9 +70,13 @@ class FragmentGrid extends Component {
     const itemsStart = totalItems === 0 ? 0 : ((page - 1) * pageSize) + 1;
     const itemsEnd = Math.min(page * pageSize, totalItems);
 
+    const renderFragmentListMenuActions = props => (
+      <FragmentListMenuActions {...props} {...this.props} />
+    );
+
     return (
       <Col className="FragmentGrid__container" xs={12}>
-        <CardList list={fragmentsGridList} actions={renderFragmentListMenuActions} />
+        <CardList list={fragments} actions={renderFragmentListMenuActions} />
         <PaginationRow
           itemCount={totalItems}
           itemsStart={itemsStart}
