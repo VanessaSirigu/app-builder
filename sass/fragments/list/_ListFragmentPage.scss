@@ -99,6 +99,10 @@
         font-style: normal;
       }
     }
+
+    &__select-default-value {
+      color: $color-mid-grey;
+    }
   }
 
   .FragmentGrid__container {
@@ -107,8 +111,8 @@
     border-radius: $radius-xxs;
   
     .content-view-pf-pagination {
-      border: none;;
-      border-top: 1px solid $color-border-grey
+      border: none;
+      border-top: 1px solid $color-border-grey;
     }
   }
 

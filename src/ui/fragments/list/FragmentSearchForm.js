@@ -16,6 +16,14 @@ const msgs = defineMessages({
     id: 'fragment.form.edit.plugin',
     defaultMessage: 'Edit Plugin',
   },
+  widgetPlaceholder: {
+    id: 'fragment.form.edit.widgetType"',
+    defaultMessage: 'Widget type',
+  },
+  pluginPlaceholder: {
+    id: 'fragment.form.edit.plugin',
+    defaultMessage: 'Plugin',
+  },
 });
 
 const widgetCategoryMsgs = defineMessages({
@@ -94,7 +102,11 @@ export class FragmentSearchFormBody extends Component {
           className="form-control"
           name="widgetType"
         >
-          <option>{intl.formatMessage(msgs.appAll)}</option>
+          <option
+            value={intl.formatMessage(msgs.appAll)}
+            label={intl.formatMessage(msgs.widgetPlaceholder)}
+            className="FragmentSearchForm__select-default-value"
+          />
           {renderSelectOptgroup(widgetTypes, intl)}
         </Field>
         <Field
@@ -103,9 +115,11 @@ export class FragmentSearchFormBody extends Component {
           name="pluginCode"
           placeholder={intl.formatMessage(msgs.editPlugin)}
         >
-          <option value={intl.formatMessage(msgs.appAll)}>
-            {intl.formatMessage(msgs.appAll)}
-          </option>
+          <option
+            value={intl.formatMessage(msgs.appAll)}
+            label={intl.formatMessage(msgs.pluginPlaceholder)}
+            className="FragmentSearchForm__select-default-value"
+          />
           {plugins.map(plugin =>
             <option key={plugin.code} value={plugin.code}>{plugin.title}</option>)}
         </Field>
