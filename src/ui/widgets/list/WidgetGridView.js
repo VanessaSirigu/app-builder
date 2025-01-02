@@ -6,6 +6,7 @@ import WidgetSectionTitle from 'ui/widgets/list/WidgetSectionTitle';
 import { withPermissionValues } from 'ui/auth/withPermissions';
 import { ROUTE_WIDGET_EDIT } from 'app-init/router';
 import CardList from 'ui/common/CardList';
+import Icon from 'ui/common/icon/Icon';
 
 export const WidgetGrid = ({
   title,
@@ -20,25 +21,36 @@ export const WidgetGrid = ({
     <div data-testid={`${item.code}-actions`}>
       <DropdownKebab pullRight id={`WidgetListRow-dropdown-${item.code}`}>
         {item.hasConfig && (
-        <MenuItem
-          className="WidgetListRow__menu-item-addwidget"
-          onClick={() => onNewUserWidget(item.code)}
-        >
-          <FormattedMessage id="widgets.addWidget" />
-        </MenuItem>)}
-        <MenuItem
-          className="WidgetListRow__menu-item-edit"
-          onClick={() => onEdit(item.code)}
-        >
-          <FormattedMessage id="app.edit" />
-        </MenuItem>
+          <div className="WidgetListRow__menu-item-container">
+            <Icon name="plus" type="lucide" />
+            <MenuItem
+              className="WidgetListRow__menu-item-addwidget"
+              onClick={() => onNewUserWidget(item.code)}
+            >
+              <FormattedMessage id="widgets.addWidget" />
+            </MenuItem>
+          </div>
+        )}
+        <div className="WidgetListRow__menu-item-container">
+          <Icon name="pencil" type="lucide" />
+          <MenuItem
+            className="WidgetListRow__menu-item-edit"
+            onClick={() => onEdit(item.code)}
+          >
+            <FormattedMessage id="app.edit" />
+          </MenuItem>
+        </div>
         {!item.locked && item.used === 0 && (
-        <MenuItem
-          className="WidgetListRow__menu-item-delete"
-          onClick={() => onDelete(item.code)}
-        >
-          <FormattedMessage id="app.delete" />
-        </MenuItem>)}
+          <div className="WidgetListRow__menu-item-container">
+            <Icon name="bin" type="lucide" color="#F64C4C" />
+            <MenuItem
+              className="WidgetListRow__menu-item-delete danger"
+              onClick={() => onDelete(item.code)}
+            >
+              <FormattedMessage id="app.delete" />
+            </MenuItem>
+          </div>
+         )}
       </DropdownKebab>
     </div>
   );
