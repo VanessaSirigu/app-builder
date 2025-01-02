@@ -318,10 +318,12 @@ $fa-square-o: '\f096';
   li > a.disabled{
     background: none;
   }
-
-
 }
 
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
 
 
 // sass-lint:enable class-name-format
