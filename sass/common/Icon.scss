@@ -23,6 +23,12 @@
   }
 }
 
+.active {
+  .lucide  {
+    color: $color-brand-primary;
+  }
+}
+
 .icon-flipped-y {
   transform: scaleY(-1);
 }

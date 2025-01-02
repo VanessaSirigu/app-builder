@@ -3,6 +3,7 @@
   .card-pf-body {
     display: flex;
     align-items: baseline;
+    gap: 24px;
     
     a {
       color: $color-text-tertiary;
@@ -11,6 +12,11 @@
     ::before {
       padding-right: 5px;
     }
+
+    .card-pf-aggregate-status-container {
+      display: flex;
+      gap: 6px;
+    }
   }
 
   .card-pf {
@@ -18,7 +24,6 @@
     border-radius: $spacing-4;
 
     .fa {
-
       &:not(:first-child) {
         margin-left: 15px;
       }

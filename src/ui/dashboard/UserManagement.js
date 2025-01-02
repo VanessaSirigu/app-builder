@@ -67,15 +67,17 @@ class UserManagement extends Component {
             </PermissionCheck>
           </CardTitle>
           <CardBody >
-            <Icon size="lg" name="user" />
-            <AggregateStatusCount>
-              {users}&nbsp;
-              <Link to={ROUTE_USER_LIST}>
-                <FormattedMessage id="menu.userManagement" />
-              </Link>
-            </AggregateStatusCount>
+            <div className="card-pf-aggregate-status-container">
+              <Icon size="lg" name="user" />
+              <AggregateStatusCount>
+                {users}&nbsp;
+                <Link to={ROUTE_USER_LIST}>
+                  <FormattedMessage id="menu.userManagement" />
+                </Link>
+              </AggregateStatusCount>
+            </div>
             {isSuperuser && (
-              <React.Fragment>
+              <div className="card-pf-aggregate-status-container">
                 <Icon size="lg" name="users" />
                 <AggregateStatusCount>
                   {groups}&nbsp;
@@ -83,8 +85,7 @@ class UserManagement extends Component {
                     <FormattedMessage id="menu.groups" />
                   </Link>
                 </AggregateStatusCount>
-              </React.Fragment>
-            )}
+              </div>)}
           </CardBody>
         </ViewPermissionNoticeOverlay>
       </Card>

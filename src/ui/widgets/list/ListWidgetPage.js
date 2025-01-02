@@ -109,7 +109,7 @@ class ListWidgetPage extends Component {
                 to={ROUTE_WIDGET_ADD}
                 bsStyle="primary"
               >
-                <Icon name="plus" type="lucide" />
+                <Icon name="plus" type="lucide" color="#F0F6FF" />
                 <FormattedMessage id="app.add" />
               </Button>
             </Col>

@@ -55,21 +55,24 @@ class UxPatterns extends Component {
             )}
           </CardTitle>
           <CardBody>
-            <Icon size="lg" name="cube" />
-            <AggregateStatusCount>
-              {this.props.widgets}&nbsp;
-              <Link to={ROUTE_WIDGET_LIST}>
-                <FormattedMessage id="dashboard.uxComponents.mfeWidgets" />
-              </Link>
-            </AggregateStatusCount>
-            <span className="separator" />
-            <Icon size="lg" name="cube" />
-            <AggregateStatusCount>
-              {this.props.pageTemplates}&nbsp;
-              <Link to={ROUTE_PAGE_TEMPLATE_LIST}>
-                <FormattedMessage id="dashboard.uxComponents.pageTemplates" />
-              </Link>
-            </AggregateStatusCount>
+            <div className="card-pf-aggregate-status-container">
+              <Icon name="box" type="lucide" strokeWidth={2} />
+              <AggregateStatusCount>
+                {this.props.widgets}&nbsp;
+                <Link to={ROUTE_WIDGET_LIST}>
+                  <FormattedMessage id="dashboard.uxComponents.mfeWidgets" />
+                </Link>
+              </AggregateStatusCount>
+            </div>
+            <div className="card-pf-aggregate-status-container">
+              <Icon name="pages" type="lucide" className="icon-flipped-x" strokeWidth={2} />
+              <AggregateStatusCount>
+                {this.props.pageTemplates}&nbsp;
+                <Link to={ROUTE_PAGE_TEMPLATE_LIST}>
+                  <FormattedMessage id="dashboard.uxComponents.pageTemplates" />
+                </Link>
+              </AggregateStatusCount>
+            </div>
           </CardBody>
         </ViewPermissionNoticeOverlay>
       </Card>

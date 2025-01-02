@@ -19,7 +19,7 @@ const Icon = ({
           <LucideIcon
             {...props}
             size={props.size || 16}
-            strokeWidth={props.stroke || 2.5}
+            strokeWidth={props.strokeWidth || 2.5}
           />
         </div>
       );
