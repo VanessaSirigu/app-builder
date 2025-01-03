@@ -2,7 +2,6 @@
 .WidgetPage {
   min-height: 700px;
   margin-bottom: 0;
-  // background-color: $color-grey-background;
 
   &.AddWidgetPage {
     .PageTitle {
@@ -13,6 +12,11 @@
 
   &__header {
     padding-inline: 20px;
+
+    &__btn-container > div {
+      display: flex;
+      width: fit-content;
+    }
   }
 
   &__body {

@@ -345,7 +345,7 @@ class PageConfigPage extends Component {
     const SettingsTab = () => (
       <div className="__tabContainer">
         <Settings />
-        <FormattedMessage id="pages.designer.tabDesigner" />
+        <FormattedMessage id="pages.designer.tabPageSettings" />
       </div>
     );
 
