@@ -28,14 +28,14 @@ const WidgetIcon = ({
       )}
     />
   ) : (
-    <img
-      src={`${imageProvider}/${iconName}.svg`}
-      alt={`icon ${iconName}`}
-      className={cx('WidgetIcon', small && 'WidgetIcon--small', className)}
-      onError={(e) => {
-        e.target.onerror = null;
-        e.target.src = fallbackIcon;
-      }}
+    <span
+      className={cx(
+        'fa',
+        'fa-puzzle-piece',
+        'WidgetIcon',
+        small && 'WidgetIcon--small',
+        className,
+      )}
     />
   );
 };
