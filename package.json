@@ -83,6 +83,7 @@
     "coverage": "node scripts/test.js --env=jest-environment-jsdom-sixteen --coverage",
     "sass-lint": "sass-lint -v",
 
+    
     "start-openshift": "npm install -g serve && serve -l 8080 -s build",
     "analyze": "source-map-explorer build/static/js/main.*",
     "app-install": "node apps/install.js",
