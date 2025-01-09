@@ -26,7 +26,7 @@ class PageTreePage extends Component {
   renderButton() {
     if (this.props.search) {
       return (
-        <Button bsStyle="default" className="pull-right PageTreePage__clear" onClick={this.props.onClear}>
+        <Button bsStyle="link" className="pull-right PageTreePage__clear" onClick={this.props.onClear}>
           <FormattedMessage id="pageTree.action.clear" />
         </Button>
       );
@@ -62,12 +62,12 @@ class PageTreePage extends Component {
             </Col>
           </Row>
           {this.props.search && (
-            <Row>
-              <Col xs={12}>
-                {this.renderButton()}
-              </Col>
-            </Row>
-          )}
+          <Row>
+            <Col xs={12} className="PageTreePage__btn-clear-container">
+              {this.renderButton()}
+            </Col>
+          </Row>
+           )}
           <Row>
             <Col xs={12}>
               <PageTreeContainer
