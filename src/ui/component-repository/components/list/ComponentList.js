@@ -88,14 +88,14 @@ class ComponentList extends Component {
       <div className="ComponentList">
         <Spinner loading={!!loading} >
           {components}
-          <Paginator
+          {/* <Paginator
             viewType="table"
             pagination={pagination}
             itemCount={totalItems}
             onPageSet={this.changePage}
             onPerPageSelect={this.changePageSize}
             messages={messages}
-          />
+          /> */}
           {openedModal === HUB_BUNDLE_MANAGEMENT_MODAL_ID && <HubBundleManagementModal />}
         </Spinner>
       </div>

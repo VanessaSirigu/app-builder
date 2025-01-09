@@ -15,7 +15,7 @@ const ComponentListGridView =
     components, onClickInstallPlan, openComponentManagementModal, bundleStatuses,
   }) => (
     <div className="ComponentListGridView equal">
-      {components.map((component, i) => {
+      {components.map((component) => {
         const bundleStatus = bundleStatuses.find(b => b.id === component.repoUrl);
         const { installed, installedJob } = component;
         return (
@@ -23,7 +23,7 @@ const ComponentListGridView =
             md={6}
             xs={6}
             key={component.code}
-            className={cx('ComponentList__component', i % 2 === 0 && 'ComponentList__component--even', 'no-padding')}
+            className={cx('ComponentList__component', 'no-padding')}
           >
             <div
               key={component.code}
@@ -41,7 +41,7 @@ const ComponentListGridView =
                 <ComponentImage component={component} />
               </div>
 
-              <div className="ComponentList__component-body">
+              <div className="ComponentList__component-card">
                 <div
                   className="ComponentList__component-content"
                   role="button"
@@ -59,6 +59,16 @@ const ComponentListGridView =
                     }
                   </p>
                   <h1>{component.title}</h1>
+                  <p className="ComponentList__description">{component.description}</p>
+                  <InstalledVersion
+                    version={(installedJob || {}).componentVersion ||
+                      (component.latestVersion || {}).version}
+                    installed={installed}
+                  />
+                  <DeploymentStatus bundleStatus={bundleStatus} />
+                </div>
+                <div className="ComponentList__component-actions">
+                  <ComponentInstallActionsContainer component={component} />
                   {
                     component.installed &&
                     <div>
@@ -77,16 +87,6 @@ const ComponentListGridView =
                       </Button>
                     </div>
                   }
-                  <p className="ComponentList__description">{component.description}</p>
-                  <InstalledVersion
-                    version={(installedJob || {}).componentVersion ||
-                      (component.latestVersion || {}).version}
-                    installed={installed}
-                  />
-                  <DeploymentStatus bundleStatus={bundleStatus} />
-                </div>
-                <div className="ComponentList__component-footer" style={{ display: 'none' }}>
-                  <ComponentInstallActionsContainer component={component} />
                 </div>
               </div>
             </div>

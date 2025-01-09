@@ -17,7 +17,7 @@ import ComponentUninstallManagerModal from 'ui/component-repository/components/i
 export const ComponentListPageBody = () => (
   <InternalPage className="ComponentListPage">
     <Grid fluid>
-      <div className="ComponentListPage__header">
+      {/* <div className="ComponentListPage__header">
         <Row>
           <Col md={12}>
             <Breadcrumb>
@@ -33,7 +33,7 @@ export const ComponentListPageBody = () => (
             />
           </Col>
         </Row>
-      </div>
+      </div> */}
       <ComponentListWrapper />
     </Grid>
     <InstallationPlanModal />

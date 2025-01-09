@@ -15,76 +15,79 @@ const ComponentListListView =
   }) => (
     <div className="ComponentListListView">
       {components.map((component) => {
-        const bundleStatus = bundleStatuses.find(b => b.id === component.repoUrl);
-        const { installed, installedJob } = component;
-        return (
-          <div
-            key={component.code}
-            className="ComponentList__list-item"
-          >
-            <div key={component.code} className="equal">
-              <div
-                className="ComponentList__component-image-wrapper"
-                role="button"
-                tabIndex={0}
-                id={`component-modal-id-${component.code}`}
-                onClick={() => openComponentManagementModal(component)}
-                onKeyDown={() => {}}
-              >
-                <ComponentImage component={component} />
-              </div>
-              <div className="ComponentList__component-body">
+          const bundleStatus = bundleStatuses.find(b => b.id === component.repoUrl);
+          const { installed, installedJob } = component;
+          return (
+            <div
+              key={component.code}
+              className="ComponentList__list-item"
+            >
+              <div key={component.code} className="equal">
                 <div
-                  className="ComponentList__component-content"
+                  className="ComponentList__component-image-wrapper"
                   role="button"
                   tabIndex={0}
+                  id={`component-modal-id-${component.code}`}
                   onClick={() => openComponentManagementModal(component)}
                   onKeyDown={() => {}}
                 >
-                  <p className="ComponentList__component-category">
-                    {component.componentTypes
-                      && component.componentTypes.map((category, x) => (
-                        <React.Fragment key={category}>
-                          <FormattedMessage id={`componentRepository.categories.${category}`} />
-                          {x < component.componentTypes.length - 1 && ', '}
-                        </React.Fragment>))
-                    }
-                  </p>
-                  <h1>{component.title}</h1>
-                  {
-                    component.installed &&
-                    <div>
-                      <Button
-                        bsStyle="link"
-                        className="ComponentList__show-install-plan"
-                        onClick={() => onClickInstallPlan(component)}
-                      >
-                        <i className="fa fa-info-circle" />
-                        {' '}
-                        {
-                          component.customInstallation
-                            ? <FormattedMessage id="componentRepository.components.showCustomInstallPlan" />
-                            : <FormattedMessage id="componentRepository.components.showInstallPlan" />
-                        }
-                      </Button>
-                    </div>
-                  }
-                  <p className="ComponentList__description">{component.description}</p>
-                  <InstalledVersion
-                    version={(installedJob || {}).componentVersion ||
-                      (component.latestVersion || {}).version}
-                    installed={installed}
-                  />
-                  <DeploymentStatus bundleStatus={bundleStatus} />
+                  <ComponentImage component={component} />
                 </div>
-                <div className="ComponentList__component-footer" style={{ display: 'none' }}>
-                  <ComponentInstallActionsContainer component={component} />
+                <div className="ComponentList__component-body" >
+                  <div
+                    className="ComponentList__component-labels"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => openComponentManagementModal(component)}
+                    onKeyDown={() => {}}
+                  >
+                    <p className="ComponentList__component-category">
+                      {component.componentTypes
+                        && component.componentTypes.map((category, x) => (
+                          <React.Fragment key={category}>
+                            <FormattedMessage id={`componentRepository.categories.${category}`} />
+                            {x < component.componentTypes.length - 1 && ', '}
+                          </React.Fragment>))
+                      }
+                    </p>
+                    <h1>{component.title}</h1>
+
+                    <p className="ComponentList__description">{component.description}</p>
+                    <InstalledVersion
+                      version={(installedJob || {}).componentVersion ||
+                        (component.latestVersion || {}).version}
+                      installed={installed}
+                    />
+                    <DeploymentStatus bundleStatus={bundleStatus} />
+                  </div>
+                  <div className="ComponentList__component-footer">
+                    <React.Fragment>
+                      <ComponentInstallActionsContainer component={component} />
+                      {
+                        component.installed &&
+                        <div>
+                          <Button
+                            bsStyle="link"
+                            className="ComponentList__show-install-plan"
+                            onClick={() => onClickInstallPlan(component)}
+                          >
+                            <i className="fa fa-info-circle" />
+                            {' '}
+                            {
+                              component.customInstallation
+                                ? <FormattedMessage id="componentRepository.components.showCustomInstallPlan" />
+                                : <FormattedMessage id="componentRepository.components.showInstallPlan" />
+                            }
+                          </Button>
+                        </div>
+                      }
+                    </React.Fragment>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 
@@ -100,7 +103,7 @@ ComponentListListView.propTypes = {
 };
 
 ComponentListListView.defaultProps = {
-  openComponentManagementModal: () => {},
+  openComponentManagementModal: () => { },
   bundleStatuses: [],
 };
 
