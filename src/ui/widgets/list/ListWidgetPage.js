@@ -91,7 +91,7 @@ class ListWidgetPage extends Component {
                 disabled={this.state.view === 'grid'}
               >
                 <Icon name="table" />
-                Grid
+                <FormattedMessage id="app.grid" />
               </Button>
               <Button
                 type="button"
@@ -100,7 +100,7 @@ class ListWidgetPage extends Component {
                 disabled={this.state.view === 'list'}
               >
                 <Icon name="list" />
-                List
+                <FormattedMessage id="app.list" />
               </Button>
               <Button
                 type="button"
