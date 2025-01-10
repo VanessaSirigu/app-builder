@@ -52,7 +52,7 @@ const PageTitle = ({
       <h1 className="PageTitle__title" data-testid={dataTestId}>
         <div className="PageTitle__content">
           <FormattedMessage id={titleId} values={titleParam} />
-          {hideConfigLink && configIcon(configLink)}
+          {!hideConfigLink && configIcon(configLink)}
           {children}
         </div>
         {helpIcon(helpId)}
