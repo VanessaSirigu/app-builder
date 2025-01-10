@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { OverlayTrigger, Popover } from 'patternfly-react';
 import { Link } from 'react-router-dom';
-
+import { colorContent05 } from 'variables.scss';
+import Icon from 'ui/common/icon/Icon';
 
 const helpIcon = helpId => (
   helpId ?
@@ -20,7 +21,7 @@ const helpIcon = helpId => (
         trigger={['click']}
         rootClose
       >
-        <i className="PageTitle__icon fa fa-info-circle" />
+        <Icon name="info" type="lucide" className="PageTitle__icon" color={colorContent05} />
       </OverlayTrigger>
     </span> :
     null
