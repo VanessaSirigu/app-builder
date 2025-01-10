@@ -75,8 +75,10 @@ class FragmentGrid extends Component {
     );
 
     return (
-      <Col className="FragmentGrid__container" xs={12}>
-        <CardList list={fragments} actions={renderFragmentListMenuActions} />
+      <div>
+        <Col className="FragmentGrid__container" xs={12}>
+          <CardList list={fragments} actions={renderFragmentListMenuActions} />
+        </Col>
         <PaginationRow
           itemCount={totalItems}
           itemsStart={itemsStart}
@@ -94,7 +96,8 @@ class FragmentGrid extends Component {
           onLastPage={() => this.changePage(lastPage)}
           messages={messages}
         />
-      </Col>);
+      </div>
+    );
   }
 
   render() {
