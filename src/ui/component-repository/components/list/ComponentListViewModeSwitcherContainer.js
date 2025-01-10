@@ -20,7 +20,7 @@ const ComponentListViewModeSwitcher = ({ viewMode, changeViewMode }) => {
     changeViewMode(ECR_COMPONENTS_LIST_VIEW);
   };
 
-  const selectedClass = 'ComponentListViewModeSwitcher__btn--selected';
+  const selectedClass = 'ComponentListViewModeSwitcher__btn--selected active';
   const btnClass = 'ComponentListViewModeSwitcher__btn';
 
   return (

@@ -19,6 +19,7 @@ $color-primary-text:#141C24;
 $color-background-primary: #ffffff;
 $color-brand-primary: #1a75ff;
 $color-brand-secondary: #0041cc;
+$color-brand-background-primary: #F0F6FF;
 $color-neutral-grey: #e4e7ec;
 $color-text-secondary: #344051;
 $color-text-tertiary: #637083;
@@ -42,4 +43,5 @@ $radius-s: 8px;
 
 :export {
     colorContent05: $color-content-05;
+    color-brand-background-primary: $color-brand-background-primary;
 }
