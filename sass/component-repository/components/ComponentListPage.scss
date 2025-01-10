@@ -55,20 +55,25 @@
     .btn {
       font-size: 12px;
       color: $color-text-tertiary;
-      height: 30px;
 
-      &.active {
-        color: $color-brand-primary;
-        background-color: $color-brand-background-primary;
-        box-shadow: none;
-      }
     }
 
     .TabBarFilter, 
     .ComponentListViewModeSwitcher {
       .btn {
+        background-color: #fff;
         border: 1px solid $color-content-07;
+
+        &.active {
+          color: $color-brand-primary;
+          background-color: $color-brand-background-primary;
+          box-shadow: none;
+        }
       }
+    }
+
+    .dropdown-toggle {
+      height: 30px;
     }
 
     & > div {
