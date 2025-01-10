@@ -75,7 +75,7 @@ class FragmentGrid extends Component {
     );
 
     return (
-      <div>
+      <div className="FragmentGrid__box">
         <Col className="FragmentGrid__container" xs={12}>
           <CardList list={fragments} actions={renderFragmentListMenuActions} />
         </Col>

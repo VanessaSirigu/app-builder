@@ -105,6 +105,13 @@
     }
   }
 
+  .FragmentGrid__box {
+    .content-view-pf-pagination {
+      border: 1px solid #F2F4F7;
+      border-top: none;
+    }
+  }
+
   .FragmentGrid__container {
     border: 1px solid #F2F4F7;
     background-color: #F9FAFB;
