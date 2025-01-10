@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button /* , Col */ } from 'patternfly-react';
+import { Button /* , Col */} from 'patternfly-react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 
@@ -18,7 +18,7 @@ import { getPageSize } from 'state/pagination/selectors';
 
 export const BUNDLE_GROUP_FILTER_ID = 'bundleGroup';
 
-const ComponentListButtonWrapper = () => {
+const ComponentListActionsWrapper = () => {
   const dispatch = useDispatch();
   const activeRegistry = useSelector(getSelectedRegistry);
   const isLocalRegistry = activeRegistry.name === ECR_LOCAL_REGISTRY_NAME;
@@ -32,7 +32,7 @@ const ComponentListButtonWrapper = () => {
     dispatch(fetchBundleGroups(activeRegistry.id));
   };
   return (
-    <div className="ComponentListButtonWrapper">
+    <div className="ComponentListActionsWrapper">
       {
         !isLocalRegistry && (
         <Button
@@ -87,4 +87,4 @@ const ComponentListButtonWrapper = () => {
   );
 };
 
-export default ComponentListButtonWrapper;
+export default ComponentListActionsWrapper;

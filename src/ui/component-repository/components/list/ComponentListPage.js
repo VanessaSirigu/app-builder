@@ -15,7 +15,7 @@ import DeleteRegistryModalContainer from 'ui/component-repository/components/lis
 import EditRegistryModal from 'ui/component-repository/components/list/EditRegistryModal';
 import ComponentUninstallManagerModal from 'ui/component-repository/components/item/install-controls/ComponentUninstallManagerModal';
 import HubBundleList from 'ui/component-repository/components/list/HubBundleList';
-import ComponentListButtonWrapper from './ComponentListButtonWrapper';
+import ComponentListActionsWrapper from './ComponentListActionsWrapper';
 import ComponentListContainer from './ComponentListContainer';
 import HubRegistrySwitcher from './HubRegistrySwitcher';
 
@@ -38,7 +38,7 @@ export const ComponentListPageBody = () => {
             configLink={ROUTE_ECR_CONFIG_LIST}
             hideConfigLink
           >
-            <ComponentListButtonWrapper />
+            <ComponentListActionsWrapper />
           </PageTitle>
         </div>
         <div className="ComponentListPage__container-body">
