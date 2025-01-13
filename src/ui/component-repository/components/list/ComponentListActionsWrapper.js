@@ -33,18 +33,18 @@ const ComponentListActionsWrapper = () => {
   };
   return (
     <div className="ComponentListActionsWrapper">
-      <div className="ComponentListPage__container">
-        <div className="ComponentListPage__container-header">
-          <div className="ComponentListPage__container-header-title">
+      <div className="ComponentListActions__container">
+        <div className="ComponentListActions__container-header">
+          <div className="ComponentListActions__container-header-title">
             {/* <FormattedMessage id="componentRepository.categories.component" /> */}
           </div>
-          <div className="ComponentListPage__container-header-actionbar">
-            <div>
+          <div className="ComponentListActions__container-header-actionbar">
+            <div className="ComponentListActions__container-bundle-group">
               {
                 isLocalRegistry ? <FilterTypeContainer /> : (
                   <Button
                     key={BUNDLE_GROUP_FILTER_ID}
-                    className="active"
+                    className="active ComponentListActions__bundle-filter-btn"
                   >
                     <FormattedMessage id="app.filterTypesSelect.bundleGroup" />
                   </Button>
@@ -64,11 +64,11 @@ const ComponentListActionsWrapper = () => {
               key="bundleRefetchButton"
               // bsStyle="primary"
               disabled={loading}
-              className="ComponentListPage__refresh-button primary"
+              className="ComponentListActions__refresh-button primary"
               onClick={handleRefreshBundles}
             >
               <FormattedMessage id="hub.bundle.refresh" />
-              <i className="fa fa-refresh ComponentListPage__refresh-icon" />
+              <i className="fa fa-refresh ComponentListActions__refresh-icon" />
             </Button>
             )
             }

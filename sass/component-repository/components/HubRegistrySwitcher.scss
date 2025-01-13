@@ -107,17 +107,6 @@
   }
 }
 
-.BundleGroupAutoComplete {
-  width: 170px;
-  margin-right: -20px;
-  margin-left: -20px;
-
-  div {
-    input { //sass-lint:disable-line nesting-depth
-      height: 30px;
-    }
-  }
-}
 
 .EditRegistryModal {
   width: 800px;
