@@ -62,9 +62,9 @@ export const WidgetGrid = ({
 
   return (
     <div className="WidgetListTable">
-      <Col xs={12} className="WidgetListTable__tables">
+      <Col className="WidgetListTable__tables">
         <WidgetSectionTitle
-          title={<FormattedMessage id={`widget.list.section.${title}`} defaultMessage={title} />}
+          title={title ? <FormattedMessage id={`widget.list.section.${title}`} defaultMessage={title} /> : ''}
         />
         <CardList
           list={newWidgetList}

@@ -98,9 +98,9 @@ export const WidgetListTableBody = ({
 
   return (
     <div className="WidgetListTable">
-      <Col xs={12} className="WidgetListTable__tables">
+      <Col className="WidgetListTable__tables">
         <WidgetSectionTitle
-          title={<FormattedMessage id={`widget.list.section.${title}`} defaultMessage={title} />}
+          title={title ? <FormattedMessage id={`widget.list.section.${title}`} defaultMessage={title} /> : ''}
         />
         <DataTable
           columns={columns}

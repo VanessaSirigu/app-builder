@@ -23,10 +23,22 @@ class ListWidgetPage extends Component {
     onWillMount(this.props);
   }
 
-  renderContent(type) {
+  componentDidUpdate(prev) {
+    const { widgetGroupingList: prevWidgetGroupingList } = prev;
+    const { widgetGroupingList } = this.props;
+
+
+    const areEqual =
+      prevWidgetGroupingList.length === this.props.widgetGroupingList.length &&
+      prevWidgetGroupingList.every((v, i) => v === this.props.widgetGroupingList[i]);
+
+    // eslint-disable-next-line react/no-did-update-set-state
+    if (!areEqual) this.setState({ filter: widgetGroupingList[0] });
+  }
+
+  renderContent(state) {
     const {
       groupedWidgets,
-      widgetGroupingList,
       onDelete,
       onEdit,
       onNewUserWidget,
@@ -34,24 +46,22 @@ class ListWidgetPage extends Component {
       columnOrder,
       onSetColumnOrder,
     } = this.props;
+    const widgetList = groupedWidgets[state.filter] || [];
     return (
       <Spinner loading={!!this.props.loading}>
         {
-          widgetGroupingList.map(grouping => (
-            type === 'grid'
+          state.view === 'grid'
             ? <WidgetGridView
-                key={grouping}
-                title={grouping}
-                widgetList={groupedWidgets[grouping]}
+                key={state.filter}
+                widgetList={widgetList}
                 locale={locale}
                 onDelete={onDelete}
                 onEdit={onEdit}
                 onNewUserWidget={onNewUserWidget}
             />
             : <WidgetListTable
-                key={grouping}
-                title={grouping}
-                widgetList={groupedWidgets[grouping]}
+                key={state.filter}
+                widgetList={widgetList}
                 columnOrder={columnOrder}
                 onSetColumnOrder={onSetColumnOrder}
                 locale={locale}
@@ -59,13 +69,13 @@ class ListWidgetPage extends Component {
                 onEdit={onEdit}
                 onNewUserWidget={onNewUserWidget}
             />
-          ))
         }
       </Spinner>
     );
   }
 
   render() {
+    const { groupedWidgets, widgetGroupingList } = this.props;
     return (
       <InternalPage className="ListWidgetPage">
         <HeaderBreadcrumb breadcrumbs={[
@@ -82,8 +92,26 @@ class ListWidgetPage extends Component {
               />
             </Col>
           </Row>
-          <Row>
-            <Col xs={12} className="ListWidgetPage__button-group">
+          <Col xs={12} className="ListWidgetPage__button-group">
+            <div className="ListWidgetPage__box">
+              {
+                widgetGroupingList.map(item => (
+                  <Button
+                    type="button"
+                    className={`clear secondary pull-right ListWidgetPage__list ${(this.state.filter || widgetGroupingList[0]) === item ? 'ActiveButton' : ''}`}
+                    onClick={() => this.setState({ filter: item })}
+                    disabled={(this.state.filter || widgetGroupingList[0]) === item}
+                  >
+                    {/* <Icon name="-placeholder-" /> */}
+                    {item}
+                    <div className="CardItemCounter">
+                      {groupedWidgets[item].length}
+                    </div>
+                  </Button>
+                ))
+              }
+            </div>
+            <div className="ListWidgetPage__box">
               <Button
                 type="button"
                 className="clear secondary pull-right ListWidgetPage__grid"
@@ -112,11 +140,11 @@ class ListWidgetPage extends Component {
                 <Icon name="plus" type="lucide" color="#F0F6FF" />
                 <FormattedMessage id="app.add" />
               </Button>
-            </Col>
-          </Row>
+            </div>
+          </Col>
           <Row>
             <Col xs={12} >
-              {this.renderContent(this.state.view)}
+              {this.renderContent(this.state)}
             </Col>
           </Row>
           <DeleteWidgetModalContainer />
