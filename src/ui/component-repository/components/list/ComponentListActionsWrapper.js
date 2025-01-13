@@ -14,6 +14,7 @@ import { getLoading } from 'state/loading/selectors';
 import { fetchBundlesFromRegistryWithFilters, fetchBundleGroups, FETCH_BUNDLES_LOADING_STATE } from 'state/component-repository/hub/actions';
 import { getPageSize } from 'state/pagination/selectors';
 import Button from 'ui/common/Button';
+import CategoryFilterContainer from 'ui/component-repository/CategoryFilterContainer';
 
 export const BUNDLE_GROUP_FILTER_ID = 'bundleGroup';
 
@@ -32,13 +33,6 @@ const ComponentListActionsWrapper = () => {
   };
   return (
     <div className="ComponentListActionsWrapper">
-      {/* {
-              isLocalRegistry && (
-                <Col md={3}>
-                  <SidebarContainer />
-                </Col>
-              )
-      } */}
       <div className="ComponentListPage__container">
         <div className="ComponentListPage__container-header">
           <div className="ComponentListPage__container-header-title">
@@ -58,6 +52,7 @@ const ComponentListActionsWrapper = () => {
               }
               {isLocalRegistry ? <SearchBarContainer /> : <BundleGroupAutoCompleteContainer />}
             </div>
+            { isLocalRegistry && (<CategoryFilterContainer />) }
             <div>
               { isLocalRegistry && <ExtraTabBarFilterContainer /> }
             </div>
