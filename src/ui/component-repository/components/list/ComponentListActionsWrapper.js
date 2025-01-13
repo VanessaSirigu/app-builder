@@ -1,11 +1,9 @@
 import React from 'react';
-import { Button /* , Col */} from 'patternfly-react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 
 import { getSelectedRegistry } from 'state/component-repository/hub/selectors';
 
-// import SidebarContainer from 'ui/component-repository/SidebarContainer';
 import SearchBarContainer from 'ui/component-repository/components/SearchBarContainer';
 import FilterTypeContainer from 'ui/component-repository/components/FilterTypeContainer';
 import ComponentListViewModeSwitcherContainer from 'ui/component-repository/components/list/ComponentListViewModeSwitcherContainer';
@@ -15,6 +13,7 @@ import BundleGroupAutoCompleteContainer from 'ui/component-repository/components
 import { getLoading } from 'state/loading/selectors';
 import { fetchBundlesFromRegistryWithFilters, fetchBundleGroups, FETCH_BUNDLES_LOADING_STATE } from 'state/component-repository/hub/actions';
 import { getPageSize } from 'state/pagination/selectors';
+import Button from 'ui/common/Button';
 
 export const BUNDLE_GROUP_FILTER_ID = 'bundleGroup';
 
@@ -33,21 +32,6 @@ const ComponentListActionsWrapper = () => {
   };
   return (
     <div className="ComponentListActionsWrapper">
-      {
-        !isLocalRegistry && (
-        <Button
-          key="bundleRefetchButton"
-          type="button"
-          bsStyle="primary"
-          disabled={loading}
-          className="ComponentListPage__refresh-button"
-          onClick={handleRefreshBundles}
-        >
-          <FormattedMessage id="hub.bundle.refresh" />
-          <i className="fa fa-refresh ComponentListPage__refresh-icon" />
-        </Button>
-        )
-      }
       {/* {
               isLocalRegistry && (
                 <Col md={3}>
@@ -80,6 +64,19 @@ const ComponentListActionsWrapper = () => {
             <div>
               <ComponentListViewModeSwitcherContainer />
             </div>
+            { !isLocalRegistry && (
+            <Button // TO DO - style button
+              key="bundleRefetchButton"
+              // bsStyle="primary"
+              disabled={loading}
+              className="ComponentListPage__refresh-button primary"
+              onClick={handleRefreshBundles}
+            >
+              <FormattedMessage id="hub.bundle.refresh" />
+              <i className="fa fa-refresh ComponentListPage__refresh-icon" />
+            </Button>
+            )
+            }
           </div>
         </div>
       </div>

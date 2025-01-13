@@ -55,7 +55,6 @@
     .btn {
       font-size: 12px;
       color: $color-text-tertiary;
-
     }
 
     .TabBarFilter,
@@ -110,11 +109,12 @@
     .content-view-pf-pagination {
       border: 1px solid #F2F4F7;
     }
-
   }
 
+  //TO DO - refactor style
   &__refresh-button {
-    margin-bottom: 20px;
+    background-color: $color-brand-primary;
+    color: white !important;
   }
 
   &__refresh-icon {
