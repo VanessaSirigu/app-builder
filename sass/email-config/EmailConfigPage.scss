@@ -3,13 +3,15 @@
     margin-bottom: 20px;
   }
 
-  &__tab {
-    // sass-lint:disable class-name-format nesting-depth no-important
-    &.active {
-      a {
-        border-bottom-color: $color-light-grey-border !important;
-      }
-    }
-    // sass-lint:enable class-name-format nesting-depth no-important
+  .container-fluid {
+    padding-bottom: 16px;
   }
+
+  // &__tab {
+  //   // sass-lint:disable class-name-format nesting-depth no-important
+  //   &.active, &.selected {
+  //     background-color: red;
+  //   }
+  //   // sass-lint:enable class-name-format nesting-depth no-important
+  // }
 }

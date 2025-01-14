@@ -21,11 +21,14 @@ const HeaderBreadcrumb = ({ breadcrumbs, ...props }) => {
         />
         <span>App Builder</span>
       </BreadcrumbItem>
-      {breadcrumbs.map(({ label, customLabel = '', ...rest }) => (
-        <BreadcrumbItem key={label} {...rest} >
-          {label && <FormattedMessage id={label} />}
-          {customLabel && { customLabel }}
-        </BreadcrumbItem>))}
+      {breadcrumbs.map(({
+ label, customLabel = '', children, ...rest
+}) => (
+  <BreadcrumbItem key={label} {...rest} >
+    {label && <FormattedMessage id={label} />}
+    {customLabel && { customLabel }}
+    {children && children}
+  </BreadcrumbItem>))}
     </Breadcrumb>,
     breadcrumbContainer,
   );
@@ -37,9 +40,8 @@ HeaderBreadcrumb.propTypes = {
     to: PropTypes.string,
     active: PropTypes.boolean,
     customLabel: PropTypes.string,
+    children: PropTypes.node,
   })).isRequired,
-
 };
-
 
 export default HeaderBreadcrumb;
