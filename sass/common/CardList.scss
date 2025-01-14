@@ -26,7 +26,8 @@
   right: 14px;
 
   .dropdown-kebab-pf .dropdown-menu.dropdown-menu-right{
-    width: fit-content;
+    max-width: 320px;
+    overflow-wrap: anywhere;
     padding:0;
 
     .FragmentListMenuAction__menu-item-container{
