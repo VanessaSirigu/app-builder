@@ -10,4 +10,47 @@
   &__up-link {
     cursor: pointer;
   }
+
+  .table{
+    thead {
+      background-color: #fff !important;
+      background-image: unset;
+      background: unset;
+
+      th{
+        border: unset;
+        padding: 16px;
+      }
+      
+  
+      td {
+        border-left: 0;
+        border-right: 0;
+      }
+  
+      .columnResizer {
+        border-bottom: 1px solid $color-border-grey;
+      }
+    }
+
+    tbody{
+      tr {
+        td {
+          background-color: #fff;
+          border: 1px solid $color-border-grey;
+          background-color: #fff !important;
+          border-left: 0;
+          border-right: 0;
+          text-overflow: ellipsis;
+          vertical-align: center !important;
+          padding: 16px;
+          font-size: 14px;
+        }
+        &:hover{
+          background-color: $color-row-selected !important;
+          background: $color-row-selected !important;
+        }
+      }
+    }
+  }
 }
