@@ -80,7 +80,8 @@ const renderCmsMenuItems = (intl, userPermissions, systemReport, currSysConfigAd
       id="apps-cms"
       key="cms"
       onClick={() => { }}
-      iconClass="fa fa-file-text-o"
+      // iconClass="fa fa-file-text-o"
+      className="NavbarItem NavbarItem__Content"
       title={intl.formatMessage({ id: 'menu.cms' })}
     >
       {
@@ -250,16 +251,17 @@ const EntandoMenu = ({
         <Item
           id="menu-dashboard"
           onClick={() => history.push(ROUTE_DASHBOARD)}
-          iconClass="fa fa-window-maximize"
+          // iconClass="fa fa-window-maximize"
           title={intl.formatMessage({ id: 'menu.dashboard', defaultMessage: 'Dashboard' })}
+          className="NavbarItem NavbarItem__Dashboard"
         />
         {
           hasAccess(MANAGE_PAGES_PERMISSION, userPermissions) && (
             <Item
               id="menu-page-creator"
-              className="app-tour-step-3"
+              className="NavbarItem NavbarItem__Pages app-tour-step-3"
               onClick={() => onNextStep(4)}
-              iconClass="fa fa-files-o"
+              // iconClass="fa fa-files-o"
               title={intl.formatMessage({ id: 'menu.pageDesigner', defaultMessage: 'Pages' })}
             >
               <SecondaryItem
@@ -304,7 +306,8 @@ const EntandoMenu = ({
             <Item
               id="menu-ux-pattern"
               onClick={() => { }}
-              iconClass="fa fa-object-ungroup"
+              // iconClass="fa fa-object-ungroup"
+              className="NavbarItem NavbarItem__Components"
               title={intl.formatMessage({ id: 'menu.uxComponents', defaultMessage: 'Components' })}
             >
               <SecondaryItem
@@ -343,7 +346,8 @@ const EntandoMenu = ({
             <Item
               id="menu-user-settings"
               onClick={() => { }}
-              iconClass="fa fa-users"
+              // iconClass="fa fa-users"
+              className="NavbarItem NavbarItem__Users"
               title={intl.formatMessage({ id: 'menu.userSettings', defaultMessage: 'Users' })}
             >
               <SecondaryItem

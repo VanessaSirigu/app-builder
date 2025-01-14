@@ -454,14 +454,81 @@
         }
 
         a::before {
-          background: $color-dark-blue;
-          left: -2px;
+          // left: -2px;
           border-radius: $radius-s;
-          width: 28px;
-          height: 28px;
-          z-index: -1
+          width: 20px;
+          height: 20px;
+        }
+
+        &:not(.NavbarItem) {
+          a::before {
+            background-color: transparent;
+          }
         }
       }
+    }
+  }
+
+  .NavbarItem {
+    position: relative;
+
+    &.active{
+      // background-color: red;
+      &::before {
+        content: '';
+        background: $color-dark-blue;
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1034;
       }
     }
+
+    &:hover { 
+      cursor: pointer;
+    }
+
+    & > a::before {
+      content: ' ';
+      width: 20px;
+      height: 20px;
+      padding: 4px;
+      background-color: $color-dim-grey;
+      mask-position: center !important;
+      mask-repeat: no-repeat !important;
+    }
+    
+    a:focus, a:active, a:hover, &.active > a {
+      &::before {
+        background-color: $color-brand-primary;
+      }
+    }
+    
+    &.active > a > span {
+      margin-left: 28px;
+    }
+
+    &__Dashboard > a::before { 
+      mask: url('../public/icons/template.svg');
+    }
+
+    &__Pages > a::before { 
+      mask: url('../public/icons/copy.svg');
+    }
+
+    &__Components > a::before { 
+      mask: url('../public/images/app-builder-icon.svg')
+    }
+
+    &__Content > a::before { 
+      mask: url('../public/icons/file.svg');
+    }
+    
+      &__Users > a::before { 
+      mask: url('../public/icons/users.svg');
+    }
+  }
 }
