@@ -33,7 +33,7 @@ class ListWidgetPage extends Component {
       prevWidgetGroupingList.every((v, i) => v === this.props.widgetGroupingList[i]);
     const isFilterEmpty =
       !areEqual ||
-      (areEqual && !this.state.filter && this.props.widgetGroupingList.length);
+      (areEqual && !this.state.filter.length && this.props.widgetGroupingList.length);
 
     // eslint-disable-next-line react/no-did-update-set-state
     if (isFilterEmpty) this.setState({ filter: [widgetGroupingList[0]] });
