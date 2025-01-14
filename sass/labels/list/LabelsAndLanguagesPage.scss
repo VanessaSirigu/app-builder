@@ -1,7 +1,81 @@
 .LabelsAndLanguagesPage {
+
+  .col-xs-6{
+    padding-left: 0;
+  }
+
+  .nav-tabs{
+    width: fit-content !important;  
+    display: flex;
+    justify-content: flex-end;
+    border: none;
+    
+    
+    li{
+      background-color: white;
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+      height: calc(100% - 1px);
+      border-bottom: 2px solid $color-content-07;
+      min-width: 40px;
+      width: fit-content;
+      justify-content: center;
+
+
+      &.active{
+        color: $color-brand-primary !important;
+        border-bottom: 2px solid $color-brand-primary !important;
+        border: none;
+        outline: none;
+
+        :hover{
+          outline: none;
+        }
+      }
+
+      :hover{
+        font-weight: 400;
+        color: $color-brand-primary;
+        cursor: pointer;
+       
+      }
+
+      :focus{
+          outline: none;
+          border: none !important;
+          border-bottom: 2px solid $color-brand-primary;
+      }
+
+      a{
+        line-height: unset;
+        padding: 4px 8px 4px 8px;
+        border: none !important;
+
+
+        :focus{
+          border: none;
+        }
+
+        .active{
+          border: none !important;
+        }
+
+        :hover{
+          font-weight: 500;
+          color: $color-brand-primary;
+        }
+      }
+      
+    }
+
+  
+    
+  }
+
   &__header-container {
-    margin-bottom: 30px;
-    border-bottom: 1px solid $color-pf-black-200;
+    padding-top: 8px;
+
   }
 
   &__header-tab {
@@ -28,6 +102,173 @@
 
   .PageTitle__header {
     border-bottom: 0;
+  }
+
+  .languagesAndLabelsHeader{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    border-bottom: 1px solid $color-content-07;
+
+
+    .PageTitle{
+
+      margin-bottom: 0px;
+      
+      &__header{
+        min-width: 200px;
+
+        &__title{
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+        }
+      }
+
+        &::after {
+          border: none !important;
+          width: fit-content;
+          position: static;
+        }
+
+        &__content{
+            width: 100%;        
+        }
+    }
+
+   
+  }
+
+
+  .input-group{
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .form-control{
+      max-width: fit-content;
+      overflow: hidden;
+      border-radius: 8px !important;
+    }
+
+    .btn-primary{
+      border-radius: 6px;
+      padding: 6px 8px;
+    }
+  }
+
+  .ActiveLangTable,.LabelsTable{
+    .table{
+      thead {
+        background-color: #fff !important;
+        background-image: unset;
+        background: unset;
+
+        th{
+          border: unset;
+          padding: 16px;
+        }
+        
+    
+        td {
+          border-left: 0;
+          border-right: 0;
+        }
+    
+        .columnResizer {
+          border-bottom: 1px solid $color-border-grey;
+        }
+      }
+  
+      tbody{
+        tr {
+          td {
+            background-color: #fff;
+            border: 1px solid $color-border-grey;
+            background-color: #fff !important;
+            border-left: 0;
+            border-right: 0;
+            text-overflow: ellipsis;
+            vertical-align: center !important;
+            padding: 16px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    
+  }
+
+  .LabelSearchForm{
+      display: flex;
+      flex: 1;
+      gap: 16px;
+      align-items: center;
+      background: unset;
+      border: unset;
+      outline: none;
+      width: 100%;
+      padding: 8px 8px 8px 20px;
+      flex-wrap: wrap;
+      font-family: "Inter";
+
+      h3{
+        margin: unset;
+        font-size: 14px;
+      }
+
+      .form-group{
+        display: flex;
+        margin-left: 16px;
+        margin-bottom: unset;
+
+       
+
+        .row{
+          height: 100%;
+          display: flex;
+          align-items: center;
+          flex: 1;
+          width: fit-content;
+          gap: 8px;
+          flex-wrap: wrap;
+
+          label{
+            width: fit-content;
+            padding: unset;
+            font-size: 12px;
+            font-weight: 400;
+            display: none;
+          }
+
+          .col-xs-9{
+            width: unset;
+            padding: unset;
+          }
+
+        }
+
+        .col-xs-11{
+          width: unset;
+        }
+
+
+      }
+  }
+
+  .languageSelectGroup{
+    display: flex;
+    padding: 8px;
+    padding-left: 20px;
+    align-items: center;
+    gap: 16px;
+
+    label{
+      font-size: 14px;
+      font-family: "Inter";
+    }
   }
 }
 
