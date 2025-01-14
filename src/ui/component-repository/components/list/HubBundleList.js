@@ -98,19 +98,20 @@ const HubBundleList = ({
   ), {});
 
   return (
-    <div className="ComponentList">
-      <Spinner loading={!!loading} >
+    <div>
+      <Spinner loading={!!loading} />
+      <div className="ComponentList">
         {components}
-        <Paginator
-          viewType="table"
-          pagination={pagination}
-          itemCount={totalItems}
-          onPageSet={changePage}
-          onPerPageSelect={changePageSize}
-          messages={messages}
-        />
-        {openedModal === HUB_BUNDLE_MANAGEMENT_MODAL_ID && <HubBundleManagementModal />}
-      </Spinner>
+      </div>
+      <Paginator
+        viewType="table"
+        pagination={pagination}
+        itemCount={totalItems}
+        onPageSet={changePage}
+        onPerPageSelect={changePageSize}
+        messages={messages}
+      />
+      {openedModal === HUB_BUNDLE_MANAGEMENT_MODAL_ID && <HubBundleManagementModal />}
     </div>
   );
 };
