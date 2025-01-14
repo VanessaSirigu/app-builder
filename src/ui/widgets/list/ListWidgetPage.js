@@ -19,7 +19,7 @@ class ListWidgetPage extends Component {
     if (!columnOrder.length) {
       onSetColumnOrder(['titles', 'code', 'used']);
     }
-    this.setState({ view: 'grid' });
+    this.setState({ view: 'grid', filter: [] });
     onWillMount(this.props);
   }
 
@@ -31,9 +31,12 @@ class ListWidgetPage extends Component {
     const areEqual =
       prevWidgetGroupingList.length === this.props.widgetGroupingList.length &&
       prevWidgetGroupingList.every((v, i) => v === this.props.widgetGroupingList[i]);
+    const isFilterEmpty =
+      !areEqual ||
+      (areEqual && !this.state.filter && this.props.widgetGroupingList.length);
 
     // eslint-disable-next-line react/no-did-update-set-state
-    if (!areEqual) this.setState({ filter: widgetGroupingList[0] });
+    if (isFilterEmpty) this.setState({ filter: [widgetGroupingList[0]] });
   }
 
   renderContent(state) {
@@ -46,29 +49,32 @@ class ListWidgetPage extends Component {
       columnOrder,
       onSetColumnOrder,
     } = this.props;
-    const widgetList = groupedWidgets[state.filter] || [];
     return (
       <Spinner loading={!!this.props.loading}>
         {
-          state.view === 'grid'
-            ? <WidgetGridView
-                key={state.filter}
-                widgetList={widgetList}
-                locale={locale}
-                onDelete={onDelete}
-                onEdit={onEdit}
-                onNewUserWidget={onNewUserWidget}
-            />
-            : <WidgetListTable
-                key={state.filter}
-                widgetList={widgetList}
-                columnOrder={columnOrder}
-                onSetColumnOrder={onSetColumnOrder}
-                locale={locale}
-                onDelete={onDelete}
-                onEdit={onEdit}
-                onNewUserWidget={onNewUserWidget}
-            />
+          state.filter.map(grouping => (
+            state.view === 'grid'
+              ? <WidgetGridView
+                  key={grouping}
+                  title={grouping}
+                  widgetList={groupedWidgets[grouping]}
+                  locale={locale}
+                  onDelete={onDelete}
+                  onEdit={onEdit}
+                  onNewUserWidget={onNewUserWidget}
+              />
+              : <WidgetListTable
+                  key={grouping}
+                  title={grouping}
+                  widgetList={groupedWidgets[grouping]}
+                  columnOrder={columnOrder}
+                  onSetColumnOrder={onSetColumnOrder}
+                  locale={locale}
+                  onDelete={onDelete}
+                  onEdit={onEdit}
+                  onNewUserWidget={onNewUserWidget}
+              />
+          ))
         }
       </Spinner>
     );
@@ -76,6 +82,12 @@ class ListWidgetPage extends Component {
 
   render() {
     const { groupedWidgets, widgetGroupingList } = this.props;
+
+    const onTabClick = value => this.setState((prev) => {
+      if (prev.filter.includes(value)) return { filter: prev.filter.filter(v => v !== value) };
+      return ({ filter: [...prev.filter, value] });
+    });
+
     return (
       <InternalPage className="ListWidgetPage">
         <HeaderBreadcrumb breadcrumbs={[
@@ -98,9 +110,9 @@ class ListWidgetPage extends Component {
                 widgetGroupingList.map(item => (
                   <Button
                     type="button"
-                    className={`clear secondary pull-right ListWidgetPage__list ${(this.state.filter || widgetGroupingList[0]) === item ? 'ActiveButton' : ''}`}
-                    onClick={() => this.setState({ filter: item })}
-                    disabled={(this.state.filter || widgetGroupingList[0]) === item}
+                    className={`clear secondary pull-right ListWidgetPage__list ${this.state.filter.includes(item) ? 'ActiveButton' : ''}`}
+                    onClick={() => onTabClick(item)}
+                    disabled={this.state.filter.length < 2 && this.state.filter.includes(item)}
                   >
                     {/* <Icon name="-placeholder-" /> */}
                     {item}
