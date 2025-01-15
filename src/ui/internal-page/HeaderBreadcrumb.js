@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
@@ -7,8 +7,17 @@ import BreadcrumbItem from 'ui/common/BreadcrumbItem';
 import Icon from 'ui/common/icon/Icon';
 
 const HeaderBreadcrumb = ({ breadcrumbs, ...props }) => {
-  const breadcrumbContainer = document.getElementById('header-breadcrumbs');
-  if (!breadcrumbContainer) return <div />;
+  const [container, setContainer] = useState(document.getElementById('header-breadcrumbs'));
+
+  useEffect(() => {
+    if (!container) {
+      const fallbackContainer = document.getElementById('header-breadcrumbs');
+      setContainer(fallbackContainer);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (!container) return <div />;
 
   return createPortal(
     <Breadcrumb {...props} >
@@ -30,7 +39,7 @@ const HeaderBreadcrumb = ({ breadcrumbs, ...props }) => {
     {children && children}
   </BreadcrumbItem>))}
     </Breadcrumb>,
-    breadcrumbContainer,
+    container,
   );
 };
 
