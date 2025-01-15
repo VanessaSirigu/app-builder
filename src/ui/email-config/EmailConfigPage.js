@@ -62,7 +62,7 @@ const EmailConfigPage = () => {
 
   return (
     <InternalPage className="EmailConfigPage">
-      <HeaderBreadcrumb breadcrumbs={getBreadbrumbs()} />
+      <HeaderBreadcrumb breadcrumbs={getBreadbrumbs()} data-testid="breadcrumb" />
       <Grid fluid>
         <Switch>
           <Route

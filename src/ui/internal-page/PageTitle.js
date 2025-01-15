@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import { FormattedMessage } from 'react-intl';
 import { OverlayTrigger, Popover } from 'patternfly-react';
 import { Link } from 'react-router-dom';
@@ -47,7 +48,7 @@ const PageTitle = ({
   children,
   className,
 }) => (
-  <div className={`PageTitle${className && ` ${className}`}`}>
+  <div className={cx('PageTitle', className)}>
     <div className="PageTitle__header">
       <h1 className="PageTitle__title" data-testid={dataTestId}>
         <div className="PageTitle__content">
