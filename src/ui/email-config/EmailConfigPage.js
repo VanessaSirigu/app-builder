@@ -42,7 +42,7 @@ const EmailConfigPage = () => {
   }, [pathname]);
 
   const tabs = (
-    <div style={{ display: 'flex', columnGap: '12px' }}>
+    <div className="button-group">
       <Button
         active={pathname === ROUTE_EMAIL_CONFIG_SENDERS}
         onClick={() => history.push(ROUTE_EMAIL_CONFIG_SENDERS)}
@@ -76,9 +76,14 @@ const EmailConfigPage = () => {
             component={EditEmailSenderFormContainer}
           />
           <Route>
-            <PageTitle titleId="menu.emailConfig" helpId="emailConfig.help" className="max-height">
-              {tabs}
-            </PageTitle>
+            <div className="header-container">
+              <div className="header-content">
+                <PageTitle titleId="menu.emailConfig" helpId="emailConfig.help" className="max-height" />
+                {tabs}
+              </div>
+            </div>
+
+
             <Switch>
               <Route
                 exact
