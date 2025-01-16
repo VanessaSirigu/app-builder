@@ -111,6 +111,16 @@
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
         }
+
+        .SearchForm {
+            &__button-wrapper {
+                display: flex;
+            }
+
+            &__button-close {
+                position: unset;
+            }
+        }
     }
 
     //TO DO - refactor style
