@@ -80,7 +80,7 @@ const renderCmsMenuItems = (intl, userPermissions, systemReport, currSysConfigAd
       id="apps-cms"
       key="cms"
       onClick={() => { }}
-      iconClass="fa fa-file-text-o"
+      iconClass="VerticalMenuContainer_Icon Contents"
       title={intl.formatMessage({ id: 'menu.cms' })}
     >
       {
@@ -250,7 +250,7 @@ const EntandoMenu = ({
         <Item
           id="menu-dashboard"
           onClick={() => history.push(ROUTE_DASHBOARD)}
-          iconClass="fa fa-window-maximize"
+          iconClass="VerticalMenuContainer_Icon Dashboard"
           title={intl.formatMessage({ id: 'menu.dashboard', defaultMessage: 'Dashboard' })}
         />
         {
@@ -259,7 +259,7 @@ const EntandoMenu = ({
               id="menu-page-creator"
               className="app-tour-step-3"
               onClick={() => onNextStep(4)}
-              iconClass="fa fa-files-o"
+              iconClass="VerticalMenuContainer_Icon Pages"
               title={intl.formatMessage({ id: 'menu.pageDesigner', defaultMessage: 'Pages' })}
             >
               <SecondaryItem
@@ -304,7 +304,7 @@ const EntandoMenu = ({
             <Item
               id="menu-ux-pattern"
               onClick={() => { }}
-              iconClass="fa fa-object-ungroup"
+              iconClass="VerticalMenuContainer_Icon Components"
               title={intl.formatMessage({ id: 'menu.uxComponents', defaultMessage: 'Components' })}
             >
               <SecondaryItem
@@ -343,7 +343,7 @@ const EntandoMenu = ({
             <Item
               id="menu-user-settings"
               onClick={() => { }}
-              iconClass="fa fa-users"
+              iconClass="VerticalMenuContainer_Icon Users"
               title={intl.formatMessage({ id: 'menu.userSettings', defaultMessage: 'Users' })}
             >
               <SecondaryItem

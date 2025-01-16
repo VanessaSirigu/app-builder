@@ -23,7 +23,7 @@ const HeaderBreadcrumb = ({ breadcrumbs, ...props }) => {
     <Breadcrumb {...props} >
       <BreadcrumbItem>
         <Icon
-          src="/images/app-builder-icon.svg"
+          src="/icons/app-builder-icon.svg"
           type="svg"
           alt="app builder"
           className="VerticalMenu__headerBreadcrumbs__icon"

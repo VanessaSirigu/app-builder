@@ -95,7 +95,6 @@
   &__fixed-bottom {
     position: fixed;
     bottom: 64px;
-    left: 8px;
     border-bottom: 0;
   }
 }
@@ -104,11 +103,13 @@
 .nav-pf-vertical {
     width: 214px;
     border-right: 1px solid $color-neutral-grey;
-    padding: 10px 0 0 8px;
+    padding: 10px 0 0 12px;
     top: 54px;
 
   .secondary-nav-item-pf > a {
     padding-left: 25px;
+    display: flex;
+    align-items: center;
 
     &::after {
       font-size: 14px;
@@ -117,13 +118,14 @@
   }
 
   .nav-pf-secondary-nav .list-group-item > a {
+      height: 28px;
       margin-left: 10px;
     }
 
   &:not(.collapsed) {
     & > .list-group > .list-group-item > a {
       display: flex;
-      gap: 8px;
+      column-gap: 14px;
     }
 
     & + .VerticalMenu__secondary-collapse-btn {
@@ -136,7 +138,7 @@
   }
 
   &.collapsed {
-    width: 40px;
+    width: 44px;
     
     .list-group-item.secondary-nav-item-pf {
       & > a, &.active > a {
@@ -186,7 +188,7 @@
 }
 
 .container-pf-nav-pf-vertical.collapsed-nav { //sass-lint:disable-line class-name-format force-element-nesting
-  left: 40px;
+  left: 44px;
   width: calc(100% - 50px);
 }
 
@@ -282,7 +284,7 @@
 }
 
 .collapsed .nav-pf-secondary-nav {
-  left: 40px;
+  left: 44px;
 }
 
 .nav-pf-secondary-nav {
@@ -414,7 +416,7 @@
 .VerticalMenuContainer {
   .nav-pf-vertical, 
   .nav-pf-secondary-nav,
-ì .list-group-item.active > a, 
+  .list-group-item.active > a, 
   .list-group-item > a {
     background-color: $color-background-primary;
   }
@@ -430,17 +432,34 @@
       justify-content: center;
     }
 
+    & > .list-group {
+      row-gap: 12px;
+
+      & > .list-group-item > a {
+        display: flex;
+        align-items: center;
+        z-index: 1;
+      }
+    }
+
     .list-group-item {
       border: none;
+      margin-block: 2px;
+
+      &:hover, &.active {
+        .VerticalMenuContainer_Icon {
+          background-color: $color-brand-primary;
+        }
+      }
 
       a {
-        height: 40px;
+        height: 28px;
         color: $color-text-tertiary;
         padding: 0;
 
         .fa {
           font-size: 16px;
-          margin: 0;
+          margin-inline: -2px 0;
         }
       }
 
@@ -454,14 +473,43 @@
         }
 
         a::before {
-          background: $color-dark-blue;
-          left: -2px;
-          border-radius: $radius-s;
           width: 28px;
           height: 28px;
-          z-index: -1
+          background: $color-dark-blue;
+          border-radius: $radius-s;
+          left: -4px;
+          z-index: -1;
         }
       }
       }
     }
 }
+
+.VerticalMenuContainer_Icon {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color: $color-dim-grey;
+  mask-repeat: no-repeat;
+
+  &.Dashboard {  
+    mask: url('../public/icons/dashboard.svg');
+  }
+
+  &.Pages {  
+    mask: url('../public/icons/copy.svg');
+  }
+
+  &.Contents {  
+    mask: url('../public/icons/file.svg');
+  }
+
+  &.Components {  
+    mask: url('../public/icons/app-builder-icon.svg');
+  }
+
+  &.Users {  
+    mask: url('../public/icons/users.svg');
+  }
+}
+
