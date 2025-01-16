@@ -1,6 +1,7 @@
 //sass-lint:disable class-name-format nesting-depth force-element-nesting no-important
 .ComponentListPage {
   height: 100%;
+  scrollbar-gutter: stable;
 
   &>.container-fluid {
     height: 100%;
@@ -18,10 +19,6 @@
   .PageTitle {
     &__header {
       padding-inline: 20px;
-    }
-
-    &__title {
-      margin-top: 0;
     }
 
     &::after {

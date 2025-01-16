@@ -25,7 +25,7 @@ class CloneWidgetPage extends Component {
         ]}
         />
         <div className="WidgetPage__header">
-          <PageTitle titleId="widget.page.clone.pageTitle" helpId="widget.help" className="max-height">
+          <PageTitle titleId="widget.page.clone.pageTitle" helpId="widget.help">
             <div id="widget-button-holder" className="WidgetPage__header__btn-container" />
           </PageTitle>
         </div>

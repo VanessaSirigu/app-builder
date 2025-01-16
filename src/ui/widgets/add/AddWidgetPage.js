@@ -16,7 +16,7 @@ export const AddWidgetPageBody = () => (
       { label: 'widgets.addWidget', active: true },
     ]}
     />
-    <PageTitle titleId="widgets.addWidget" helpId="widget.help" className="max-height">
+    <PageTitle titleId="widgets.addWidget" helpId="widget.help">
       <div id="widget-button-holder" />
     </PageTitle>
     <div className="WidgetPage__body">

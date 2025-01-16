@@ -51,7 +51,6 @@ export class ListFragmentPageBody extends Component {
               <PageTitle
                 titleId="fragment.list.title"
                 helpId="fragment.help"
-                className="max-height"
               >
                 <div className="ListFragmentPage__search-container">
                   <FragmentSearchFormContainer />

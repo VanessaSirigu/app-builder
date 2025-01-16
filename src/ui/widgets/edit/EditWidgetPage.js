@@ -23,7 +23,7 @@ class EditWidgetPage extends Component {
           ]}
         />
         <div className="WidgetPage__header">
-          <PageTitle titleId="widget.page.edit.pageTitle" helpId="widget.help" className="max-height">
+          <PageTitle titleId="widget.page.edit.pageTitle" helpId="widget.help">
             <div id="widget-button-holder" />
           </PageTitle>
         </div>

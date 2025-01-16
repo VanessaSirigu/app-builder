@@ -127,7 +127,7 @@ class WidgetConfigPage extends Component {
         ]}
         />
         <div className="WidgetConfigPage__header">
-          <PageTitle titleId="menu.widget" helpId="widgetConfig.help" className="max-height">
+          <PageTitle titleId="menu.widget" helpId="widgetConfig.help">
             <div id="widget-button-holder" className="WidgetConfigPage__header__btn-container" />
           </PageTitle>
         </div>

@@ -78,7 +78,7 @@ const EmailConfigPage = () => {
           <Route>
             <div className="header-container">
               <div className="header-content">
-                <PageTitle titleId="menu.emailConfig" helpId="emailConfig.help" className="max-height" />
+                <PageTitle titleId="menu.emailConfig" helpId="emailConfig.help" />
                 {tabs}
               </div>
             </div>
