@@ -15,16 +15,17 @@
       background-color: white;
       display: flex;
       align-items: center;
-      font-weight: 400;
+      font-weight: 600;
       height: calc(100% - 1px);
       border-bottom: 2px solid $color-content-07;
       min-width: 40px;
       width: fit-content;
       justify-content: center;
+      color: $color-text-tertiary;
 
 
       &.active{
-        color: $color-brand-primary !important;
+        color: $color-primary-text !important;
         border-bottom: 2px solid $color-brand-primary !important;
         border: none;
         outline: none;
@@ -32,11 +33,14 @@
         :hover{
           outline: none;
         }
+
+        a{
+          color: $color-primary-text;
+        }
       }
 
       :hover{
-        font-weight: 400;
-        color: $color-brand-primary;
+        color: $color-primary-text !important;
         cursor: pointer;
        
       }
@@ -51,6 +55,8 @@
         line-height: unset;
         padding: 4px 8px 4px 8px;
         border: none !important;
+        color: $color-text-tertiary;
+
 
 
         :focus{
@@ -62,9 +68,10 @@
         }
 
         :hover{
-          font-weight: 500;
-          color: $color-brand-primary;
+          color: $color-primary-text;
         }
+
+       
       }
       
     }
