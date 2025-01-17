@@ -46,10 +46,6 @@
     margin: unset;
     display: flex;
     align-items: center;
-    &::after{
-      border-bottom: none;
-      content: none; 
-    }
 
     &__title{
       margin: unset;
@@ -58,6 +54,10 @@
     &__content{
       width: fit-content;
       margin-right: 16px;
+    }
+
+    &__header::after {
+      content: none;
     }
   }
 

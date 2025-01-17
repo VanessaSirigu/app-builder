@@ -26,7 +26,7 @@
   }
   
   .PageTitle__header::after {
-    width: calc(100vw - 240px)
+    width: calc(100vw - $sidebar-collapsed-width - 21px)
   }
 
   &__toolbar-container {

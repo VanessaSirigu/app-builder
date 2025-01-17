@@ -12,7 +12,7 @@
   }
 
   .PageTitle__header::after {
-    width: calc(100vw - 240px);
+    width: calc(100vw - $sidebar-collapsed-width - 21px);
   }
 
   .btn-group > .RenderRadioInput__toggle-btn {
