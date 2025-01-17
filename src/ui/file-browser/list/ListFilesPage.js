@@ -30,7 +30,7 @@ export const ListFilesPageBody = () => (
         <Col md={6}>
           <FileBreadcrumbContainer className="ListFilesPage__fileBreadcrumbContainer" />
         </Col>
-        <Col md={6}>
+        <Col md={6} className="btnGroup">
           <FileButtonsGroupContainer className="ListFilesPage__fileButtonsGroupContainer" />
         </Col>
       </Row>
