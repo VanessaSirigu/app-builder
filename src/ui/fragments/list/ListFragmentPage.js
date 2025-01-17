@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'patternfly-react';
 import { FormattedMessage } from 'react-intl';
+import { ButtonToolbar } from 'react-bootstrap';
+import cx from 'classnames';
 import HeaderBreadcrumb from 'ui/internal-page/HeaderBreadcrumb';
 import InternalPage from 'ui/internal-page/InternalPage';
 import PageTitle from 'ui/internal-page/PageTitle';
@@ -59,7 +61,23 @@ export class ListFragmentPageBody extends Component {
             </Col>
           </Row>
           <Row >
-            <div className="ListFragmentPage__btn-container">
+            <div className="ListFragmentPage__toolbar-container">
+              <div className="ListFragmentPage__tab-container">
+                <ButtonToolbar
+                  className={cx('ListFragmentPage__header-tab', this.state.activeView === VIEW_LIST && 'active')}
+                  onClick={() => this.setActiveView(VIEW_LIST)}
+                >
+                  <Icon name="list" />
+                  <FormattedMessage id="app.list" />
+                </ButtonToolbar>
+                <ButtonToolbar
+                  className={cx('ListFragmentPage__header-tab', this.state.activeView === VIEW_SETTINGS && 'active')}
+                  onClick={() => this.setActiveView(VIEW_SETTINGS)}
+                >
+                  <Icon name="gear" />
+                  <FormattedMessage id="app.settings" />
+                </ButtonToolbar>
+              </div>
               <Link to={ROUTE_FRAGMENT_ADD}>
                 <Button
                   type="button"
@@ -71,22 +89,6 @@ export class ListFragmentPageBody extends Component {
                   />
                 </Button>
               </Link>
-              <Button
-                className="ListFragmentPage__header-btn clear secondary"
-                active={this.state.activeView === VIEW_LIST}
-                onClick={() => this.setActiveView(VIEW_LIST)}
-              >
-                <Icon name="list" />
-                <FormattedMessage id="app.list" />
-              </Button>
-              <Button
-                className="ListFragmentPage__header-btn clear secondary"
-                active={this.state.activeView === VIEW_SETTINGS}
-                onClick={() => this.setActiveView(VIEW_SETTINGS)}
-              >
-                <Icon name="gear" />
-                <FormattedMessage id="app.settings" />
-              </Button>
             </div>
           </Row>
           <Row>

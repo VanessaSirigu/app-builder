@@ -4,73 +4,64 @@
 
   .FragmentListTable__table {
     margin: 2em 0 0 0;
- }
+  }
 
- .dropdown-menu {
+  .dropdown-menu {
     width: max-content;
     padding: 8px;
 
-  a {
-    display: flex;
-    align-items: center;
-    color: $color-text-secondary;
+    a {
+      display: flex;
+      align-items: center;
+      color: $color-text-secondary;
 
-    &:hover {
-      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+      }
     }
-  }
 
-   .danger > a {
+    .danger > a {
       color: $color-error-primary;
     }
   }
-}
-
-  .FragmentListMenuAction__menu-item-container {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 4px;
+  
+  .PageTitle__header::after {
+    width: calc(100vw - 240px)
   }
 
-// Bootstrap overrides
-.ListFragmentPage .nav-tabs > li.ListFragmentPage__header-tab > a {
-  height: 57px;
-  line-height: 43px;
-}
-
-.ListFragmentPage .nav-tabs.nav-justified > .active > a {
-  border-bottom-color: $color-pf-black-300;
-}
-
-.ListFragmentPage .nav-tabs.nav-justified > :not(.active) > a {
-  background-color: $color-pf-black-200;
-}
-
-.ListFragmentPage .nav-tabs.nav-justified > :not(.active):hover > a {
-  background-color: $color-pf-black-700;
-  color: $color-pf-white;
-  font-weight: 600;
-}
-
-.ListFragmentPage .nav-tabs.nav-justified {
-  border: 1px solid $color-pf-black-300;
-  border-top: 0;
-}
-
-.ListFragmentPage {
-  &__btn-container {
+  &__toolbar-container {
     display: flex;
     justify-content: flex-end;
-    gap: 8px;
+    align-items: center;
+  }
+  
+  &__tab-container {
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 8px;
     padding-inline: 16px;
   }
 
-  .PageTitle {
-    &::after {
-      content: none;
+  &__header-tab {
+    display: flex;
+    align-items: baseline;
+    color: $color-text-tertiary;
+    column-gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    padding: 6px 16px;
+  
+    &.active, &.active:hover {
+      color: $color-brand-primary;
+      border-color: $color-brand-primary;
     }
-  }
+
+    &:hover {
+      cursor: pointer;
+      border-color: $color-text-tertiary;
+    }
+  } 
 
   .FragmentListContent {
     display: flex;
