@@ -9,13 +9,10 @@
     padding-left: 0px;
   }
 
-
-
   &__tabs {
     margin-top: 0px;
 
     .nav-tabs{
-
       .__tabContainer{
         display: flex;
         align-items: center;
@@ -27,7 +24,7 @@
         }
       }
 
-      li > a{
+      li > a {
         border-bottom: 2px solid $color-border-gray;
         border-top: none;
         border-right: none;
@@ -36,7 +33,7 @@
         font-weight: 500;
       }
 
-      li > a:hover, a:focus,a:active{
+      li > a:hover, a:focus,a:active {
         outline: none;
         border-bottom: 2px solid $color-primary;
         border-top: none;
@@ -78,19 +75,11 @@
     align-items: center;
     justify-content: space-between;
 
-    .btn-primary,
-    .btn-primary:active,
-    .btn-primary:focus {
-      border: 1.5px solid $color-brand-primary;
-    }
 
     flex-wrap: wrap;
   }
 
-  
-
   &__btn-group--trans {
-
     display: flex;
     flex-wrap: wrap;
 
@@ -99,24 +88,14 @@
     }
   }
 
-  &__btn-icon--svg {
-  }
-
-  &__btn-icon--svg-right {
-    padding-left: 8px;
-  }
-
   &__bottom-options {
-  margin-top: 100px;
+    margin-top: 100px;
     width: 100%;
 
     .pull-right{
       display: flex;
       align-items: center;
       gap: 20px;
-    }
-
-    .pull-right .btn:not(.dropdown-toggle) { // sass-lint:disable-line force-element-nesting class-name-format
     }
   }
 
@@ -143,6 +122,21 @@
       flex-direction: row;
       align-items: center;
       gap: 8px;
+    }
+  }
+
+  .active {
+    .PageConfigPage__btn-icon--svg.lucide{
+        color: inherit;
+      }
+  }
+
+  .Button.btn-outlined-primary, .btn-outlined-primary:hover {
+    color: $color-brand-primary;
+    font-size: 14px;
+
+    &:focus {
+      outline: none;
     }
   }
 

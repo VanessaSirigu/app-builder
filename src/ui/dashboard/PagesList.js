@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Paginator, Button } from 'patternfly-react';
+import { Paginator } from 'patternfly-react';
 import { Link } from 'react-router-dom';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import EllipsisWithTooltip from 'react-ellipsis-with-tooltip';
@@ -11,6 +11,7 @@ import paginatorMessages from 'ui/paginatorMessages';
 import { MANAGE_PAGES_PERMISSION } from 'state/permissions/const';
 import ViewPermissionNoticeOverlay from 'ui/dashboard/ViewPermissionNoticeOverlay';
 import Icon from 'ui/common/icon/Icon';
+import Button from 'ui/common/Button';
 import StatusBadge from 'ui/pages/common/StatusBadge';
 
 class PagesList extends Component {

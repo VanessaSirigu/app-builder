@@ -7,7 +7,6 @@ import {
   intlShape,
 } from 'react-intl';
 import {
-  Icon,
   Grid,
   Row,
   Col,
@@ -18,7 +17,7 @@ import {
   Tabs,
   Tab,
 } from 'patternfly-react';
-import { Panel, Button, ButtonToolbar } from 'react-bootstrap';
+import { Panel, ButtonToolbar } from 'react-bootstrap';
 
 import InternalPage from 'ui/internal-page/InternalPage';
 import ErrorsAlertContainer from 'ui/common/form/ErrorsAlertContainer';
@@ -29,6 +28,8 @@ import SelectedPageInfoTableContainer from 'ui/pages/common/SelectedPageInfoTabl
 import AppTourContainer from 'ui/app-tour/AppTourContainer';
 import PagesEditFormContainer from 'ui/pages/edit/PagesEditFormContainer';
 import HeaderBreadcrumb from 'ui/internal-page/HeaderBreadcrumb';
+import Icon from 'ui/common/icon/Icon';
+import Button from 'ui/common/Button';
 import { APP_TOUR_STARTED } from 'state/app-tour/const';
 import {
   PAGE_STATUS_PUBLISHED,
@@ -188,15 +189,16 @@ class PageConfigPage extends Component {
                 'btn-outlined-secondary',
                 'PageConfigPage__info-btn',
                 'PageConfigPage__btn-icon',
+                'radius-xxs',
               ].join(' ')}
               bsStyle="default"
               onClick={this.toggleInfoTable}
             >
-              <FormattedMessage id="app.info" />
               <Icon
                 name={this.state.infoTableOpen ? 'angle-down' : 'angle-right'}
                 className="PageConfigPage__btn-icon--svg"
               />
+              <FormattedMessage id="app.info" />
             </Button>
           </ButtonToolbar>
           <ButtonToolbar className="pull-right">
@@ -204,9 +206,10 @@ class PageConfigPage extends Component {
               <React.Fragment>
                 <Button
                   className={[
-                    'PageConfigPage__btn-icon--right',
+                    'PageConfigPage__btn-icon',
                     'btn',
-                    editingSettings ? '' : 'btn-primary',
+                    editingSettings ? 'btn-outlined-secondary' : 'btn-primary',
+                    'radius-xxs',
                   ].join(' ')}
                   onClick={this.toggleEditingSettings}
                 >
@@ -217,41 +220,42 @@ class PageConfigPage extends Component {
                   </span>
                 </Button>
                 {editingSettings && (
-                  <Button
-                    className={[
-                      'PageConfigPage__btn-icon--right',
+                <Button
+                  className={[
+                      'PageConfigPage__btn-icon',
                       'btn',
                       'btn-outlined-primary',
+                      'radius-xxs',
                     ].join(' ')}
-                    onClick={() => onClickSaveSettings(selectedPageForm)}
-                    disabled={
+                  onClick={() => onClickSaveSettings(selectedPageForm)}
+                  disabled={
                       pageSettingsButtonInvalid || pageSettingsButtonSubmitting
                     }
-                  >
-                    <span>
-                      <FormattedMessage id="app.save" />
-                    </span>
-                  </Button>
-                )}
+                >
+                  <span>
+                    <FormattedMessage id="app.save" />
+                  </span>
+                </Button>
+                 )}
               </React.Fragment>
             ) : (
               <div>
                 <Button
                   className={[
-                    'PageConfigPage__btn-icon--right',
+                    'PageConfigPage__btn-icon',
                     'btn',
                     'btn-outlined-secondary',
+                    'radius-xxs',
                   ].join(' ')}
                   onClick={restoreConfig}
                   disabled={!pageDiffersFromPublished}
                 >
-                  <span>
-                    <FormattedMessage id="app.restore" />
-                    <Icon
-                      name="undo"
-                      className="PageConfigPage__btn-icon--svg-right"
-                    />
-                  </span>
+                  <Icon
+                    name="undo"
+                    type="lucide"
+                    className="PageConfigPage__btn-icon--svg"
+                  />
+                  <FormattedMessage id="app.restore" />
                 </Button>
 
                 <a
@@ -266,6 +270,11 @@ class PageConfigPage extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+                  <Icon
+                    name="play"
+                    type="lucide"
+                    className="PageConfigPage__btn-icon--svg"
+                  />
                   <FormattedMessage id="app.preview" />
                 </a>
                 <Button
@@ -276,6 +285,7 @@ class PageConfigPage extends Component {
                       ? 'btn-outlined-secondary'
                       : 'btn-primary',
                     'PageConfigPage__btn--viewPublishedPage',
+                    'radius-xxs',
                   ].join(' ')}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -458,7 +468,6 @@ class PageConfigPage extends Component {
                   <div className="pull-right PageConfigPage__publishing">
                     <Button
                       className="PageConfigPage__unpublish-btn btn-outlined-secondary"
-                      bsStyle="default"
                       onClick={unpublishPage}
                       disabled={!pageIsPublished}
                     >

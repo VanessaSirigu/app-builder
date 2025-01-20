@@ -5,9 +5,9 @@ import {
   CardTitle,
   CardBody,
   AggregateStatusCount,
-  Button,
 } from 'patternfly-react';
 import Icon from 'ui/common/icon/Icon';
+import Button from 'ui/common/Button';
 import { PermissionCheck, hasAccess } from '@entando/utils';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';

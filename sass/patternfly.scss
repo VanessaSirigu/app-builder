@@ -149,6 +149,10 @@ $fa-square-o: '\f096';
   border-radius: 6px;
   font-size: 14px;
   box-shadow: none;
+
+  &:focus, &:focus:hover, &:active {
+    outline: none;
+  }
 }
 
 
@@ -160,7 +164,7 @@ $fa-square-o: '\f096';
 }
 
 .btn-primary:hover {
-  background-color: $color-primary;
+  background-color: $color-brand-primary;
 }
 
 .btn-primary:hover:active {
@@ -195,7 +199,7 @@ $fa-square-o: '\f096';
   color: $color-primary-text;
   box-shadow: none;
 
-  &:focus{
+  &:focus, &:focus:hover {
     outline: none;
   }
 }
@@ -280,7 +284,10 @@ $fa-square-o: '\f096';
     .form-control{
       font-size: 14px;
     }
- 
+    
+    input {
+      text-align: center;
+    }
 
     .dropdown-toggle{
       background-color: transparent;
@@ -323,6 +330,17 @@ $fa-square-o: '\f096';
   display: flex;
   justify-content: flex-end;
 }
+
+ a, a:hover {
+    color: $color-brand-primary;
+  }
+
+
+* {
+  font-family: Inter;
+}
+
+
 
 
 // sass-lint:enable class-name-format

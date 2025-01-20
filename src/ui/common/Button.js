@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Button as PatternFlyButton } from 'patternfly-react';
 
-const Button = ({ children, className, ...rest }) => (
-  <PatternFlyButton {...rest} className={cx('Button', className)}>{children}</PatternFlyButton>
+const Button = ({
+  children, className, ...props
+}) => (
+  <PatternFlyButton {...props} className={cx('Button', className)}>{children}</PatternFlyButton>
 );
 
 Button.propTypes = {

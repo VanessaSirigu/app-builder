@@ -24,6 +24,7 @@ $color-neutral-grey: #e4e7ec;
 $color-text-secondary: #344051;
 $color-text-tertiary: #637083;
 $color-error-primary: #F64C4C;
+$color-danger-primary: #F64C4C;
 $color-dark-blue: #e5eeff;
 $color-border-blue: #40a6da;
 $color-dim-grey: #72767b;
@@ -45,5 +46,6 @@ $sidebar-collapsed-width: 44px;
 
 :export {
     colorContent05: $color-content-05;
-    color-brand-background-primary: $color-brand-background-primary;
+    colorBrandBackgroundPrimary: $color-brand-background-primary;
+    colorDangerPrimary: $color-danger-primary;
 }

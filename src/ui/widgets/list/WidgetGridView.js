@@ -7,6 +7,7 @@ import { withPermissionValues } from 'ui/auth/withPermissions';
 import { ROUTE_WIDGET_EDIT } from 'app-init/router';
 import CardList from 'ui/common/CardList';
 import Icon from 'ui/common/icon/Icon';
+import { colorDangerPrimary } from 'variables.scss';
 
 export const WidgetGrid = ({
   title,
@@ -42,7 +43,7 @@ export const WidgetGrid = ({
         </div>
         {!item.locked && item.used === 0 && (
           <div className="WidgetListRow__menu-item-container">
-            <Icon name="bin" type="lucide" color="#F64C4C" />
+            <Icon name="bin" type="lucide" color={colorDangerPrimary} />
             <MenuItem
               className="WidgetListRow__menu-item-delete danger"
               onClick={() => onDelete(item.code)}
