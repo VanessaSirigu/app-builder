@@ -50,15 +50,18 @@ class PageTreePage extends Component {
             </Col>
           </Row>
           <Row>
-            <Col xs={12} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-              <PageSearchForm {...this.props} />
-              <Button
-                className="clear secondary"
-                onClick={() => this.setState({ open: true })}
-              >
-                <Icon name="gear" />
-                <FormattedMessage id="app.settings" />
-              </Button>
+            <Col xs={12} >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }} className="pageTreeSearch">
+                <PageSearchForm {...this.props} />
+                <Button
+                  className="clear secondary"
+                  onClick={() => this.setState({ open: true })}
+                >
+                  <Icon name="gear" />
+                  <FormattedMessage id="app.settings" />
+                </Button>
+              </div>
+
             </Col>
           </Row>
           {this.props.search && (
