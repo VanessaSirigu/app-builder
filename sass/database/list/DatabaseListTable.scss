@@ -3,9 +3,7 @@
     margin: 2em 0 0;  
     
     .table-header {
-      background-color: #fff !important;
-      
-  
+      background-color: #fff;  
       td {
         border-left: 0;
         border-right: 0;
@@ -38,5 +36,9 @@
         }
       }
     }
+  }
+  
+  .UserAuthorityTable__delete-tag-btn{
+    justify-self: center;
   }
 }
