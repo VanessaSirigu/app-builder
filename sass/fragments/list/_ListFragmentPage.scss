@@ -22,10 +22,6 @@
     }
   }
   
-  .PageTitle__header::after {
-    width: calc(100vw - $sidebar-collapsed-width - 21px)
-  }
-
   &__toolbar-container {
     display: flex;
     justify-content: flex-end;

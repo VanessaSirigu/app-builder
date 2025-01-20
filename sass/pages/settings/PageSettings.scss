@@ -11,10 +11,6 @@
     color: $color-brand-primary;
   }
 
-  .PageTitle__header::after {
-    width: calc(100vw - $sidebar-collapsed-width - 21px);
-  }
-
   .btn-group > .RenderRadioInput__toggle-btn {
     &:first-child {
       border-top-left-radius: $radius-xxs;

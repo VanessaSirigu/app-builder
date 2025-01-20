@@ -7,12 +7,11 @@
     &::after {
       content: "";
       position: absolute;
-      width: calc(100vw - $sidebar-collapsed-width - 1px);
-      left: -20px;
+      width: calc(100% + 60px);
+      right: -21px;
       border-bottom: 1px solid $color-neutral-grey;
     }
   }
-
 
   .PageTitle__title {
     color: $color-text-secondary;

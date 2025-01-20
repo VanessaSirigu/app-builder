@@ -19,10 +19,11 @@
   .PageTitle {
     &__header {
       padding-inline: 20px;
-    }
 
-    &::after {
-      top: 66px;
+      &::after {
+        width: calc(100% + 10px);
+        right: -10px;
+      }
     }
   }
 
