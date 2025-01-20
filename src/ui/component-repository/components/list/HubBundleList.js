@@ -98,8 +98,7 @@ const HubBundleList = ({
   ), {});
 
   return (
-    <div>
-      <Spinner loading={!!loading} />
+    <Spinner loading={!!loading} >
       <div className="ComponentList">
         {components}
       </div>
@@ -112,7 +111,7 @@ const HubBundleList = ({
         messages={messages}
       />
       {openedModal === HUB_BUNDLE_MANAGEMENT_MODAL_ID && <HubBundleManagementModal />}
-    </div>
+    </Spinner>
   );
 };
 
