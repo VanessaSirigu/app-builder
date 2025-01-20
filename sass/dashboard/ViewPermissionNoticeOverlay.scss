@@ -60,6 +60,10 @@
       background-color: $color-neutral-grey;
     }
 
+    li > a:focus{
+      background-color: none;
+    }
+
   
   }
   
