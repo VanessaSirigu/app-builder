@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import { capitalize } from 'lodash';
 import InternalPage from 'ui/internal-page/InternalPage';
 import WidgetListTable from 'ui/widgets/list/WidgetListTable';
@@ -115,16 +116,16 @@ class ListWidgetPage extends Component {
             </Col>
           </Row>
           <Col xs={12} className="ListWidgetPage__button-group">
-            <div className="ListWidgetPage__box">
+            <div className="ListWidgetPage__toggle-box">
               {
                 widgetGroupingList.map(item => (
                   <Button
                     type="button"
-                    className={`clear secondary pull-right ListWidgetPage__list ${this.state.filter.includes(item) ? 'ActiveButton' : ''}`}
+                    className={cx('btn-clear-secondary ListWidgetPage__btn-toggle', this.state.filter.includes(item) && 'ActiveButton')}
                     onClick={() => onTabClick(item)}
                     disabled={this.state.filter.length < 2 && this.state.filter.includes(item)}
                   >
-                    {iconMap[item] && <Icon {...iconMap[item]} />}
+                    {iconMap[item] && <Icon {...iconMap[item]} className="ListWidgetPage__btn-icon" />}
                     {capitalize(item)}
                     <div className="CardItemCounter">
                       {groupedWidgets[item].length}
@@ -136,7 +137,7 @@ class ListWidgetPage extends Component {
             <div className="ListWidgetPage__box">
               <Button
                 type="button"
-                className="clear secondary pull-right ListWidgetPage__grid"
+                className="btn-clear-secondary pull-right ListWidgetPage__grid"
                 onClick={() => this.setState({ view: 'grid' })}
                 disabled={this.state.view === 'grid'}
               >
@@ -145,7 +146,7 @@ class ListWidgetPage extends Component {
               </Button>
               <Button
                 type="button"
-                className="clear secondary pull-right ListWidgetPage__list"
+                className="btn-clear-secondary pull-right ListWidgetPage__list"
                 onClick={() => this.setState({ view: 'list' })}
                 disabled={this.state.view === 'list'}
               >

@@ -6,6 +6,7 @@ import ErrorsAlertContainer from 'ui/common/form/ErrorsAlertContainer';
 import { ROUTE_WIDGET_LIST } from 'app-init/router';
 import withPermissions from 'ui/auth/withPermissions';
 import { SUPERUSER_PERMISSION } from 'state/permissions/const';
+import { Row, Col } from 'patternfly-react';
 import HeaderBreadcrumb from 'ui/internal-page/HeaderBreadcrumb';
 
 export const AddWidgetPageBody = () => (
@@ -16,9 +17,11 @@ export const AddWidgetPageBody = () => (
       { label: 'widgets.addWidget', active: true },
     ]}
     />
-    <PageTitle titleId="widgets.addWidget" helpId="widget.help">
-      <div id="widget-button-holder" />
-    </PageTitle>
+    <div className="WidgetPage__header">
+      <PageTitle titleId="widgets.addWidget" helpId="widget.help">
+        <div id="widget-button-holder" />
+      </PageTitle>
+    </div>
     <div className="WidgetPage__body">
       <ErrorsAlertContainer />
       <WidgetFormContainer />

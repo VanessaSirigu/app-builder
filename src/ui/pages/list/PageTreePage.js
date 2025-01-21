@@ -54,7 +54,7 @@ class PageTreePage extends Component {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }} className="pageTreeSearch">
                 <PageSearchForm {...this.props} />
                 <Button
-                  className="clear secondary"
+                  className="btn-clear-secondary"
                   onClick={() => this.setState({ open: true })}
                 >
                   <Icon name="gear" />

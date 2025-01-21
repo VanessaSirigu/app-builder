@@ -26,15 +26,10 @@
         border: none;
     }
 
-    &.clear {
-        background-color: transparent;
-        border: none;
-        
-        &:not(.secondary) {
-            color: $color-brand-primary;
-        }
-
-        &.secondary {
+    &.btn-clear {  
+        &-secondary {
+            background-color: transparent;
+            border: none;
             color: $color-text-secondary;
         }
     }
@@ -53,7 +48,7 @@
 
     &.btn-outlined-secondary {
         &:hover {
-            background-color: #F2F4F7;
+            background-color: $color-content-09;
         }
     }
 

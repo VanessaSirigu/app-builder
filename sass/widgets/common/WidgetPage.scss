@@ -3,13 +3,6 @@
   min-height: 700px;
   margin-bottom: 0;
 
-  &.AddWidgetPage {
-    .PageTitle {
-      padding-inline: 20px;
-      margin-bottom: 14px;
-    }
-  }
-
   &__header {
     padding-inline: 20px;
 
@@ -42,22 +35,5 @@
     margin-top: 60px;
     margin-left: 216px;
     padding: 0;
-  }
-
-  & .PageTitle__header {
-    border: 0;
-  }
-
-  & .PageTitle__header {
-    margin-bottom: 0;
-  }
-
-  & .PageTitle__title {
-    margin-bottom: 0;
-
-    & .pull-right {
-      margin-left: 22px;
-      float: none !important;
-    }
   }
 }
