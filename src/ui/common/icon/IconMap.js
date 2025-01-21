@@ -1,4 +1,4 @@
-import { Users, Flag, Grid2x2Plus, Copy, AlignLeft, Plus, Pencil, Trash2, Box, Info, Play, Undo } from 'lucide-react';
+import { Users, Flag, Grid2x2Plus, Copy, AlignLeft, Plus, Pencil, Trash2, Box, Info, Play, Undo, Globe, Layers } from 'lucide-react';
 
 export default {
   users: Users,
@@ -13,4 +13,6 @@ export default {
   info: Info,
   play: Play,
   undo: Undo,
+  globe: Globe,
+  system: Layers,
 };

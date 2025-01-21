@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { capitalize } from 'lodash';
 import InternalPage from 'ui/internal-page/InternalPage';
 import WidgetListTable from 'ui/widgets/list/WidgetListTable';
 import PageTitle from 'ui/internal-page/PageTitle';
@@ -12,6 +13,15 @@ import DeleteWidgetModalContainer from 'ui/widgets/list/DeleteWidgetModalContain
 import Icon from 'ui/common/icon/Icon';
 import Button from 'ui/common/Button';
 import WidgetGridView from './WidgetGridView';
+
+const iconMap = {
+  cms: { name: 'apps', type: 'svg', src: '/icons/apps.svg' },
+  navigation: { name: 'text', type: 'lucide' },
+  page: { name: 'pages', type: 'lucide' },
+  seo: { name: 'globe', type: 'lucide' },
+  system: { name: 'system', type: 'lucide' },
+  user: { name: 'users', type: 'lucide' },
+};
 
 class ListWidgetPage extends Component {
   componentWillMount() {
@@ -114,8 +124,8 @@ class ListWidgetPage extends Component {
                     onClick={() => onTabClick(item)}
                     disabled={this.state.filter.length < 2 && this.state.filter.includes(item)}
                   >
-                    {/* <Icon name="-placeholder-" /> */}
-                    {item}
+                    {iconMap[item] && <Icon {...iconMap[item]} />}
+                    {capitalize(item)}
                     <div className="CardItemCounter">
                       {groupedWidgets[item].length}
                     </div>
