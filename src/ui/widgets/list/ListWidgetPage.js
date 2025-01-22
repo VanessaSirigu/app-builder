@@ -16,12 +16,12 @@ import Button from 'ui/common/Button';
 import WidgetGridView from './WidgetGridView';
 
 const iconMap = {
-  cms: { name: 'apps', type: 'svg', src: '/icons/apps.svg' },
-  navigation: { name: 'text', type: 'lucide' },
-  page: { name: 'pages', type: 'lucide' },
-  seo: { name: 'globe', type: 'lucide' },
-  system: { name: 'system', type: 'lucide' },
-  user: { name: 'users', type: 'lucide' },
+  cms: 'cms',
+  navigation: 'text',
+  page: 'pages',
+  seo: 'globe',
+  system: 'system',
+  user: 'users',
 };
 
 class ListWidgetPage extends Component {
@@ -128,7 +128,8 @@ class ListWidgetPage extends Component {
                   >
                     {iconMap[item] &&
                       <Icon
-                        {...iconMap[item]}
+                        name={iconMap[item]}
+                        type="lucide"
                         className={cx('ListWidgetPage__btn-icon', isActive(item) && 'ActiveButton')}
                       />}
                     {capitalize(item)}

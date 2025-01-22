@@ -21,6 +21,12 @@
   &.primary {
     color: $color-brand-primary;
   }
+
+  &.lucide-component > path {
+    transform: rotate(45deg);
+    transform-origin: center;
+  }
+
 }
 
 .active {
