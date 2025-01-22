@@ -90,9 +90,13 @@
   height: 20px;
   background-color: rgba(242, 244, 247, 1);
   border-radius: 50%;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .CardItemSubtitle{
   color: rgba(99, 112, 131, 1);
+}
+
+.CardItemCounter__popover {
+  font-weight: 600;
 }

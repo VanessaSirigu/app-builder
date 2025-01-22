@@ -38,7 +38,7 @@ const CardItem = ({
             trigger={['click']}
             rootClose
             overlay={
-              <Popover>
+              <Popover className="CardItemCounter__popover">
                 <FormattedMessage id="app.used" />
               </Popover>
             }
