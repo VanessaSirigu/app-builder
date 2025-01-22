@@ -93,6 +93,7 @@ class ListWidgetPage extends Component {
 
   render() {
     const { groupedWidgets, widgetGroupingList } = this.props;
+    const isActive = item => this.state.filter.includes(item);
 
     const onTabClick = value => this.setState((prev) => {
       if (prev.filter.includes(value)) return { filter: prev.filter.filter(v => v !== value) };
@@ -121,11 +122,15 @@ class ListWidgetPage extends Component {
                 widgetGroupingList.map(item => (
                   <Button
                     type="button"
-                    className={cx('btn-clear-secondary ListWidgetPage__btn-toggle', this.state.filter.includes(item) && 'ActiveButton')}
+                    className={cx('btn-clear-secondary ListWidgetPage__btn-toggle', isActive(item) && 'ActiveButton')}
                     onClick={() => onTabClick(item)}
-                    disabled={this.state.filter.length < 2 && this.state.filter.includes(item)}
+                    disabled={this.state.filter.length < 2 && isActive(item)}
                   >
-                    {iconMap[item] && <Icon {...iconMap[item]} className="ListWidgetPage__btn-icon" />}
+                    {iconMap[item] &&
+                      <Icon
+                        {...iconMap[item]}
+                        className={cx('ListWidgetPage__btn-icon', isActive(item) && 'ActiveButton')}
+                      />}
                     {capitalize(item)}
                     <div className="CardItemCounter">
                       {groupedWidgets[item].length}
