@@ -1,34 +1,38 @@
 .DatabaseListTable {
+  .table-bordered {
+      tr {
+        border: 1px solid $color-border-grey;
+      }
+
+        th, td {
+        border: none;
+      }
+
+  }
+
+
   &__table {
     margin: 2em 0 0;  
     
+  
+    
+
     .table-header {
       background-color: #fff;  
-      td {
-        border-left: 0;
-        border-right: 0;
-      }
-  
+
       .columnResizer {
         border-bottom: 1px solid $color-border-grey;
       }
   
       .table-header {
         padding: 16px;
-        border-left: 0;
-        border-right: 0;
-        border-color: $color-border-grey;
-        border-right: 1px solid $color-border-grey;
       }
     }
 
     tbody{
       .table-row {
         td {
-          border: 1px solid $color-border-grey;
           background-color: #fff;
-          border-left: 0;
-          border-right: 0;
           text-overflow: ellipsis;
           vertical-align: center !important;
           padding: 16px;

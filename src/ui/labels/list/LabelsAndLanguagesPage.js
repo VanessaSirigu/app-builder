@@ -82,7 +82,7 @@ class LabelsAndLanguagesPage extends Component {
               </Col>
             </Row>
             <Row>
-              <Col xs={12}>
+              <Col xs={12} className="LabelsAndLanguagesPage__table-container">
                 <Spinner loading={!!this.props.loadingLabels}>
                   <LabelsTabsContainer />
                   <Paginator

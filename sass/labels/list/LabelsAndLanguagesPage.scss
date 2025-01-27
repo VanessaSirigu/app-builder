@@ -1,5 +1,4 @@
 .LabelsAndLanguagesPage {
-
   .col-xs-6{
     padding-left: 0;
   }
@@ -9,7 +8,6 @@
     display: flex;
     justify-content: flex-end;
     border: none;
-    
     
     li{
       background-color: white;
@@ -23,7 +21,6 @@
       justify-content: center;
       color: $color-text-tertiary;
 
-
       &.active{
         color: $color-primary-text !important;
         border-bottom: 2px solid $color-brand-primary !important;
@@ -34,7 +31,7 @@
           outline: none;
         }
 
-        a{
+        a {
           color: $color-primary-text;
         }
       }
@@ -42,22 +39,19 @@
       :hover{
         color: $color-primary-text !important;
         cursor: pointer;
-       
       }
 
       :focus{
-          outline: none;
-          border: none !important;
-          border-bottom: 2px solid $color-brand-primary;
+        outline: none;
+        border: none !important;
+        border-bottom: 2px solid $color-brand-primary;
       }
 
-      a{
+      a {
         line-height: unset;
         padding: 4px 8px 4px 8px;
         border: none !important;
         color: $color-text-tertiary;
-
-
 
         :focus{
           border: none;
@@ -69,15 +63,9 @@
 
         :hover{
           color: $color-primary-text;
-        }
-
-       
+        }  
       }
-      
     }
-
-  
-    
   }
 
   &__header-container {
@@ -107,6 +95,14 @@
     border-color: $color-pf-black-200;
   }
 
+  &__table-container {
+    padding-bottom: 30px;
+
+    .content-view-pf-pagination {
+      border-color: $color-border-grey;
+    }
+  }
+
   .PageTitle__header {
     border-bottom: 0;
   }
@@ -118,9 +114,7 @@
     align-items: flex-end;
     border-bottom: 1px solid $color-content-07;
 
-
     .PageTitle{
-
       margin-bottom: 0px;
       
       &__header{
@@ -143,8 +137,6 @@
             width: 100%;        
         }
     }
-
-   
   }
 
 
@@ -166,46 +158,45 @@
     }
   }
 
-  .ActiveLangTable,.LabelsTable{
+  .ActiveLangTable, 
+  .LabelsTable{
     .table{
       thead {
-        background-color: #fff !important;
-        background-image: unset;
-        background: unset;
+        background: none;
+        border: none;
 
-        th{
-          border: unset;
+        th {
+          border-left: none;
+          border-right: none;
           padding: 16px;
         }
         
-    
-        td {
-          border-left: 0;
-          border-right: 0;
-        }
     
         .columnResizer {
           border-bottom: 1px solid $color-border-grey;
         }
       }
+
+      tr {
+        border: 1px solid $color-border-grey;
+      }
   
+      th, td {
+          border: none;
+        }
+
       tbody{
         tr {
           td {
             background-color: #fff;
-            border: 1px solid $color-border-grey;
-            background-color: #fff !important;
-            border-left: 0;
-            border-right: 0;
             text-overflow: ellipsis;
-            vertical-align: center !important;
+            vertical-align: middle;
             padding: 16px;
             font-size: 14px;
           }
         }
       }
     }
-    
   }
 
   .LabelSearchForm{
@@ -231,8 +222,6 @@
         margin-left: 16px;
         margin-bottom: unset;
 
-       
-
         .row{
           height: 100%;
           display: flex;
@@ -254,25 +243,22 @@
             width: unset;
             padding: unset;
           }
-
         }
 
         .col-xs-11{
           width: unset;
-        }
-
-
       }
+    }
   }
 
-  .languageSelectGroup{
+  .languageSelectGroup {
     display: flex;
     padding: 8px;
     padding-left: 20px;
     align-items: center;
     gap: 16px;
 
-    label{
+    label {
       font-size: 14px;
       font-family: "Inter";
     }
