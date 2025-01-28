@@ -109,23 +109,24 @@ class LabelsAndLanguagesPage extends Component {
               <div className="LabelsAndLanguagesPage__header-container">
                 <Row>
                   <Col xs={12} className="languagesAndLabelsHeader">
-                    <PageTitle titleId="menu.labelsAndLanguages" helpId="labelsAndLanguages.help" />
-                    <ul className="nav nav-tabs nav-justified nav-tabs-pattern">
-                      <MenuItem
-                        className="LabelsAndLanguagesPage__header-tab LabelsAndLanguagesPage__header-tab-languages"
-                        active={this.props.activeTab === TAB_LANGUAGES}
-                        onClick={() => this.props.onClickTab(TAB_LANGUAGES)}
-                      >
-                        <FormattedMessage id="app.languages" />
-                      </MenuItem>
-                      <MenuItem
-                        className="LabelsAndLanguagesPage__header-tab  LabelsAndLanguagesPage__header-tab-labels"
-                        active={this.props.activeTab === TAB_LABELS}
-                        onClick={() => this.props.onClickTab(TAB_LABELS)}
-                      >
-                        <FormattedMessage id="app.systemLabels" />
-                      </MenuItem>
-                    </ul>
+                    <PageTitle titleId="menu.labelsAndLanguages" helpId="labelsAndLanguages.help" >
+                      <ul className="LabelsAndLanguagesPage__header-tabs nav nav-tabs nav-justified nav-tabs-pattern">
+                        <MenuItem
+                          className="LabelsAndLanguagesPage__header-tab LabelsAndLanguagesPage__header-tab-languages"
+                          active={this.props.activeTab === TAB_LANGUAGES}
+                          onClick={() => this.props.onClickTab(TAB_LANGUAGES)}
+                        >
+                          <FormattedMessage id="app.languages" />
+                        </MenuItem>
+                        <MenuItem
+                          className="LabelsAndLanguagesPage__header-tab  LabelsAndLanguagesPage__header-tab-labels"
+                          active={this.props.activeTab === TAB_LABELS}
+                          onClick={() => this.props.onClickTab(TAB_LABELS)}
+                        >
+                          <FormattedMessage id="app.systemLabels" />
+                        </MenuItem>
+                      </ul>
+                    </PageTitle>
                   </Col>
 
                 </Row>

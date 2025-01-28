@@ -3,12 +3,18 @@
     padding-left: 0;
   }
 
+  &__header-tabs.nav-tabs{
+    position: absolute;
+    right: 30px;
+    bottom: 0;
+  }
+
   .nav-tabs{
     width: fit-content !important;  
     display: flex;
     justify-content: flex-end;
     border: none;
-    
+
     li{
       background-color: white;
       display: flex;
@@ -68,11 +74,6 @@
     }
   }
 
-  &__header-container {
-    padding-top: 8px;
-
-  }
-
   &__header-tab {
     display: table-cell;
     padding: 0;
@@ -103,39 +104,15 @@
     }
   }
 
-  .PageTitle__header {
-    border-bottom: 0;
-  }
-
   .languagesAndLabelsHeader{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: flex-end;
-    border-bottom: 1px solid $color-content-07;
 
-    .PageTitle{
-      margin-bottom: 0px;
-      
-      &__header{
-        min-width: 200px;
-
-        &__title{
-          display: flex;
-          gap: 8px;
-          flex-wrap: wrap;
-        }
-      }
-
-        &::after {
-          border: none !important;
-          width: fit-content;
-          position: static;
-        }
-
-        &__content{
-            width: 100%;        
-        }
+    .PageTitle {
+      width: 100%;
+      position: relative;
     }
   }
 

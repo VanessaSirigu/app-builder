@@ -43,9 +43,8 @@ class PagesDetailPage extends Component {
             titleId="pageDetails.title"
             helpId="pageDetails.help"
           />
-          <Row className="PageConfigPage__toolbar-row">
+          <Row className="PagesDetailPage__toolbar-row">
             <Col xs={10}>
-
               <Button
                 className="PageConfigPage__info-btn"
                 bsStyle="info"
