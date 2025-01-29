@@ -288,13 +288,19 @@ $fa-square-o: '\f096';
     input {
       text-align: center;
     }
-
-    .dropdown-toggle{
-      background-color: transparent;
-    }
   } 
-
 }   
+
+.dropdown-toggle {
+  background-color: transparent;
+
+  &:has(.fa-ellipsis-v:first-child){
+    color: $color-text-tertiary !important;
+
+    &:hover, &:active, &:focus {
+    text-decoration: none;
+  }}
+}
 
 .pagination{
   li > a{
