@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { FormattedMessage, intlShape, injectIntl } from 'react-intl';
-import { InputGroup, Button, Row, Col } from 'patternfly-react';
+import { Button, Row, Col } from 'patternfly-react';
 
 import { required, maxLength } from '@entando/utils';
 import RenderTextInput from 'ui/common/form/RenderTextInput';
@@ -68,7 +68,7 @@ export class ProfileTypeFormBody extends Component {
             <legend>
               <FormattedMessage id="app.attributes" />
             </legend>
-            <InputGroup>
+            <div className="form-group">
               <Field
                 component={RenderSelectInput}
                 options={selectOptions}
@@ -78,20 +78,19 @@ export class ProfileTypeFormBody extends Component {
                 }
                 name="type"
               />
-              <span className="ProfileTypeForm__input-group-btn input-group-btn">
-                <Button
-                  type="button"
-                  className="pull-right ProfileTypeForm__add"
-                  bsStyle="primary"
-                  onClick={() => onAddAttribute(this.props)}
-                  disabled={invalid || submitting || !attributeCode}
-                >
-                  <FormattedMessage
-                    id="app.add"
-                  />
-                </Button>
-              </span>
-            </InputGroup>
+              <Button
+                type="button"
+                className="pull-right ProfileTypeForm__add"
+                bsStyle="primary"
+                onClick={() => onAddAttribute(this.props)}
+                disabled={invalid || submitting || !attributeCode}
+              >
+                <FormattedMessage
+                  id="app.add"
+                />
+              </Button>
+            </div>
+
           </div>
         );
       }
