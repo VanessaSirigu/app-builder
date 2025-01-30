@@ -28,7 +28,7 @@ const InstallationPlanTable = ({
 
   return (
     <div className="InstallationPlanTable">
-      <Table className="InstallationPlanTable__table" striped bordered condensed hover >
+      <Table className="InstallationPlanTable__table" bordered hover >
         <thead>
           <tr>
             <th><FormattedMessage id="componentRepository.category" /></th>
