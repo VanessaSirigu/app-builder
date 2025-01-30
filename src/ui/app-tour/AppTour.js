@@ -160,18 +160,18 @@ class AppTour extends React.Component {
             </div>
             <div className="TourStart__footer TourStart__footer--cancel clearfix">
               <Button
-                className="TourStart__no-button"
-                bsStyle="default"
-                onClick={() => goTo(appTourLastStep)}
-              >
-                <FormattedMessage id="app.no" />
-              </Button>
-              <Button
-                className="TourStart__yes-button"
+                className="TourStart__yes-button btn-primary"
                 onClick={() => this.cancelTour(true)}
               >
                 <FormattedMessage id="app.yes" />
               </Button>
+              <Button
+                className="TourStart__no-button btn-outlined-secondary"
+                onClick={() => goTo(appTourLastStep)}
+              >
+                <FormattedMessage id="app.no" />
+              </Button>
+
             </div>
           </div>
         ),
@@ -205,15 +205,14 @@ class AppTour extends React.Component {
             </div>
             <div className="TourStart__footer">
               <Button
-                className="pull-right TourStart__start-button"
+                className="pull-right TourStart__start-button btn-primary "
                 onClick={() => this.onNextStep(2, goTo)}
               >
                 <FormattedMessage id="app.start" />
                 <i className="fa fa-angle-right TourStart__start-icon" />
               </Button>
               <Button
-                className="pull-right TourStart__cancel-button"
-                bsStyle="default"
+                className="pull-right TourStart__cancel-button btn-outlined-secondary"
                 onClick={() => goTo(0)}
               >
                 <FormattedMessage id="app.close" />
@@ -390,49 +389,56 @@ class AppTour extends React.Component {
       selector: `.app-tour-step-${step.step}`,
       content: step.content || (
         args => (
-          <div className="TourStart TourStart--dark">
+          <div className="TourStart TourStart ">
             <div className="TourStart__header">
               <FormattedMessage id="tour.step.2.main" />
             </div>
-            <div className="TourStart__body TourStart__body--dark">
-              <h1 className="TourStart__title TourStart__title--dark">
+            <div className="TourStart__body TourStart__body ">
+              <h1 className="TourStart__title TourStart__title ">
                 <FormattedMessage id={`tour.step.${step.step}.title`} />
               </h1>
               <span
-                className="TourStart__description TourStart__description--dark"
+                className="TourStart__description TourStart__description "
               >
                 <FormattedMessage id={`tour.step.${step.step}.description`} />
               </span>
-              <div className="TourStart__separator TourStart__separator--dark" />
+              <div className="TourStart__separator TourStart__separator " />
             </div>
-            <div className="TourStart__footer TourStart__footer--dark clearfix">
-              <Button
-                className="pull-right TourStart__start-button TourStart__start-button--dark"
-                onClick={() => step.onNext(args)}
-                disabled={step.nextButtonDisabled}
-              >
-                <FormattedMessage id={step.nextButtonLabelId || 'app.next'} />
-              </Button>
-              <Button
-                className="pull-right TourStart__back-button TourStart__back-button--dark"
-                bsStyle="default"
-                onClick={() => step.onBack(args)}
-              >
-                <i className="fa fa-angle-left TourStart__start-icon TourStart__start-icon--dark" />
-                <FormattedMessage id="app.back" />
-              </Button>
-              <div className="pull-right TourStart__step-counter">
-                {`${args.step + STEP_OFFSET}/${TOTAL_STEPS}`}
+            <div className={`TourStart__footer TourStart__footer clearfix ${step.step !== 0 && 'space-between'}`}>
+              <div className="steps-container">
+                <Button
+                  className="pull-right TourStart__back-button TourStart__back-button btn-outlined-secondary"
+                  onClick={() => step.onBack(args)}
+                >
+                  <i className="fa fa-angle-left TourStart__start-icon TourStart__start-icon " />
+                  <FormattedMessage id="app.back" />
+                </Button>
+                <div className="pull-right TourStart__step-counter">
+                  {`${args.step + STEP_OFFSET}/${TOTAL_STEPS}`}
+                </div>
+                <Button
+                  className="pull-right TourStart__start-button TourStart__start-button btn-primary"
+                  onClick={() => step.onNext(args)}
+                  disabled={step.nextButtonDisabled}
+                >
+                  <FormattedMessage id={step.nextButtonLabelId || 'app.next'} />
+                  <i className="fa fa-angle-right TourStart__start-icon TourStart__start-icon " />
+
+                </Button>
               </div>
+
+
               {
                 step.step !== TOTAL_STEPS + 1 && (
-                  <Button
-                    className="pull-left TourStart__cancel-button TourStart__cancel-button--dark"
-                    bsStyle="default"
-                    onClick={() => args.goTo(0)}
-                  >
-                    <FormattedMessage id="app.close" />
-                  </Button>
+                  <div className="close-container">
+                    <Button
+                      className="pull-left TourStart__cancel-button TourStart__cancel-button btn-outlined-secondary"
+                      onClick={() => args.goTo(0)}
+                    >
+                      <FormattedMessage id="app.close" />
+                    </Button>
+                  </div>
+
                 )
               }
             </div>
@@ -453,8 +459,9 @@ class AppTour extends React.Component {
         height: 'auto',
         width: '446px',
         maxWidth: '446px',
-        borderRadius: '1px',
+        borderRadius: '8px',
         padding: 0,
+        overflow: 'hidden',
       },
     }));
   }

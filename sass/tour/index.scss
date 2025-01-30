@@ -1,46 +1,56 @@
 .TourStart {
+  font-family: "Inter";
+  border-radius: 8px !important;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px !important;
+  
 
   &--dark {
-    background-color: rgba(41, 46, 52, 1); // sass-lint:disable-line variable-for-property
-    color: $color-white;
+    background-color: $color-white; // sass-lint:disable-line variable-for-property
+    color: $color-primary-text;
   }
 
   &__header {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-left: 20px;
-    background-color: $color-black;
+    background-color: $color-brand-primary;
     color: $color-white;
     font-family: "Inter";
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 17.7px;
+    padding: 16px;
 
     &--cancel {
       height: 40px;
     }
   }
 
+  .steps-container{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+  }
+
+
   &__body {
-    padding-right: 5px;
-    padding-left: 20px;
     background-color: $color-white;
     color: $color-ecr-list-icon-active;
     font-family: "Inter";
+    padding-left: 16px;
+    padding-right: 16px;
 
     &--dark {
-      background-color: rgba(41, 46, 52, 1); // sass-lint:disable-line variable-for-property
-      color: $color-white;
+      background-color: $color-white; // sass-lint:disable-line variable-for-property
+      color: $color-primary-text;
     }
 
     &--cancel {
-      padding-right: 20px;
       text-align: center;
     }
   }
 
   &__title {
-    max-width: 200px;
     font-size: 25px;
     line-height: 34.05px;
 
@@ -60,31 +70,67 @@
     line-height: 16.34px;
 
     &--dark {
-      padding-bottom: 20px;
-      color: $color-white;
+      color: $color-primary-text;
     }
   }
 
-  &__checkbox {
-    margin-bottom: 35px;
-  }
+ 
 
   &__separator {
     height: 1px;
-    margin-left: -20px;
     background-color: $color-dark-white;
+    margin-top: 16px;
+    margin-bottom: 16px;
 
     &--dark {
       margin-top: 20px;
-      background-color: rgba(77, 82, 88, 1); // sass-lint:disable-line variable-for-property
+      background-color: $color-white; // sass-lint:disable-line variable-for-property
     }
   }
 
-  &__start-button {
-    margin-top: 23px;
-    margin-right: 20px;
-    margin-bottom: 23px;
-    margin-left: 20px;
+  
+
+  &__start-icon {
+    margin-left: 6px;
+
+    &--dark {
+      margin-right: 6px;
+      margin-left: 0;
+    }
+  }
+
+
+
+  &__footer{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    width: 100% !important;
+    gap:8px;
+    justify-content: flex-end;
+    padding: 0px 16px 16px 16px;
+
+    .space-between{
+      justify-content: space-between;
+      gap:0px;
+    }
+
+    &__cancel-button {
+      outline: none;
+  
+      &--dark {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 20px;
+        outline: none;
+  
+        &:focus { // sass-lint:disable-line nesting-depth
+          outline: none;
+        }
+      }
+    }
+
+    &__start-button {
     background-color: $color-tour-primary;
     color: $color-white;
     font-size: 12px;
@@ -110,51 +156,17 @@
       }
     }
   }
-
-  &__start-icon {
-    margin-left: 6px;
-
-    &--dark {
-      margin-right: 6px;
-      margin-left: 0;
-    }
   }
 
-  &__cancel-button {
-    margin-top: 23px;
-    margin-bottom: 20px;
-    outline: none;
 
-    &--dark {
-      margin-top: 0;
-      margin-bottom: 0;
-      margin-left: 20px;
-      outline: none;
-
-      &:focus { // sass-lint:disable-line nesting-depth
-        outline: none;
-      }
-    }
-  }
-
-  &__footer--dark {
-    padding-top: 14px;
-    padding-bottom: 14px;
-    background-color: rgba(41, 46, 52, 1); // sass-lint:disable-line variable-for-property
-    color: $color-white;
-  }
 
   &__footer--cancel {
-    width: 200px;
-    margin: 0 auto;
-    margin-top: 30px;
-    margin-bottom: 50px;
     text-align: center;
+    justify-content: center;
+    padding-top: 16px;
   }
 
   &__back-button {
-    margin-top: 23px;
-    margin-bottom: 20px;
     outline: none;
 
     &--dark {
@@ -173,8 +185,6 @@
   }
 
   &__step-counter {
-    margin-top: 3px;
-    margin-right: 53px;
     font-size: 13px;
     font-style: normal;
     font-weight: 700;
@@ -186,7 +196,7 @@
   &__cancel-title {
     max-width: 300px;
     margin: 0 auto;
-    margin-top: 35px;
+    margin-top: 16px;
     font-size: 25px;
     line-height: 34.05px;
   }
@@ -195,20 +205,6 @@
   &__yes-button {
     margin-left: 20px;
     outline: none;
-    background-color: $color-tour-primary;
-    color: $color-white;
-    font-size: 12px;
-
-    &:hover {
-      background-color: $color-tour-primary;
-      color: $color-white;
-    }
-
-    &:focus {
-      outline: none;
-      background-color: $color-tour-primary;
-      color: $color-white;
-    }
 
     &--dark {
       margin-top: 0;
