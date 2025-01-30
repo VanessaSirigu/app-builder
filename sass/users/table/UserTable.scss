@@ -44,10 +44,6 @@ margin: 0;
 
 .UserTableWrapper {
   width: 100%;
-  overflow-x: auto;
-  overflow-y: scroll;
-  max-height: 390px;
-
   .content-view-pf-pagination {
     border-color:  $color-border-grey;
   }
