@@ -276,10 +276,8 @@
 
   @media (max-width: 1536px) {
     .ComponentList__component-footer {
-      flex-direction: column;
 
       .ComponentListInstallButtons {
-        flex: 1;
 
         //sass-lint:disable class-name-format nesting-depth
         .btn-group {
@@ -288,7 +286,6 @@
       }
 
       .btn:first-child {
-        flex: 1;
         max-width: 220px;
       }
 

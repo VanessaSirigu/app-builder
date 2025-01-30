@@ -77,7 +77,6 @@ const ComponentListGridView =
                         onClick={() => onClickInstallPlan(component)}
                       >
                         <i className="fa fa-info-circle" />
-                        {' '}
                         {
                           component.customInstallation
                             ? <FormattedMessage id="componentRepository.components.showCustomInstallPlan" />
