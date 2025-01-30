@@ -104,8 +104,6 @@
   &__search-table {
     & .table {
       margin-top: 0;
-      border: 1px solid $color-black;
-      color: $color-primary-text;
     }
 
     & thead,
@@ -116,13 +114,13 @@
     & tr {
       &.selected,
       &:hover {
-        background-color: $color-dragitem-bg;
+        background-color: $color-dark-blue;
       }
     }
 
     & th,
     & td {
-      border: 1px solid $color-black !important;
+      border: none;
     }
 
     & .dropdown-kebab-pf .btn {
