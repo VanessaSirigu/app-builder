@@ -5,6 +5,7 @@
   }
 
   &__add {
+    height: 34px;
     margin-top: -15px;
   }
 
@@ -18,6 +19,15 @@
   .ProfileTypeForm__input-group-btn {
     top: 15px;
     vertical-align: top;
-}
+  }
 
+  &__type-form-group {
+      padding-inline: 20px;
+      flex-wrap: wrap;
+
+      select {
+        height: 34px;
+        width: calc(100% - 20px);
+      }
+  }
 }

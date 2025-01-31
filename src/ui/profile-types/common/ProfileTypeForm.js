@@ -68,7 +68,7 @@ export class ProfileTypeFormBody extends Component {
             <legend>
               <FormattedMessage id="app.attributes" />
             </legend>
-            <div className="form-group">
+            <div className="ProfileTypeForm__type-form-group form-group">
               <Field
                 component={RenderSelectInput}
                 options={selectOptions}
