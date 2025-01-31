@@ -11,7 +11,7 @@ import ConfirmUninstallModal from 'ui/component-repository/components/item/insta
 import InProgressInstallState from 'ui/component-repository/components/item/install-controls/InProgressInstallState';
 import FailedInstallState from 'ui/component-repository/components/item/install-controls/FailedInstallState';
 import InstallButton from 'ui/component-repository/components/item/install-controls/InstallButton';
-// import UninstallButton from 'ui/component-repository/components/item/install-controls/UninstallButton';
+import UninstallButton from 'ui/component-repository/components/item/install-controls/UninstallButton';
 import { compareSemanticVersions } from 'helpers/comparisons';
 import ConfirmDowngradeModal from './ConfirmDowngradeModal';
 
@@ -24,7 +24,7 @@ const ComponentInstallActions = ({
   componentUsageList,
   onInstall,
   onUninstall,
-  // onClickUninstall,
+  onClickUninstall,
   onRecheckStatus,
   onRetryAction,
   progress,
@@ -32,6 +32,7 @@ const ComponentInstallActions = ({
   setSelectedVersion,
   isConflictVersion,
   setIsConflictVersion,
+  showUninstall,
 }) => {
   const dispatch = useDispatch();
   const latestVersion = (component.latestVersion || {}).version;
@@ -94,11 +95,11 @@ const ComponentInstallActions = ({
           selectedVersion={selectedVersion}
           update
         />
-        {/* <UninstallButton
+        {showUninstall && <UninstallButton
           component={component}
           onClickUninstall={onClickUninstall}
           disabled={installationStatus === ECR_COMPONENT_INSTALLATION_STATUS_IN_PROGRESS}
-        /> */}
+        />}
       </div>
     )
     : (
@@ -143,7 +144,7 @@ ComponentInstallActions.propTypes = {
   lastInstallStatus: PropTypes.string.isRequired,
   onInstall: PropTypes.func.isRequired,
   onUninstall: PropTypes.func.isRequired,
-  // onClickUninstall: PropTypes.func.isRequired,
+  onClickUninstall: PropTypes.func.isRequired,
   uninstallStatus: PropTypes.string.isRequired,
   onRecheckStatus: PropTypes.func.isRequired,
   onRetryAction: PropTypes.func.isRequired,
@@ -158,10 +159,12 @@ ComponentInstallActions.propTypes = {
   setSelectedVersion: PropTypes.func.isRequired,
   isConflictVersion: PropTypes.bool.isRequired,
   setIsConflictVersion: PropTypes.func.isRequired,
+  showUninstall: PropTypes.bool,
 };
 
 ComponentInstallActions.defaultProps = {
   progress: 0,
+  showUninstall: false,
 };
 
 export default injectIntl(ComponentInstallActions);

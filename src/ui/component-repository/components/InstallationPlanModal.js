@@ -87,7 +87,6 @@ const InstallationPlanModal = () => {
         <div className="InstallationPlanModal__filters-wrapper">
           <div>
             <FormattedMessage id="componentRepository.activeFilters" />:
-            {' '}
             <ButtonGroup>
               <Button
                 onClick={() => { setFilterType('all'); }}

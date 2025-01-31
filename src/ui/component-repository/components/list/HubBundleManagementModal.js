@@ -237,7 +237,7 @@ const HubBundleManagementModal = () => {
           }
           {
             bundleDeployedOrInstalled && component &&
-            <ComponentInstallActionsContainer component={component} />
+            <ComponentInstallActionsContainer component={component} showUninstall />
           }
           <div className="HubBundleManagement__deploy-action">
 

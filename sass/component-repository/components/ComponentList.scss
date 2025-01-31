@@ -296,7 +296,7 @@
 
 //sass-lint:disable class-name-format
 .progress-bar {
-  height: 24px;
+  height: fit-content;
   min-height: 24px;
   padding-right: 20px;
   padding-left: 20px;
@@ -304,7 +304,6 @@
 }
 
 .progress {
-  height: 24px;
   min-height: 24px;
   line-height: 24px
 }
