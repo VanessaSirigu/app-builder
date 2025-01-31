@@ -5,7 +5,7 @@ import { defineMessages, injectIntl, intlShape } from 'react-intl';
 import { Field, reduxForm } from 'redux-form';
 import { Button, Icon } from 'patternfly-react';
 import RenderDropdownTypeaheadInput from 'ui/common/form/RenderDropdownTypeaheadInput';
-import { BUNDLE_GROUP_FILTER_ID } from 'ui/component-repository/components/list/ComponentListWrapper';
+import { BUNDLE_GROUP_FILTER_ID } from 'ui/component-repository/components/list/ComponentListActionsWrapper';
 import { fetchBundleGroups, setBundleGroupIdFilter } from 'state/component-repository/hub/actions';
 import { getBundleGroups, getSelectedRegistry } from 'state/component-repository/hub/selectors';
 import { getCurrentPage, getPageSize } from 'state/pagination/selectors';

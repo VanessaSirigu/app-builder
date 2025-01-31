@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { formValueSelector } from 'redux-form';
 import { fetchBundlesFromRegistryWithFilters } from 'state/component-repository/hub/actions';
-import { BUNDLE_GROUP_FILTER_ID } from 'ui/component-repository/components/list/ComponentListWrapper';
+import { BUNDLE_GROUP_FILTER_ID } from 'ui/component-repository/components/list/ComponentListActionsWrapper';
 import BundleGroupAutoComplete, { FORM_NAME } from 'ui/component-repository/components/BundleGroupAutoComplete';
 
 export const mapStateToProps = state => ({
